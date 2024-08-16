@@ -1,3 +1,5 @@
+/* This file was originally taken from https://github.com/orfeasliossatos/orfeasliossatos.github.io/blob/master/css/style.css */
+
 /* FONT IMPORTS */
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@200;400&display=swap');
 
@@ -302,7 +304,6 @@ input {
 }
 
 .float {
-    
     float:left;
     margin: 1rem;
 }
