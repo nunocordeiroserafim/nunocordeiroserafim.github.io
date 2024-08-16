@@ -1,0 +1,14 @@
+.hidden {
+    display: none;
+}
+
+.solution:hover {
+    opacity: 0.9;
+}
+
+.solution {
+    background-color: #cae7ef;
+    border-radius: 12px;
+    display: block;
+    padding: 1px 1rem;
+}
