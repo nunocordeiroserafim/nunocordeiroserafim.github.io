@@ -1,0 +1,85 @@
+/* FONT IMPORTS */
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@200;400&display=swap');
+
+/* CSS RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ELEMENTS */
+body {
+    --body-bg-color: #fffcf2;
+    --body-color: #070029;
+    --switch-bg-color: #d57676;
+    --hover-color: #0000EE;
+    background-color: var(--body-bg-color);
+    color: var(--body-color);
+    display: block;
+    font-family: 'Source Serif Pro';
+    font-size: 1.2rem;
+    margin: 1rem auto;
+    padding: 0 20px; /* stop right bottom left ; top sides bottom ; top/bottom sides ; all sides */
+    max-width: 2000px;
+    
+}
+
+main {
+    display: block;
+}
+
+nav {
+    display: block;
+}
+
+div {
+    display: block;
+}
+
+/*p {
+    letter-spacing: 0.02rem;
+    word-spacing: 0.08rem;
+    text-align: justify;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}
+
+article {
+    display: block;
+}*/
+
+a {
+    color: var(--body-color);
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    /*opacity: 0.6;*/
+    text-decoration: underline;
+    color: var(--hover-color);
+}
+
+.sidebar {
+    font-size: 1.4rem;
+    white-space: nowrap; /* Prevents text wrapping */
+    width: auto; /* Allows the sidebar to adjust its width */
+    min-width: 200px; /* Ensure a minimum width for longer links */
+    max-width: 250px; /* Prevents it from being too wide on large screens */
+    white-space: normal; /* Allow text to wrap if necessary */
+    overflow-x: hidden; /* Prevents horizontal scrollbar */
+    overflow-y: auto; /* Adds vertical scrollbar only if needed */
+}
+
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligns the links to the start */
+    gap: 0.5rem; /* Adds space between links */
+}
+
+.sidebar-links a {
+    font-variant: small-caps;
+    font-weight: bold;
+    white-space: nowrap; /* Prevents text wrapping */
+}
