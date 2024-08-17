@@ -3,9 +3,9 @@
 
 /* CSS RESET */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 /* DECLARED VARIABLES */
@@ -48,8 +48,8 @@ body {
     font-family: 'Source Serif Pro';
     font-size: 1.2rem;
     margin: 1rem auto;
-    padding: 0 20px; /* top right bottom left ; top sides bottom ; top/bottom sides ; all sides */
     max-width: 2000px;
+    padding: 0 20px; /* top right bottom left ; top sides bottom ; top/bottom sides ; all sides */
 }
 
 div {
@@ -70,12 +70,40 @@ nav {
     flex: 0 0 auto; /* Sidebar doesn't grow or shrink */
 }
 
+ol {
+    padding-left: 2rem;
+    /*background-color: #e29393;*/
+}
+
 p {
     letter-spacing: 0.02rem;
-    word-spacing: 0.08rem;
-    text-align: justify;
     margin-block-start: .5em;
     margin-block-end: .5em;
+    text-align: justify;
+    word-spacing: 0.08rem;
+}
+
+ul {
+    list-style-type: disc; /* Keep the default bullet points */
+    padding-left: 2rem;
+    /*background-color: #e29393;*/
+}
+
+.aligned-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Aligns text vertically in case of multi-line content */
+    position: relative;
+}
+
+.aligned-text::before {
+    content: '';
+    position: absolute;
+    left: -20px; /* Adjust to position the bullet correctly */
+    background: currentColor; /* Uses the current text color for the bullet */
+    width: 6px; /* Adjust the size of the bullet */
+    height: 6px;
+    border-radius: 50%; /* Makes it round */
 }
 
 .post {
@@ -85,20 +113,19 @@ p {
 
 .sidebar {
     font-size: 1.4rem;
-    white-space: nowrap; /* Prevents text wrapping */
-    width: auto; /* Allows the sidebar to adjust its width */
     min-width: 200px; /* Ensure a minimum width for longer links */
     max-width: var(--sidebar-max-width); /* Prevents it from being too wide on large screens */
-    white-space: normal; /* Allow text to wrap if necessary */
     overflow-x: hidden; /* Prevents horizontal scrollbar */
     overflow-y: auto; /* Adds vertical scrollbar only if needed */
+    white-space: nowrap; /* Prevents text wrapping */
+    width: auto; /* Allows the sidebar to adjust its width */
     /*background-color: #e29393;*/
 }
 
 .sidebar-links {
+    align-items: flex-start; /* Aligns the links to the start */
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Aligns the links to the start */
     gap: 0.5rem; /* Adds space between links */
 }
 
@@ -108,8 +135,18 @@ p {
     white-space: nowrap; /* Prevents text wrapping */
 }
 
+/*.split span {
+    display: inline-block;
+    text-align: right;
+    background-color: #e29393
+}
+
+.split span::before {
+    content:"— "
+}*/
+
 .top-title {
-    text-align: center;
-    font-variant: small-caps;
     font-size: 2.5rem;
+    font-variant: small-caps;
+    text-align: center;
 }
