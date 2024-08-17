@@ -8,56 +8,79 @@
     box-sizing: border-box;
 }
 
-/* ELEMENTS */
-body {
+/* DECLARED VARIABLES */
+:root {
+    /* COLORS */
     --body-bg-color: #fffcf2;
     --body-color: #070029;
     --switch-bg-color: #d57676;
-    --hover-color: #0000EE;
+    --url-color: #0000EE;
+    /* SIZES */
+    --sidebar-max-width: 250px;
+  }
+
+/* ELEMENTS */
+a {
+    color: var(--body-color);
+    text-decoration: none;
+}
+
+a.url {
+    color: var(--url-color);
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    color: var(--url-color);
+    cursor: pointer;
+    /*opacity: 0.6;*/
+    text-decoration: underline;
+}
+
+article {
+    display: block;
+}
+
+body {
     background-color: var(--body-bg-color);
     color: var(--body-color);
     display: block;
     font-family: 'Source Serif Pro';
     font-size: 1.2rem;
     margin: 1rem auto;
-    padding: 0 20px; /* stop right bottom left ; top sides bottom ; top/bottom sides ; all sides */
+    padding: 0 20px; /* top right bottom left ; top sides bottom ; top/bottom sides ; all sides */
     max-width: 2000px;
-    
-}
-
-main {
-    display: block;
-}
-
-nav {
-    display: block;
 }
 
 div {
     display: block;
 }
 
-/*p {
+hr {
+    border-color: var(--body-color)
+}
+
+main {
+    display: flex;/*block*/
+    flex-direction: row; /* Sidebar on the left, content on the right */
+}
+
+nav {
+    /*display: block;*/
+    flex: 0 0 auto; /* Sidebar doesn't grow or shrink */
+}
+
+p {
     letter-spacing: 0.02rem;
     word-spacing: 0.08rem;
     text-align: justify;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
+    margin-block-start: .5em;
+    margin-block-end: .5em;
 }
 
-article {
-    display: block;
-}*/
-
-a {
-    color: var(--body-color);
-    text-decoration: none;
-}
-
-a:hover, a:focus {
-    /*opacity: 0.6;*/
-    text-decoration: underline;
-    color: var(--hover-color);
+.post {
+    flex: 1; /* Content takes up the remaining space */
+    padding: 0 var(--sidebar-max-width) 1rem 1rem;
 }
 
 .sidebar {
@@ -65,10 +88,11 @@ a:hover, a:focus {
     white-space: nowrap; /* Prevents text wrapping */
     width: auto; /* Allows the sidebar to adjust its width */
     min-width: 200px; /* Ensure a minimum width for longer links */
-    max-width: 250px; /* Prevents it from being too wide on large screens */
+    max-width: var(--sidebar-max-width); /* Prevents it from being too wide on large screens */
     white-space: normal; /* Allow text to wrap if necessary */
     overflow-x: hidden; /* Prevents horizontal scrollbar */
     overflow-y: auto; /* Adds vertical scrollbar only if needed */
+    /*background-color: #e29393;*/
 }
 
 .sidebar-links {
@@ -82,4 +106,10 @@ a:hover, a:focus {
     font-variant: small-caps;
     font-weight: bold;
     white-space: nowrap; /* Prevents text wrapping */
+}
+
+.top-title {
+    text-align: center;
+    font-variant: small-caps;
+    font-size: 2.5rem;
 }
