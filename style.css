@@ -84,7 +84,6 @@ p {
 }
 
 ul {
-    list-style-type: disc; /* Keep the default bullet points */
     padding-left: 2rem;
     /*background-color: #e29393;*/
 }
