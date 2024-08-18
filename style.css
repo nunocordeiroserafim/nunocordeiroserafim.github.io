@@ -93,6 +93,10 @@ p {
     word-spacing: 0.08rem;
 }
 
+s {
+    text-decoration-thickness: 3px;
+}
+
 ul {
     padding-left: 2rem;
     /*background-color: #e29393;*/
@@ -113,13 +117,6 @@ ul {
     width: 6px; /* Adjust the size of the bullet */
     height: 6px;
     border-radius: 50%; /* Makes it round */
-}
-
-#contact-box {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
 }
 
 .post {
@@ -151,18 +148,15 @@ ul {
     white-space: nowrap; /* Prevents text wrapping */
 }
 
-/*.split span {
-    display: inline-block;
-    text-align: right;
-    background-color: #e29393
-}
-
-.split span::before {
-    content:"— "
-}*/
-
 .top-title {
     font-size: 2.5rem;
     font-variant: small-caps;
     text-align: center;
+}
+
+#contact-box {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
 }
