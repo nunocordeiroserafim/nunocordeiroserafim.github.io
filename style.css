@@ -52,6 +52,16 @@ body {
     padding: 0 20px; /* top right bottom left ; top sides bottom ; top/bottom sides ; all sides */
 }
 
+details.spoiler summary::after {
+    content: var(--hidden);
+    display: block;
+    filter: blur(4px);
+}
+  
+details[open] summary::after {
+    display: none;
+}
+
 div {
     display: block;
 }
@@ -105,6 +115,13 @@ ul {
     border-radius: 50%; /* Makes it round */
 }
 
+#contact-box {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
 .post {
     flex: 1; /* Content takes up the remaining space */
     padding: 0 var(--sidebar-max-width) 1rem 1rem;
@@ -148,11 +165,4 @@ ul {
     font-size: 2.5rem;
     font-variant: small-caps;
     text-align: center;
-}
-
-#contact-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
 }
