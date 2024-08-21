@@ -15,6 +15,9 @@
                 <a title="Math From Scratch" href="../mathFromScratch.html">Index</a>
                 <a title="The Very Beginning" href="theVeryBeginning.html">0. The Very Beginning</a>
                 <a title="Syntax" href="syntax.html">1. Syntax</a>
+                <a title="Formal Languages" href="syntax/formalLanguages.html">1.1 Formal Languages</a>
+                <a title="Formal Systems" href="syntax/formalSystems.html">1.2 Formal Systems</a>
+                <a title="Propositional Logic" href="propositionalLogic.html">2. Propositional Logic</a>
             </div>
         </nav>
         <article class="post">
@@ -23,11 +26,86 @@
                 <hr>
             </section>
             <section>
-                <p>Work in progress, stay tuned!</p>
-                <!--<p>
-                    Syntax: Guardians of the galaxy eg for distinguishing syntax from semantics, TREAT SYNTAX MERELY AS A 
-                    SEQUENCE OF MEANINGLESS SYMBOLS -> ignore this warning at your own peril
-                </p>-->
+                <p>
+                    From Euclid's time until the 19th century (with the publication of <a class="url" href="https://mathworld.wolfram.com/EuclidsPostulates.html" target="_blank">Frege's Begriffsschrift</a>), 
+                    "axioms were stated in a natural language (eg. Greek, English, etc.), and proofs were just given in "ordinary
+                    reasoning"; exactly what a proof <em>is</em> was not formally analyzed. This is still the case now in most 
+                    mathematics. Logical symbols are frequently used as abbreviations of English words, but most math books 
+                    assume that you can recognize a correct proof when you see it, without formal analysis." - quote from Kenneth
+                    Kunen in his book <em>The Foundations of Mathematics</em>.
+                </p>
+                <p>
+                    In <a style="color: var(--url-color)" title="The Very Beginning" href="mathFromScratch/theVeryBeginning.html">0. The Very Beginning</a>,
+                    I've mentioned that we need to communicate without ambiguity. A way to achieve such clarity is through the 
+                    use of a formal system. We will define a formal language, with its own symbols and precise rules to form 
+                    terms (=words), from which one then builds well-formed formulas (=sentences/statements). A formal proof is 
+                    then a finite sequence of well-formed formulas in this formal language obeying some precisely defined 
+                    axioms/axiom schemes and rules of inference. Thus, a theorem is treated as a string, i.e. a sequence of 
+                    characters/symbols, and a proof is a mere mechanical manipulation of symbols, with no reference whatsoever to 
+                    their meaning. This is the difference between <strong>syntax</strong> and <strong>semantics</strong>. Syntax 
+                    deals only with symbols whereas semantics deals with their meaning. When dealing with syntax, you 
+                    <strong>must</strong> ignore the semantics. Ignore this warning at your own peril.
+                </p>
+                <p>
+                    I've recently come across an excellent example about the distinction between syntax and semantics. In 
+                    <strong>Guardians of the Galaxy Vol. 3</strong>, as the guardians are infiltrating the Orgosphere, Star-Lord 
+                    has an embarrassing talk with Gamora. He is eventually interrupted by his teammates who point out that he's 
+                    talking on an open line and they have been listening to everything. They then go on about an argument about 
+                    which button does what. Their interaction goes like this:
+                </p>
+                <ul>
+                    <li style="list-style-type: none;">Mantis: <em>What color button did you push?</em></li>
+                    <li style="list-style-type: none;">
+                        Star-Lord: <em>Blue, for the blue suit!</em> (they were wearing suits of different colors and Gamora's 
+                        was blue)
+                    </li>
+                    <li style="list-style-type: none;">Drax: <em>Oh, no!</em></li>
+                    <li style="list-style-type: none;">Nebula: <em>Blue is the open line for everyone.</em></li>
+                    <li style="list-style-type: none;">Mantis: <em>Orange is for blue.</em></li>
+                    <li style="list-style-type: none;">Star-Lord: <em>What?</em></li>
+                    <li style="list-style-type: none;">
+                        Mantis: <em>Black is for orange, yellow is for green, green is for red and red is for yellow.</em>
+                    </li>
+                    <li style="list-style-type: none;">
+                        Drax: <em>No, yellow is for yellow, green is for red, red is for green.</em>
+                    </li>
+                    <li style="list-style-type: none;">Mantis: <em>I don't think so.</em></li>
+                    <li style="list-style-type: none;">Drax: <em>Try it then.</em></li>
+                    <li style="list-style-type: none;">[Mantis clicks on yellow]</li>
+                    <li style="list-style-type: none;">Mantis: <em>HELLO!</em> (deafening everyone)</li>
+                    <li style="list-style-type: none;">Mantis: <em>You were right.</em></li>
+                    <li style="list-style-type: none;">Star-Lord: <em>How the hell am I supposed to know all of that?</em></li>
+                    <li style="list-style-type: none;">Drax: <em>Seems intuitive.</em></li>
+                </ul>
+                <p>
+                    Anyway, getting back to the subject at hand, if you formally prove something, meaning from the use of a 
+                    formal system, then it will be rigorously proven. It doesn't mean however, that any proof conducted outside 
+                    of a formal system isn't rigorous. Indeed, when we'll be studying mathematical logic in the next few chapters, 
+                    we'll be analyzing formal systems by proving theorems about them. Such theorems are called metatheorems, as 
+                    they are proven outside of the formal systems and provide insights about them. Metatheorems will be 
+                    informally but rigorously proven in our metalanguage (English).
+                </p>
+                <p>
+                    But what does rigorous mean? That's a tricky question. Any formal proof is objectively rigorous. An informal 
+                    proof on the other hand is rigorous only as long as it justifies the conclusion. Unfortunately, what might be 
+                    considered as a satisfying justification to some may be unsatisfying to others, thus making the concept of 
+                    rigor subjective. To walk around that issue, metaproofs will be mainly constructive by providing algorithms 
+                    (=step-by-step instructions) for arriving at the desired conclusions.
+                </p>
+                <p>
+                    If you are still unclear about what formal proofs look like, it's normal, because they will only be defined 
+                    in 
+                    <a style="color: var(--url-color)" title="Formal Systems" href="syntax/formalSystems.html">1.2 Formal Systems</a> 
+                    and make their first appearance in 
+                    <a style="color: var(--url-color)" title="Useful Theorems, Lemmas and Metatheorems" href="propositionalLogic/syntax/usefulTheoremsLemmasAndMetatheorems.html">2.2.3 Useful Theorems, Lemmas and Metatheorems</a>.
+                </p>
+                <br>
+                <h2> Index </h2>
+                <hr>
+                <ol style="margin-top: .5em;">
+                    <li><a style="color: var(--url-color)" title="Formal Languages" href="syntax/formalLanguages.html">Formal Languages</a></li>
+                    <li><a style="color: var(--url-color)" title="Formal Systems" href="syntax/formalSystems.html">Formal Systems</a></li>
+                </ol>
             </section>
         </article>
     </main>

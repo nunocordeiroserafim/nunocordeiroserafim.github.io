@@ -81,8 +81,8 @@ nav {
 }
 
 ol {
-    padding-left: 2rem;
     counter-reset: item;
+    padding-left: 2rem;
     /*background-color: #e29393;*/
 }
 
@@ -98,6 +98,63 @@ ol ol > li:before {
     content: counters(item, ".") " ";
     margin-left: -20px;
 }
+/* Level 1: Start from 0 */
+.level-1 {
+    counter-reset: level1 -1; /* Start from 0 */
+}
+
+.level-1 > li {
+    counter-increment: level1;
+    list-style-type: none;
+}
+
+.level-1 > li::before {
+    content: counter(level1) ". ";
+    margin-left: -20px;
+}
+
+/* Level 2 */
+.level-2 {
+    counter-reset: level2;
+}
+
+.level-2 > li {
+    counter-increment: level2;
+    list-style-type: none;
+}
+
+.level-2 > li::before {
+    content: counter(level1) "." counter(level2) " ";
+}
+
+/* Level 3 */
+.level-3 {
+    counter-reset: level3;
+}
+
+.level-3 > li {
+    counter-increment: level3;
+    list-style-type: none;
+}
+
+.level-3 > li::before {
+    content: counter(level1) "." counter(level2) "." counter(level3) " ";
+}
+
+/* Level 4 */
+.level-4 {
+    counter-reset: level4;
+}
+
+.level-4 > li {
+    counter-increment: level4;
+    list-style-type: none;
+}
+
+.level-4 > li::before {
+    content: counter(level1) "." counter(level2) "." counter(level3) "." counter(level4) " ";
+}
+/* Continue for further levels */
 
 p {
     letter-spacing: 0.02rem;
