@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="../../style.css">
     <link rel="icon" sizes="125x99" href="../../images/GameSolver.png?v=3" type="image/png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <title>Syntax</title>
 </head>
 <body>
@@ -15,8 +16,6 @@
                 <a title="Math From Scratch" href="../mathFromScratch.html">Index</a>
                 <a title="The Very Beginning" href="theVeryBeginning.html">0. The Very Beginning</a>
                 <a title="Syntax" href="syntax.html">1. Syntax</a>
-                <a title="Formal Languages" href="syntax/formalLanguages.html">1.1 Formal Languages</a>
-                <a title="Formal Systems" href="syntax/formalSystems.html">1.2 Formal Systems</a>
                 <a title="Propositional Logic" href="propositionalLogic.html">2. Propositional Logic</a>
             </div>
         </nav>
@@ -26,6 +25,8 @@
                 <hr>
             </section>
             <section>
+                <br>
+                <h2> <u>Formal system</u> </h2>
                 <p>
                     From Euclid's time until the 19th century (with the publication of <a class="url" href="https://mathworld.wolfram.com/EuclidsPostulates.html" target="_blank">Frege's Begriffsschrift</a>), 
                     "axioms were stated in a natural language (eg. Greek, English, etc.), and proofs were just given in "ordinary
@@ -37,14 +38,41 @@
                 <p>
                     In <a style="color: var(--url-color)" title="The Very Beginning" href="theVeryBeginning.html">0. The Very Beginning</a>,
                     I've mentioned that we need to communicate without ambiguity. A way to achieve such clarity is through the 
-                    use of a formal system. We will define a formal language, with its own symbols and precise rules to form 
-                    terms (=words), from which one then builds well-formed formulas (=sentences/statements). A formal proof is 
-                    then a finite sequence of well-formed formulas in this formal language obeying some precisely defined 
-                    axioms/axiom schemes and rules of inference. Thus, a theorem is treated as a string, i.e. a sequence of 
-                    characters/symbols, and a proof is a mere mechanical manipulation of symbols, with no reference whatsoever to 
-                    their meaning. This is the difference between <strong>syntax</strong> and <strong>semantics</strong>. Syntax 
-                    deals only with symbols whereas semantics deals with their meaning. When dealing with syntax, you 
-                    <strong>must</strong> ignore the semantics. Ignore this warning at your own peril.
+                    use of a formal system, with which we will derive formal proofs, which are simply proofs written in a 
+                    specific form, following a given syntax. A formal system is a <em>formal language</em> equipped with a 
+                    <em>deductive apparatus</em>.
+                </p>
+                </p>
+                    A <strong>formal language</strong> consists of formulas formed from an <em>alphabet</em> and a 
+                    <em>grammer</em>. An <strong>alphabet</strong> is a set of indivisible symbols/letters/tokens/characters. For 
+                    example, if we were to create an alphabet for the decimal number system, the alphabet would consist of the 
+                    digit symbols "0", "1", "2", "3", "4", "5", "6", "7", "8" and "9", as well as the relation symbols "\(<\)", 
+                    "\(>\)" and "\(=\)". By concatenating the alphabet's symbols, one creates strings. Among the strings, words 
+                    are the ones that are described by the <strong>grammer</strong>, according to its formation rules. In the 
+                    previous example, the only formation rules are that digit symbols are words and that any concatenation of a 
+                    word with a digit symbol forms a new word. By concatenating words with relation symbols, one creates formulas. 
+                    Among formulas, well-formed formulas (or wffs for short) also respect the grammar's respective formation 
+                    rules. For our very primitive decimal number system language, formulas could simply be a word followed by a 
+                    relation symbol followed by another word.
+                </p>
+                <p>
+                    Given a formal language, one may go on to do two things:
+                </p>
+                <ul>
+                    <li>
+                        Explore the semantics by defining an interpretation of the language, which is an assignment of meaning to 
+                        its symbols
+                    </li>
+                    <li>Specify a deductive apparatus for the language, which takes us down the road of proof theory</li>
+                </ul>
+                <p>
+                    At first we will mainly focus on the latter. A <strong>deductive apparatus</strong> consists of wffs called 
+                    axioms and inference rules/rules of inference. By definition, theorems are then the axioms and any formula 
+                    derived from the inference rules.
+                </p>
+                <p>
+                    Thus, proofs are pure mechanical manipulations of symbols, with no regard whatsoever to their meaning. When 
+                    dealing with syntax, you <strong>must</strong> abstract the semantics. Ignore this warning at your own peril.
                 </p>
                 <p>
                     I've recently come across an excellent example about the distinction between syntax and semantics. In 
@@ -77,13 +105,43 @@
                     <li style="list-style-type: none;">Star-Lord: <em>How the hell am I supposed to know all of that?</em></li>
                     <li style="list-style-type: none;">Drax: <em>Seems intuitive.</em></li>
                 </ul>
+                <br>
+                <h2> <u>The game of Chess</u> </h2>
                 <p>
-                    Anyway, getting back to the subject at hand, if you formally prove something, meaning by using a formal 
-                    system, then it will be rigorously proven. It doesn't mean however, that any proof conducted outside of a 
-                    formal system isn't rigorous. Indeed, when we'll be studying mathematical logic in the next few chapters, 
-                    we'll be analyzing formal systems by proving theorems about them. Such theorems are called metatheorems, as 
-                    they are proven outside of the formal systems and provide insights about them. Metatheorems will be 
-                    informally but rigorously proven in our metalanguage (English).
+                    To give an example, let's define the formal system of the game of Chess.
+                </p>
+                <p>
+                    Its alphabet consists of the pieces (Pawn, Bishop, Knight, Rook, Queen and King, black and white), of the 
+                    game board and of the informations of whose turn it is, of whether each player may castle if the opportunity 
+                    presents, of how many times each position has been visited (for the repetition rule) and of how many moves 
+                    have been made since a Pawn has been moved or a capture has been made (for the 50 and 75-move rules). Its 
+                    words are the pieces, and its wffs are allocations of pieces to the game board with flags containing the 
+                    informations above.
+                </p>
+                <p>
+                    The only axiom is the starting position, with White to move, both players being allowed to castle if the 
+                    opportunity presents, no visited position except once the starting one and no made moves since last capture 
+                    or Pawn move. The rules of inference are simply the rules of the game, which from a given position indicate 
+                    which can be reached in the next move. Thus, the theorems are simply the starting position, as well as all 
+                    positions that arise from the inference rules.
+                </p>
+                <p>
+                    You may have noticed that I kind of cheated, because a formal system was supposed to work with strings, 
+                    whereas here we used instead pieces, informations, board positions, etc. However, it should be clear that one
+                    may may make this a proper formal system by associating symbols to each piece, relation symbols to indicate 
+                    where each piece stands on the board, logical connectives to allow one to say "the Pawn is in C3 <em>and</em> 
+                    the Rook is in H1", etc. In other words, you may create a formal system for the game of chess if you 
+                    reverse-engineer the semantics.
+                </p>
+                <br>
+                <h2> <u>Rigorous proof</u> </h2>
+                <p>
+                    If you formally prove something, meaning by using a formal system, then it will be rigorously proven. It 
+                    doesn't mean however, that any proof conducted outside of a formal system isn't rigorous. Indeed, when we'll 
+                    be studying mathematical logic in the next few chapters, we'll be analyzing formal systems by proving 
+                    theorems about them. Such theorems are called metatheorems, as they are proven outside of the formal systems 
+                    and provide insights about them. Metatheorems will be informally but rigorously proven in our metalanguage 
+                    (English).
                 </p>
                 <p>
                     But what does rigorous mean? That's a tricky question. Any formal proof is objectively rigorous. An informal 
@@ -92,13 +150,6 @@
                     rigor subjective. To surpass that issue, metaproofs will reference definitions, which will act as axioms if 
                     you will, and be mainly constructive by providing algorithms (=step-by-step instructions) for arriving at 
                     the desired conclusions.
-                </p>
-                <p>
-                    If you are still unclear about what formal proofs look like, it's normal, because they will only be defined 
-                    in 
-                    <a style="color: var(--url-color)" title="Formal Systems" href="syntax/formalSystems.html">1.2 Formal Systems</a> 
-                    and make their first appearance in 
-                    <a style="color: var(--url-color)" title="Useful Theorems, Lemmas and Metatheorems" href="propositionalLogic/usefulTheoremsLemmasAndMetatheorems.html">2.4 Useful Theorems, Lemmas and Metatheorems</a>.
                 </p>
             </section>
         </article>
