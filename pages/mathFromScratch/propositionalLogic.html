@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="../../style.css">
     <link rel="icon" sizes="125x99" href="../../images/GameSolver.png?v=3" type="image/png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
     <title>Propositional Logic</title>
 </head>
 <body>
@@ -17,6 +18,7 @@
                 <a title="Syntax" href="syntax.html">1. Syntax</a>
                 <a title="Propositional Logic" href="propositionalLogic.html">2. Propositional Logic</a>
                 <a title="Propositional Logic | Semantics" href="propositionalLogic/semantics.html">2.1 Semantics</a>
+                <a title="Propositional Logic | Propositional Calculus" href="propositionalLogic/semantics.html">2.2 Propositional Calculus: \(P_2\)</a>
             </div>
         </nav>
         <article class="post">
@@ -25,7 +27,50 @@
                 <hr>
             </section>
             <section>
-                <p>Work in progress, stay tuned!</p>
+                <p>
+                    Propositional logic is a branch of logic that deals with sentences that are either true or false, but not 
+                    both. It takes elementary or compound propositions/sentences (both of them are wffs) and combines them into 
+                    new compound propositions by linking them with logical connectives.
+                </p>
+                <br>
+                <h2> Index </h2>
+                <hr>
+                <ol class="level-1" data-start="2" style="margin-top: .5em; margin-left: -40px;">
+                    <ol class="level-2">
+                        <li><a style="color: var(--url-color)" title="Propositional Logic | Semantics" href="propositionalLogic/semantics.html">Semantics</a></li>
+                        <li><a style="color: var(--url-color)" title="Propositional Logic | Propositional Calculus" href="propositionalLogic/propositionalCalculus.html">Propositional Calculus: \(P_2\)</a></li>
+                        <li>Soundness Theorem</li>
+                        <!--<li><a style="color: var(--url-color)" title="Soundness Theorem" href="propositionalLogic/soundnessTheorem.html">Soundness Theorem</a></li>-->
+                        <li>Useful Theorems, Lemmas and Metatheorems</li>
+                        <!--<li><a style="color: var(--url-color)" title="Useful Theorems, Lemmas and Metatheorems" href="propositionalLogic/usefulTheoremsLemmasAndMetatheorems.html">Useful Theorems, Lemmas and Metatheorems</a></li>-->
+                        <li>Principle of Explosion</li>
+                        <li>Completeness Theorem</li>
+                        <li>Independence Proof</li>
+                        <li>Other Propositional Calculi</li>
+                        <ol class="level-3">
+                            <li>Łukasiewicz System</li>
+                            <li>Walsh's System with \(A_1\)</li>
+                            <li>Nicod's System</li>
+                        </ol>
+                    </ol>
+                </ol>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        // Select all ordered lists
+                        document.querySelectorAll('ol.level-1, ol.level-2').forEach(function (ol) {
+                            // Get the data-start attribute
+                            const start = ol.getAttribute('data-start');
+                            if (start !== null) {
+                                // Determine which level to set the CSS variable for
+                                const level = ol.classList.contains('level-1') ? 'level1' : 'level2';
+                                // Set the CSS variable for starting the counter
+                                ol.style.setProperty(`--${level}-start`, start);
+                            }
+                        });
+                    });
+                  </script>
+
             </section>
         </article>
     </main>

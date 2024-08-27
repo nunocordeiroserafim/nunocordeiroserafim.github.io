@@ -100,7 +100,8 @@ ol ol > li:before {
 }
 /* Level 1: Start from 0 */
 .level-1 {
-    counter-reset: level1 -1; /* Start from 0 */
+    /*counter-reset: level1 -1; /* Start from 0 */
+    counter-reset: level1 var(--level1-start, 0);
 }
 
 .level-1 > li {
@@ -115,7 +116,8 @@ ol ol > li:before {
 
 /* Level 2 */
 .level-2 {
-    counter-reset: level2;
+    /*counter-reset: level2;*/
+    counter-reset: level2 var(--level2-start, 0);
 }
 
 .level-2 > li {
@@ -199,8 +201,8 @@ ul {
     font-size: 1.4rem;
     min-width: 200px; /* Ensure a minimum width for longer links */
     max-width: var(--sidebar-max-width); /* Prevents it from being too wide on large screens */
-    overflow-x: hidden; /* Prevents horizontal scrollbar */
-    overflow-y: auto; /* Adds vertical scrollbar only if needed */
+    overflow-x: auto; /* Adds vertical scrollbar only if needed */
+    overflow-y: hidden; /* Prevents horizontal scrollbar */
     white-space: nowrap; /* Prevents text wrapping */
     width: auto; /* Allows the sidebar to adjust its width */
     /*background-color: #e29393;*/
