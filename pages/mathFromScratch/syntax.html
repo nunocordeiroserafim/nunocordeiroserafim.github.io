@@ -50,11 +50,25 @@
                     "\(>\)" and "\(=\)". By concatenating the alphabet's symbols, one creates strings. Among the strings, 
                     tokens/words are the ones that are described by the <strong>grammar</strong> according to its formation rules. 
                     In the previous example, the only formation rules are that digit symbols are terms and that any concatenation 
-                    of a term with a digit symbol forms a new term. By concatenating terms with relation symbols, one creates 
+                    of a term with another term forms a new term. By concatenating terms with relation symbols, one creates 
                     formulas. Among formulas, well-formed formulas (or wffs for short) also follow the grammar's respective 
                     formation rules. For our very primitive decimal number system language, formulas could simply be a term 
                     followed by a relation symbol followed by another term.
                 </p>
+                <p> <u><strong>Remarks:</strong></u> </p>
+                <ul>
+                    <li>
+                        A language must contain wffs, but not necessarily terms (as for example the 
+                        <a style="color: var(--url-color)" title="Propositional Logic | Semantics" href="propositionalLogic/semantics.html">alphabet of propositional logic</a>
+                        that will be defined)
+                    </li>
+                    <li>
+                        In Mathematical Logic, definitions and metatheorems often follow an inductive structure. An inductive 
+                        structure consists of a <em>base case</em> and of an <em>inductive case</em>. For example, the definition 
+                        of a term for the decimal number system language consists of the base case "a digit symbol is a term" and 
+                        of the inductive case "a term concatenated with another term is a term"
+                    </li>
+                </ul>
                 <p>
                     Given a formal language, one may go on to do two things:
                 </p>
