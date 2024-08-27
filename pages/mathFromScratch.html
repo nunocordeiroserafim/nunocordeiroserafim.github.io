@@ -60,7 +60,7 @@
                 <br>
                 <h2> Index </h2>
                 <hr>
-                <ol class="level-1" style="margin-top: .5em;">
+                <ol class="level-1" data-start="-1" style="margin-top: .5em;">
                     <li><a style="color: var(--url-color)" title="The Very Beginning" href="mathFromScratch/theVeryBeginning.html">The Very Beginning</a></li>
                     <li><a style="color: var(--url-color)" title="Syntax" href="mathFromScratch/syntax.html">Syntax</a></li>
                     <li><a style="color: var(--url-color)" title="Propositional Logic" href="mathFromScratch/propositionalLogic.html">Propositional Logic</a></li>
@@ -115,6 +115,22 @@
                     ... Semantics of First Order Logic, or Sudoku (I'm not ready for that yet) (maybe before Syntax of First Order Logic)
                     ...
                 -->
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        // Select all ordered lists
+                        document.querySelectorAll('ol.level-1, ol.level-2').forEach(function (ol) {
+                            // Get the data-start attribute
+                            const start = ol.getAttribute('data-start');
+                            if (start !== null) {
+                                // Determine which level to set the CSS variable for
+                                const level = ol.classList.contains('level-1') ? 'level1' : 'level2';
+                                // Set the CSS variable for starting the counter
+                                ol.style.setProperty(`--${level}-start`, start);
+                            }
+                        });
+                    });
+                  </script>
             </section>
         </article>
     </main>
