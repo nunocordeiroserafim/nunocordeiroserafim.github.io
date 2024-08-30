@@ -13,66 +13,195 @@
     <main>
         <nav class="sidebar">
             <div class="sidebar-links">
-                <a title="Math From Scratch" href="../../mathFromScratch.html">Index</a>
+                <a title="Math From Scratch" href="../../mathFromScratch.html">Table of Contents</a>
                 <a title="The Very Beginning" href="../theVeryBeginning.html">0. The Very Beginning</a>
                 <a title="Syntax" href="../syntax.html">1. Syntax</a>
                 <a title="Propositional Logic" href="../propositionalLogic.html">2. Propositional Logic</a>
-                <a title="Propositional Logic | Semantics" href="semantics.html">2.1 Semantics</a>
-                <a title="Propositional Logic | Propositional Calculus" href="propositionalCalculus.html">2.2 Propositional Calculus: \(P_2\)</a>
+                <a title="Propositional Logic | Language" href="language.html">2.1 Language</a>
+                <a title="Propositional Logic | Semantics" href="semantics.html">2.2 Semantics</a>
+                <a title="Propositional Logic | Propositional Calculus" href="propositionalCalculus.html">2.3 Propositional Calculus: \(P_2\)</a>
             </div>
         </nav>
         <article class="post">
             <section>
-                <h1 class="top-title">2.1 Semantics</h1>
+                <h1 class="top-title">2.2 Semantics</h1>
                 <hr>
             </section>
             <section>
                 <p>
-                    In this chapter, I'll present a suitable formal language for propositional logic and then I'll define its 
-                    semantics. Since the formal logical connectives will have the same meaning as our metalanguage's, I'll seize 
-                    the opportunity to clarify our metalanguage by precising what is meant by "and", "or" and other usual 
-                    connectives. After that, I'll present some properties of those connectives, define truth functions and explain how to 
-                    build any truth function with our connectives.
+                    In this chapter, I'll define the semantics of our language. Since the formal logical connectives will keep 
+                    the same meaning as our metalanguage's, I'll seize the opportunity to clarify our metalanguage by precising 
+                    what is meant by "and", "or" and other usual connectives. After that, I'll present some properties of those 
+                    connectives, define truth functions and explain how to build any truth function with our connectives.
                 </p>
-                <br>
-                <h2> <u>A suitable formal language for propositional logic</u> </h2>
-                <p>
-                    The alphabet consists of
-                </p>
-                <ul>
-                    <li>
-                        <strong>statement letters</strong>/<strong>elementary proposition symbols</strong>: capital letters from 
-                        the English anguage (\(A\), \(B\), \(C\), ...), Greek letters (\(\alpha\), \(\beta\), \(\gamma\), ...) 
-                        and those kinds of letters with subscripts (\(A_1\), \(\alpha_1\), \(\varphi_{42}\), ...)
-                    </li>
-                    <li>
-                        <strong>logical connective symbols</strong>: \(\neg\), \(\land\), \(\lor\), \(\oplus\), \(\rightarrow\), 
-                        \(\leftrightarrow\), \(\leftarrow\), \(\uparrow\), \(\downarrow\), \(\not\rightarrow\), 
-                        \(\not\leftrightarrow\) and \(\not\leftarrow\)
-
-                    </li>
-                </ul>
-                <p>
-                    This language has no terms and wffs are either statement letters or a wff followed by a logical connective 
-                    symbol followed by a wff. Any wff containing at least one logical connective symbol is called a compound 
-                    statement/proposition.
-                </p>
-                <p> <u><strong>Remarks:</strong></u> </p>
-                <ul>
-                    <li>
-                        Normally, I should put the symbols inside quotation marks or in italic to specify that they are elements 
-                        of the object language, but to simplify the writting I'm assuming you are aware what symbols I'm talking 
-                        about
-                    </li>
-                    <li>
-                        From here on, to simplify the writting I'll omit the word "symbol/s" from "elementary proposition symbol/s" and "logical 
-                        connective symbol/s" when referring to them
-                    </li>
-                </ul>
                 <br>
                 <h2> <u>Definitions: truth tables</u> </h2>
-                <p>Work in progress, stay tuned!</p>
+                <p>
+                    The semantics of propositional logic revolves around the truth values of wffs. I'll denote the truth value 
+                    "true" by "\(\mathcal{T}\)" and the truth value "false" by "\(\mathcal{F}\)". "\(\mathcal{T}\)" and 
+                    "\(\mathcal{F}\)" are said to be opposites from one another. One defines the meaning of any logical 
+                    connective by settling the truth value of the compound statement for each combination of truth values of the 
+                    substastement/s the connective applies to. This is usually done via a truth table, which enumerates all 
+                    possibilities for the truth/falsity of the substatement/s.
+                </p>
+                <p>
+                    Negation is denoted by the symbol \(\neg\). When negation is applied to a wff, the resulting statement takes 
+                    the opposite value of its substatement. Its truth table is
+                </p>
+                <table>
+                    <tr>
+                        <th>\(A\)</th>
+                        <th>\(\neg A\)</th>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                </table>
+                <p>
+                    The <em>and</em> connective, also called conjunction, is denoted by the symbol \(\land\). Conjunction is true 
+                    if and only if both substatements are true and is false otherwise. The order in which the substatements 
+                    appear is irrelevant (for example, "he fell and he got up" doesn't necessarily mean that first he fell and 
+                    then he got up). Its truth table is
+                </p>
+                <table>
+                    <tr>
+                        <th>\(A\)</th>
+                        <th>\(B\)</th>
+                        <th>\(A \land B\)</th>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                </table>
+                <p>
+                    The <em>or</em> connective, also called disjunction, is denoted by the symbol \(\lor\). Disjunction is false 
+                    if and only if both substatements are false and is true otherwise. Notice that by <em>or</em>, I mean the 
+                    <em>inclusive or</em>: \(A\) or \(B\) is also true when both \(A\) and \(B\) are true, whereas in English, by 
+                    <em>or</em> we usually mean the exclusive one, in which \(A\) or \(B\) is instead false when both \(A\) and 
+                    \(B\) are true. In Mathematics in general (as well as in Math From Scratch), when <em>or</em> is used, the 
+                    inclusive <em>or</em> is meant. Thus, in our context, "or" is the same as "and/or". Its truth table is
+                </p>
+                <table>
+                    <tr>
+                        <th>\(A\)</th>
+                        <th>\(B\)</th>
+                        <th>\(A \lor B\)</th>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                </table>
             </section>
+            <p>
+                The <em>exclusive or</em> is denoted by the symbol \(\oplus\). It is true when the truth values of its 
+                substatements are different from one another. Its truth table is
+            </p>
+            <table>
+                <tr>
+                    <th>\(A\)</th>
+                    <th>\(B\)</th>
+                    <th>\(A \oplus B\)</th>
+                </tr>
+                <tr>
+                    <td>\(\mathcal{F}\)</td>
+                    <td>\(\mathcal{F}\)</td>
+                    <td>\(\mathcal{F}\)</td>
+                </tr>
+                <tr>
+                    <td>\(\mathcal{F}\)</td>
+                    <td>\(\mathcal{T}\)</td>
+                    <td>\(\mathcal{T}\)</td>
+                </tr>
+                <tr>
+                    <td>\(\mathcal{T}\)</td>
+                    <td>\(\mathcal{F}\)</td>
+                    <td>\(\mathcal{T}\)</td>
+                </tr>
+                <tr>
+                    <td>\(\mathcal{T}\)</td>
+                    <td>\(\mathcal{T}\)</td>
+                    <td>\(\mathcal{F}\)</td>
+                </tr>
+            </table>
+            <p>
+                Implication is an interesting one, as many people find its truth table unintuitive. <em>Implies</em> is denoted 
+                by the symbol \(\rightarrow\). In the expression \(A \rightarrow B\), \(A\) is called the hypothesis and \(B\) is 
+                called the conclusion. \(A \rightarrow B\) is false if and only if the hypothesis \(A\) is true and the 
+                conclusion \(B\) is false. Otherwise, it's true. Its truth table is
+            </p>
+            <table>
+                <tr>
+                    <th>\(A\)</th>
+                    <th>\(B\)</th>
+                    <th>\(A \rightarrow B\)</th>
+                </tr>
+                <tr>
+                    <td>\(\mathcal{F}\)</td>
+                    <td>\(\mathcal{F}\)</td>
+                    <td>\(\mathcal{T}\)</td>
+                </tr>
+                <tr>
+                    <td>\(\mathcal{F}\)</td>
+                    <td>\(\mathcal{T}\)</td>
+                    <td>\(\mathcal{T}\)</td>
+                </tr>
+                <tr>
+                    <td>\(\mathcal{T}\)</td>
+                    <td>\(\mathcal{F}\)</td>
+                    <td>\(\mathcal{F}\)</td>
+                </tr>
+                <tr>
+                    <td>\(\mathcal{T}\)</td>
+                    <td>\(\mathcal{T}\)</td>
+                    <td>\(\mathcal{T}\)</td>
+                </tr>
+            </table>
+            <!--give the two examples, showing how one can view implication as a rule that is true iff it is sat, and then 
+            explain that the source of the confusion is that in the natural language when one says A => B, one abbreviates A and 
+            A => B-->
+            <!-- \(A \rightarrow B\) is an implication in which \(A\) is the conclusion and \(B\) is the hypothesis. Thus, its 
+             truth table is-->
+             
+            <p>Work in progress, stay tuned!</p>
         </article>
     </main>
 </body>

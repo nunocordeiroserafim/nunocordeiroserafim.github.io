@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="icon" sizes="125x99" href="../../../images/GameSolver.png?v=3" type="image/png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <title>Language</title>
+</head>
+<body>
+    <main>
+        <nav class="sidebar">
+            <div class="sidebar-links">
+                <a title="Math From Scratch" href="../../mathFromScratch.html">Table of Contents</a>
+                <a title="The Very Beginning" href="../theVeryBeginning.html">0. The Very Beginning</a>
+                <a title="Syntax" href="../syntax.html">1. Syntax</a>
+                <a title="Propositional Logic" href="../propositionalLogic.html">2. Propositional Logic</a>
+                <a title="Propositional Logic | Language" href="language.html">2.1 Language</a>
+                <a title="Propositional Logic | Semantics" href="semantics.html">2.2 Semantics</a>
+                <a title="Propositional Logic | Propositional Calculus" href="propositionalCalculus.html">2.3 Propositional Calculus: \(P_2\)</a>
+            </div>
+        </nav>
+        <article class="post">
+            <section>
+                <h1 class="top-title">2.1 Language</h1>
+                <hr>
+            </section>
+            <section>
+                <p>
+                    In this chapter, I'll present a suitable formal language for propositional logic. Its alphabet consists of
+                </p>
+                <ul>
+                    <li>
+                        <strong>statement letters</strong>/<strong>elementary proposition symbols</strong>: capital letters from 
+                        the English anguage (\(A\), \(B\), \(C\), ...), Greek letters (\(\alpha\), \(\beta\), \(\gamma\), ...) 
+                        and those kinds of letters with subscripts (\(A_1\), \(\alpha_1\), \(\varphi_{42}\), ...)
+                    </li>
+                    <li>
+                        <strong>logical connective symbols</strong>: \(\neg\), \(\land\), \(\lor\), \(\oplus\), \(\rightarrow\), 
+                        \(\leftrightarrow\), \(\leftarrow\), \(\uparrow\), \(\downarrow\), \(\not\rightarrow\), 
+                        \(\not\leftrightarrow\) and \(\not\leftarrow\)
+
+                    </li>
+                    <li>
+                        <strong>Parenthesis</strong>: ( and )
+                    </li>
+                </ul>
+                <p>
+                    This language has no terms and wffs are only one of the following:
+                </p>
+                <ul>
+                    <li>statement letters, or</li>
+                    <li>
+                        the open parenthesis symbol ( followed by the \(\neg\) symbol followed by a wff followed by the close 
+                        parenthesis symbol ), or
+                    </li>
+                    <li>
+                        the open parenthesis symbol ( followed by a wff followed by a logical connective symbol other than 
+                        "\(\neg\)" followed by a wff followed by the close parenthesis symbol )
+                    </li>
+                </ul>
+                <p>
+                    Any wff containing at least one logical connective symbol is called a compound statement/proposition and the 
+                    statement/s the connective applies to is/are called its substatement/s.
+                </p>
+                <p> <u><strong>Remarks:</strong></u> </p>
+                <ul>
+                    <li>
+                        Normally, I should put the symbols inside quotation marks or in italic to specify that they are elements 
+                        of the object language, but to simplify the writting I'm assuming you are aware what symbols I'm talking 
+                        about
+                    </li>
+                    <li>
+                        From here on, to simplify the writting I'll omit the word "symbol/s" from "elementary proposition 
+                        symbol/s" and "logical connective symbol/s" when referring to them
+                    </li>
+                    <li>
+                        "\(\neg\)" is called a unary connective and all the other connectives of this language are called binary
+                    </li>
+                    <li>
+                        To aleviate the reading, I may use other types of parenthesis, as [ and ], or I may write them with 
+                        different sizes. To convert to a proper wff, simply replace such open parenthesis by ( and close 
+                        parenthesis by )
+                    </li>
+                    <li>
+                        Variables are placeholders/abbreviations for mathematical objects. In the context of Mathematical Logic, 
+                        metavariables are metalinguistical variables that are placeholders for wffs from the formal language. As 
+                        an abuse of language, I may use elementary proposition symbols for metavariables instead, so whenever 
+                        that happens, it shall be specified beforehand
+                    </li>
+                </ul>
+                <br>
+                <h2> <u>Parenthesis</u> </h2>
+                <p>
+                    In order to render notation less cumbersome, we are going to agree on some metalinguistical conventions to 
+                    eliminate parenthesis when referring to wffs. First, we may omit the outer pair of parentheses of a wff that 
+                    isn't a statement letter. Second, we define an order of precedence for the connectives (from highest to 
+                    lowest):
+                </p>
+                <ol>
+                    <li>\(\neg\)</li>
+                    <li>\(\land\)</li>
+                    <li>\(\lor\)</li>
+                    <li>
+                        \(\oplus\), \(\uparrow\), \(\downarrow\)
+                    </li>
+                    <li>
+                        \(\rightarrow\), \(\leftarrow\), \(\leftrightarrow\), \(\not\rightarrow\), \(\not\leftarrow\), 
+                        \(\not\leftrightarrow\)
+                    </li>
+                </ol>
+                <p>
+                    Now, letting \(A\) and \(B\) be metavariables, here's a step-by-step process to restore parenthesis given 
+                    this order of precedence:
+                </p>
+                <ol>
+                    <li>Find the leftmost occurrence of the strongest connective that has not yet been processed (i.e. the 
+                        strongest connective whose compound wff isn't yet surrounded by paranthesis)</li>
+                    <li>If its wff is of the form \(\neg A\), convert it to \((\neg A)\)</li>
+                    <li>
+                        If its wff is of the form \(A \circ B\), where \(\circ\) is a binary connective, convert it to 
+                        \((A \circ B)\)
+                    </li>
+                </ol>
+                <p>
+                    <u><strong>Remark:</strong></u> This order of precedence is purely conventional/arbitrary. We could agree on 
+                    any order of precedence as long as we are in possession of an algorithm to rediscover the original wff from 
+                    the abbreviated one
+                </p>
+                <p>
+                    Another thing I could have done, this time to completely eliminate parenthesis from our language, would be to 
+                    define wffs otherwise, through the use of Polish notation. In Polish notation, a wff would be
+                </p>
+                <ul>
+                    <li>a statement letter, or</li>
+                    <li>\(\neg\) followed by a wff, or</li>
+                    <li>a binary connective followed by two wffs</li>
+                </ul>
+                <p>
+                    Polish notation may be harder for us humans to read, but it is much more compact. Thus, it would be a more 
+                    suitable notation to define the length of wffs, if we were to study it.
+                </p>
+            </section>
+        </article>
+    </main>
+</body>
+</html>
