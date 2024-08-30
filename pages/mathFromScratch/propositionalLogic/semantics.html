@@ -19,6 +19,8 @@
                 <a title="Propositional Logic" href="../propositionalLogic.html">2. Propositional Logic</a>
                 <a title="Propositional Logic | Language" href="language.html">2.1 Language</a>
                 <a title="Propositional Logic | Semantics" href="semantics.html">2.2 Semantics</a>
+                <a title="Propositional Logic | Semantics | Definitions" href="semantics/definitions.html">2.2.1 Definitions</a>
+                <a title="Propositional Logic | Semantics | Truth Functions" href="semantics/truthFunctions.html">2.2.2 Truth Functions</a>
                 <a title="Propositional Logic | Propositional Calculus" href="propositionalCalculus.html">2.3 Propositional Calculus: \(P_2\)</a>
             </div>
         </nav>
@@ -29,179 +31,39 @@
             </section>
             <section>
                 <p>
-                    In this chapter, I'll define the semantics of our language. Since the formal logical connectives will keep 
-                    the same meaning as our metalanguage's, I'll seize the opportunity to clarify our metalanguage by precising 
-                    what is meant by "and", "or" and other usual connectives. After that, I'll present some properties of those 
-                    connectives, define truth functions and explain how to build any truth function with our connectives.
+                    In this chapter, I'll define the semantics of our language. After that, I'll present some properties of the 
+                    usual logical connectives, define truth functions and explain how to build any truth function with our 
+                    connectives.
                 </p>
                 <br>
-                <h2> <u>Definitions: truth tables</u> </h2>
-                <p>
-                    The semantics of propositional logic revolves around the truth values of wffs. I'll denote the truth value 
-                    "true" by "\(\mathcal{T}\)" and the truth value "false" by "\(\mathcal{F}\)". "\(\mathcal{T}\)" and 
-                    "\(\mathcal{F}\)" are said to be opposites from one another. One defines the meaning of any logical 
-                    connective by settling the truth value of the compound statement for each combination of truth values of the 
-                    substastement/s the connective applies to. This is usually done via a truth table, which enumerates all 
-                    possibilities for the truth/falsity of the substatement/s.
-                </p>
-                <p>
-                    Negation is denoted by the symbol \(\neg\). When negation is applied to a wff, the resulting statement takes 
-                    the opposite value of its substatement. Its truth table is
-                </p>
-                <table>
-                    <tr>
-                        <th>\(A\)</th>
-                        <th>\(\neg A\)</th>
-                    </tr>
-                    <tr>
-                        <td>\(\mathcal{F}\)</td>
-                        <td>\(\mathcal{T}\)</td>
-                    </tr>
-                    <tr>
-                        <td>\(\mathcal{T}\)</td>
-                        <td>\(\mathcal{F}\)</td>
-                    </tr>
-                </table>
-                <p>
-                    The <em>and</em> connective, also called conjunction, is denoted by the symbol \(\land\). Conjunction is true 
-                    if and only if both substatements are true and is false otherwise. The order in which the substatements 
-                    appear is irrelevant (for example, "he fell and he got up" doesn't necessarily mean that first he fell and 
-                    then he got up). Its truth table is
-                </p>
-                <table>
-                    <tr>
-                        <th>\(A\)</th>
-                        <th>\(B\)</th>
-                        <th>\(A \land B\)</th>
-                    </tr>
-                    <tr>
-                        <td>\(\mathcal{F}\)</td>
-                        <td>\(\mathcal{F}\)</td>
-                        <td>\(\mathcal{F}\)</td>
-                    </tr>
-                    <tr>
-                        <td>\(\mathcal{F}\)</td>
-                        <td>\(\mathcal{T}\)</td>
-                        <td>\(\mathcal{F}\)</td>
-                    </tr>
-                    <tr>
-                        <td>\(\mathcal{T}\)</td>
-                        <td>\(\mathcal{F}\)</td>
-                        <td>\(\mathcal{F}\)</td>
-                    </tr>
-                    <tr>
-                        <td>\(\mathcal{T}\)</td>
-                        <td>\(\mathcal{T}\)</td>
-                        <td>\(\mathcal{T}\)</td>
-                    </tr>
-                </table>
-                <p>
-                    The <em>or</em> connective, also called disjunction, is denoted by the symbol \(\lor\). Disjunction is false 
-                    if and only if both substatements are false and is true otherwise. Notice that by <em>or</em>, I mean the 
-                    <em>inclusive or</em>: \(A\) or \(B\) is also true when both \(A\) and \(B\) are true, whereas in English, by 
-                    <em>or</em> we usually mean the exclusive one, in which \(A\) or \(B\) is instead false when both \(A\) and 
-                    \(B\) are true. In Mathematics in general (as well as in Math From Scratch), when <em>or</em> is used, the 
-                    inclusive <em>or</em> is meant. Thus, in our context, "or" is the same as "and/or". Its truth table is
-                </p>
-                <table>
-                    <tr>
-                        <th>\(A\)</th>
-                        <th>\(B\)</th>
-                        <th>\(A \lor B\)</th>
-                    </tr>
-                    <tr>
-                        <td>\(\mathcal{F}\)</td>
-                        <td>\(\mathcal{F}\)</td>
-                        <td>\(\mathcal{F}\)</td>
-                    </tr>
-                    <tr>
-                        <td>\(\mathcal{F}\)</td>
-                        <td>\(\mathcal{T}\)</td>
-                        <td>\(\mathcal{T}\)</td>
-                    </tr>
-                    <tr>
-                        <td>\(\mathcal{T}\)</td>
-                        <td>\(\mathcal{F}\)</td>
-                        <td>\(\mathcal{T}\)</td>
-                    </tr>
-                    <tr>
-                        <td>\(\mathcal{T}\)</td>
-                        <td>\(\mathcal{T}\)</td>
-                        <td>\(\mathcal{T}\)</td>
-                    </tr>
-                </table>
+                <h2> Table of Contents </h2>
+                <hr>
+                <ol class="level-1" data-start="2" style="margin-top: .5em; margin-left: -70px;">
+                    <ol class="level-2">
+                        <ol class="level-3">
+                            <li><a style="color: var(--url-color)" title="Propositional Logic | Semantics | Definitions" href="semantics/definitions.html">Definitions</a></li>
+                            <li><a style="color: var(--url-color)" title="Propositional Logic | Semantics | Truth Functions" href="semantics/truthFunctions.html">Truth Functions</a></li>
+                        </ol>
+                    </ol>
+                </ol>
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        // Select all ordered lists
+                        document.querySelectorAll('ol.level-1, ol.level-2').forEach(function (ol) {
+                            // Get the data-start attribute
+                            const start = ol.getAttribute('data-start');
+                            if (start !== null) {
+                                // Determine which level to set the CSS variable for
+                                const level = ol.classList.contains('level-1') ? 'level1' : 'level2';
+                                // Set the CSS variable for starting the counter
+                                ol.style.setProperty(`--${level}-start`, start);
+                            }
+                        });
+                    });
+                  </script>
+
             </section>
-            <p>
-                The <em>exclusive or</em> is denoted by the symbol \(\oplus\). It is true when the truth values of its 
-                substatements are different from one another. Its truth table is
-            </p>
-            <table>
-                <tr>
-                    <th>\(A\)</th>
-                    <th>\(B\)</th>
-                    <th>\(A \oplus B\)</th>
-                </tr>
-                <tr>
-                    <td>\(\mathcal{F}\)</td>
-                    <td>\(\mathcal{F}\)</td>
-                    <td>\(\mathcal{F}\)</td>
-                </tr>
-                <tr>
-                    <td>\(\mathcal{F}\)</td>
-                    <td>\(\mathcal{T}\)</td>
-                    <td>\(\mathcal{T}\)</td>
-                </tr>
-                <tr>
-                    <td>\(\mathcal{T}\)</td>
-                    <td>\(\mathcal{F}\)</td>
-                    <td>\(\mathcal{T}\)</td>
-                </tr>
-                <tr>
-                    <td>\(\mathcal{T}\)</td>
-                    <td>\(\mathcal{T}\)</td>
-                    <td>\(\mathcal{F}\)</td>
-                </tr>
-            </table>
-            <p>
-                Implication is an interesting one, as many people find its truth table unintuitive. <em>Implies</em> is denoted 
-                by the symbol \(\rightarrow\). In the expression \(A \rightarrow B\), \(A\) is called the hypothesis and \(B\) is 
-                called the conclusion. \(A \rightarrow B\) is false if and only if the hypothesis \(A\) is true and the 
-                conclusion \(B\) is false. Otherwise, it's true. Its truth table is
-            </p>
-            <table>
-                <tr>
-                    <th>\(A\)</th>
-                    <th>\(B\)</th>
-                    <th>\(A \rightarrow B\)</th>
-                </tr>
-                <tr>
-                    <td>\(\mathcal{F}\)</td>
-                    <td>\(\mathcal{F}\)</td>
-                    <td>\(\mathcal{T}\)</td>
-                </tr>
-                <tr>
-                    <td>\(\mathcal{F}\)</td>
-                    <td>\(\mathcal{T}\)</td>
-                    <td>\(\mathcal{T}\)</td>
-                </tr>
-                <tr>
-                    <td>\(\mathcal{T}\)</td>
-                    <td>\(\mathcal{F}\)</td>
-                    <td>\(\mathcal{F}\)</td>
-                </tr>
-                <tr>
-                    <td>\(\mathcal{T}\)</td>
-                    <td>\(\mathcal{T}\)</td>
-                    <td>\(\mathcal{T}\)</td>
-                </tr>
-            </table>
-            <!--give the two examples, showing how one can view implication as a rule that is true iff it is sat, and then 
-            explain that the source of the confusion is that in the natural language when one says A => B, one abbreviates A and 
-            A => B-->
-            <!-- \(A \rightarrow B\) is an implication in which \(A\) is the conclusion and \(B\) is the hypothesis. Thus, its 
-             truth table is-->
-             
-            <p>Work in progress, stay tuned!</p>
         </article>
     </main>
 </body>

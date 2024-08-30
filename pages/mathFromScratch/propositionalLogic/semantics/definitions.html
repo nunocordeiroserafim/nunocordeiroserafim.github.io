@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../../../../style.css">
+    <link rel="icon" sizes="125x99" href="../../../../images/GameSolver.png?v=3" type="image/png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <title>Definitions</title>
+</head>
+<body>
+    <main>
+        <nav class="sidebar">
+            <div class="sidebar-links">
+                <a title="Math From Scratch" href="../../../mathFromScratch.html">Table of Contents</a>
+                <a title="The Very Beginning" href="../../theVeryBeginning.html">0. The Very Beginning</a>
+                <a title="Syntax" href="../../syntax.html">1. Syntax</a>
+                <a title="Propositional Logic" href="../../propositionalLogic.html">2. Propositional Logic</a>
+                <a title="Propositional Logic | Language" href="../language.html">2.1 Language</a>
+                <a title="Propositional Logic | Semantics" href="../semantics.html">2.2 Semantics</a>
+                <a title="Propositional Logic | Semantics | Definitions" href="definitions.html">2.2.1 Definitions</a>
+                <a title="Propositional Logic | Semantics | Truth Functions" href="truthFunctions.html">2.2.2 Truth Functions</a>
+                <a title="Propositional Logic | Propositional Calculus" href="../propositionalCalculus.html">2.3 Propositional Calculus: \(P_2\)</a>
+            </div>
+        </nav>
+        <article class="post">
+            <section>
+                <h1 class="top-title">2.2.1 Definitions</h1>
+                <hr>
+            </section>
+            <section>
+                <p>
+                    In this chapter, I'll define the semantics of our language. Since the formal logical connectives will keep 
+                    the same meaning as our metalanguage's, I'll seize the opportunity to clarify our metalanguage by precising 
+                    what is meant by "and", "or" and other usual connectives.
+                </p>
+                <br>
+                <h2> <u>Truth tables</u> </h2>
+                <p>
+                    The semantics of propositional logic revolves around the truth values of wffs. I'll denote the truth value 
+                    "true" by "\(\mathcal{T}\)" and the truth value "false" by "\(\mathcal{F}\)". "\(\mathcal{T}\)" and 
+                    "\(\mathcal{F}\)" are said to be opposites from one another. One defines the meaning of any logical 
+                    connective by settling the truth value of the compound statement for each combination of truth values of the 
+                    substastement/s the connective applies to. This is usually done via a truth table, which enumerates all 
+                    possibilities for the truth/falsity of the substatement/s.
+                </p>
+                <p>
+                    In the following definitions, the letters \(A\) and \(B\) are metavariables.
+                </p>
+                <p>
+                    Negation is denoted by the symbol \(\neg\). When negation is applied to a wff, the resulting statement takes 
+                    the opposite value of its substatement. Its truth table is
+                </p>
+                <table>
+                    <tr>
+                        <th>\(A\)</th>
+                        <th>\(\neg A\)</th>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                </table>
+                <p>
+                    The <em>and</em> connective, also called conjunction, is denoted by the symbol \(\land\). Conjunction is true 
+                    if and only if both substatements are true and is false otherwise. The order in which the substatements 
+                    appear is irrelevant (for example, "he fell and he got up" doesn't necessarily mean that first he fell and 
+                    then he got up). Its truth table is
+                </p>
+                <table>
+                    <tr>
+                        <th>\(A\)</th>
+                        <th>\(B\)</th>
+                        <th>\(A \land B\)</th>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                </table>
+                <p>
+                    The <em>or</em> connective, also called disjunction, is denoted by the symbol \(\lor\). Disjunction is false 
+                    if and only if both substatements are false and is true otherwise. Notice that by <em>or</em>, I mean the 
+                    <em>inclusive or</em>: \(A\) or \(B\) is also true when both \(A\) and \(B\) are true, whereas in English, by 
+                    <em>or</em> we usually mean the exclusive one, in which \(A\) or \(B\) is instead false when both \(A\) and 
+                    \(B\) are true. In Mathematics in general (as well as in Math From Scratch), when <em>or</em> is used, the 
+                    inclusive <em>or</em> is meant. Thus, in our context, "or" is the same as "and/or". Its truth table is
+                </p>
+                <table>
+                    <tr>
+                        <th>\(A\)</th>
+                        <th>\(B\)</th>
+                        <th>\(A \lor B\)</th>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                </table>
+                <p>
+                    The <em>exclusive or</em> is denoted by the symbol \(\oplus\). It is true when the truth values of its 
+                    substatements are different from one another. Its truth table is
+                </p>
+                <table>
+                    <tr>
+                        <th>\(A\)</th>
+                        <th>\(B\)</th>
+                        <th>\(A \oplus B\)</th>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                </table>
+                <p>
+                    Implication is an interesting one, as many people find its truth table unintuitive. <em>Implies</em> is 
+                    denoted by the symbol \(\rightarrow\). In the expression \(A \rightarrow B\), \(A\) is called the hypothesis 
+                    and \(B\) is called the conclusion. \(A \rightarrow B\) is false if and only if the hypothesis \(A\) is true 
+                    and the conclusion \(B\) is false. Otherwise, it's true. Its truth table is
+                </p>
+                <table>
+                    <tr>
+                        <th>\(A\)</th>
+                        <th>\(B\)</th>
+                        <th>\(A \rightarrow B\)</th>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                </table>
+                <p>
+                    The reason that \(A \rightarrow B\) is true whenever \(A\) is false is that one should interpret wffs as 
+                    rules that are true whenever they are satisfied and false otherwise. Let's illustrate this with two examples.
+                </p>
+                <p>
+                    Imagine you have four cards, each containing a letter on one side and a number on the other. Now suppose you 
+                    can only see their front side and that they are labelled "A", "B", "5" and "6". Which card/s do you need to 
+                    turn to check that the rule "If there is an A on one side of the card, then there is definitely a 5 on the 
+                    other" is satisfied?
+                </p>
+                <p>
+                    If your answer is A and 5, you are wrong! You do indeed need to turn card A to check whether there is a 5 on 
+                    the other side, but you do not need to turn card 5 to check whether there is an A on the other, as the rule 
+                    doesn't specify which letter should be on the other side for a 5. The answer to this question is instead card 
+                    A <em>and</em> card 6, as if there were to be an A on the other side of card 6, then the rule wouldn't be 
+                    satisfied.
+                </p>
+                <p>
+                    In case you are still a bit confused about this, here's a second example: You are at a bar which has the rule 
+                    that anyone under 18 cannot drink alcohol. There are four people at the bar, all drinking something: the 
+                    first person is 16 years old, the second is 24 years old, the third is drinking water and the fourth is 
+                    drinking a beer. Which people should you "investigate" to check that the bar's rule isn't being broken? 
+                    Clearly you do not care about the person who's 24 nor the one who's drinking water. You do however need to 
+                    check the 16 year old as well as the person drinking beer.
+                </p>
+                <p>
+                    Remark that those two examples are equivalent, with the differences that in one we have letters/numbers 
+                    whereas in the other we have the age/drink. The first person is like card A, the second like card B, the 
+                    third like card 5 and the fourth like card 6.
+                </p>
+                <p>
+                    I think that the source of many people's confusion comes from their thinking that there must be a causal link 
+                    between the hypothesis and the conclusion. "If pigs can fly, then Lisbon is the capital of the Portugal" is 
+                    true, because the rule is always satisfied. Pigs can't fly (at least as far as I'm aware), so whatever the 
+                    conclusion, the implication is true, even though there is no link between the flying ability of pigs and the 
+                    city that's Portugal's capital.
+                </p>
+                <p>
+                    The reverse implication \(A \leftarrow B\) is an implication in which \(A\) is the conclusion and \(B\) is 
+                    the hypothesis. Thus, its truth table is
+                </p>
+                <table>
+                    <tr>
+                        <th>\(A\)</th>
+                        <th>\(B\)</th>
+                        <th>\(A \leftarrow B\)</th>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                </table>
+                <p>
+                    Equivalence is denoted by the symbol \(\leftrightarrow\). The meaning of \(A \leftrightarrow B\) is the same 
+                    as \((A \rightarrow B) \land (A \leftarrow B)\). Thus, if you check the truth tables of \(A \rightarrow B\) 
+                    and \(A \leftarrow B\) and apply the definition of <em>and</em>, you get
+                </p>
+                <table>
+                    <tr>
+                        <th>\(A\)</th>
+                        <th>\(B\)</th>
+                        <th>\(A \rightarrow B\)</th>
+                        <th>\(A \leftarrow B\)</th>
+                        <th>\((A \rightarrow B) \land (A \leftarrow B)\)</th>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                </table>
+                <p>or more simply</p>
+                <table>
+                    <tr>
+                        <th>\(A\)</th>
+                        <th>\(B\)</th>
+                        <th>\(A \leftrightarrow B\)</th>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                </table>
+                <p>
+                    Remark that \(A \leftrightarrow B\) is true if and only if \(A\) and \(B\) have the same truth values.
+                </p>
+                <p>
+                    The symbol \(\uparrow\) is the negation of conjunction, called nand or Sheffer stroke. As the negation of 
+                    conjunction, its truth table is 
+                </p>
+                <table>
+                    <tr>
+                        <th>\(A\)</th>
+                        <th>\(B\)</th>
+                        <th>\(A \land B\)</th>
+                        <th>\(\neg(A \land B)\)</th>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                </table>
+                <p>or more simply</p>
+                <table>
+                    <tr>
+                        <th>\(A\)</th>
+                        <th>\(B\)</th>
+                        <th>\(A \uparrow B\)</th>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                </table>
+                <p>
+                    The symbol \(\downarrow\) is the negation of disjunction, called nor. Its truth table is (I let the details 
+                    for you to deal with)
+                </p>
+                <table>
+                    <tr>
+                        <th>\(A\)</th>
+                        <th>\(B\)</th>
+                        <th>\(A \uparrow B\)</th>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                </table>
+                <p>
+                    The last three connectives whose meaning remains to be defined are \(\not\rightarrow\), 
+                    \(\not\leftrightarrow\) and \(\not\leftarrow\). These symbols are the implication and equivalence symbols 
+                    with a stroke. They are the negations of \(\rightarrow\), \(\leftrightarrow\) and \(\leftarrow\) and thus 
+                    their truth tables are as follows:
+                </p>
+                <table>
+                    <tr>
+                        <th>\(A\)</th>
+                        <th>\(B\)</th>
+                        <th>\(\not\rightarrow\)</th>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <th>\(A\)</th>
+                        <th>\(B\)</th>
+                        <th>\(\not\leftrightarrow\)</th>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <th>\(A\)</th>
+                        <th>\(B\)</th>
+                        <th>\(\not\leftarrow\)</th>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                </table>
+                <p>Remark that \(\not\leftrightarrow\) has the same meaning as \(\oplus\).</p>
+                <br>
+                <h2> <u>Some abbreviation notation for the metalanguage</u> </h2>
+                <p>
+                    Sometimes, instead of writing "If \(A\), then \(B\)" or "\(A\) implies \(B\)", I may write 
+                    "\(A \Rightarrow B\)". Also, instead of writing "\(A\) is equivalent to \(B\)" or "\(A\) iff \(B\)", I may 
+                    write "\(A\) iff \(B\)" or "\(A \Leftrightarrow B\)".
+                </p>
+                <p>
+                    Do not mistake the symbols \(\Rightarrow\) and \(\Leftrightarrow\) for \(\rightarrow\) and \(\leftrightarrow\). 
+                    The first two belong to the metalanguage, even though they have the same meaning!
+                </p>
+            </section>
+        </article>
+    </main>
+</body>
+</html>

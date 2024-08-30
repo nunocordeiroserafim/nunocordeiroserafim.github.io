@@ -67,7 +67,12 @@
                     <ol class="level-2">
                         <li><a style="color: var(--url-color)" title="Propositional Logic | Language" href="mathFromScratch/propositionalLogic/language.html">Language</a></li>
                         <li><a style="color: var(--url-color)" title="Propositional Logic | Semantics" href="mathFromScratch/propositionalLogic/semantics.html">Semantics</a></li>
-                        <li><a style="color: var(--url-color)" title="Propositional Logic | Propositional Calculus" href="mathFromScratch/propositionalLogic/propositionalCalculus.html">Propositional Calculus: \(P_2\)</a></li>
+                        <ol class="level-3">
+                            <li><a style="color: var(--url-color)" title="Propositional Logic | Semantics | Definitions" href="mathFromScratch/propositionalLogic/semantics/definitions.html">Definitions</a></li>
+                            <li><a style="color: var(--url-color)" title="Propositional Logic | Semantics | Truth Functions" href="mathFromScratch/propositionalLogic/semantics/truthFunctions.html">Truth Functions</a></li>
+                        </ol>
+                        <li>Propositional Calculus: \(P_2\)</li>
+                        <!--<li><a style="color: var(--url-color)" title="Propositional Logic | Propositional Calculus" href="mathFromScratch/propositionalLogic/propositionalCalculus.html">Propositional Calculus: \(P_2\)</a></li>-->
                         <li>Soundness Theorem</li>
                         <!--<li><a style="color: var(--url-color)" title="Propositional Logic | Soundness Theorem" href="mathFromScratch/propositionalLogic/soundnessTheorem.html">Soundness Theorem</a></li>-->
                         <li>Useful Theorems, Lemmas and Metatheorems</li>
@@ -95,18 +100,20 @@
                     0 The Very Beginning
                     1 Syntax
                     2 Propositional Logic
-                        2.1 Semantics -> defs, how to create truth fctoins, nand and nor uniqueness
-                        2.2 Syntax
-                            2.2.1 Propositional Calculus -> intro P2, explain that there either are axiom schemes (with metalanguage variables) or axioms and substitution inference rule, parenthesis meta-simplification
-                            2.2.2 Soundness Theorem
-                            2.2.3 Useful Theorems, Lemmas and Metatheorems -> explicitly mention it's here that formal proofs will first appear
-                            2.2.4 Principle of Explosion
-                            2.2.5 Completeness Theorem
-                            2.2.6 Independence Proof -> mention that compactness = soundness + completeness + independence and that compactness is a better term than minimal as can be seen in 2.2.7
-                            2.2.7 Other Propositional Calculi -> suggestion: mention Natural Deduction, with many inference rules and no axioms -> will show off in FOL chapter
-                                2.2.7.1 Łukasiewicz System -> mention it's studied here to prove completeness of Walsh's and Nicod's systems
-                                2.2.7.2 Walsh's System with A1
-                                2.2.7.3 Nicod's System
+                        2.1 Language
+                        2.2 Semantics -> defs, how to create truth fctions, nand and nor uniqueness
+                            2.2.1 Definitions
+                            2.2.2 Truth Functions
+                        2.3 Propositional Calculus -> intro P2, explain that there either are axiom schemes (with metalanguage variables) or axioms and substitution inference rule, parenthesis meta-simplification
+                        2.4 Soundness Theorem
+                        2.5 Useful Theorems, Lemmas and Metatheorems -> explicitly mention it's here that formal proofs will first appear
+                        2.6 Principle of Explosion
+                        2.7 Completeness Theorem
+                        2.8 Independence Proof -> mention that compactness = soundness + completeness + independence and that compactness is a better term than minimal as can be seen in 2.2.7
+                        2.9 Other Propositional Calculi -> suggestion: mention Natural Deduction, with many inference rules and no axioms -> will show off in FOL chapter
+                            2.9.1 Łukasiewicz System -> mention it's studied here to prove completeness of Walsh's and Nicod's systems
+                            2.9.2 Walsh's System with A1
+                            2.9.3 Nicod's System
                     3? Sudoku (I'm not ready for that yet) -> need to 1st learn enough about semantics and check how much of it and set theory are used in the "Deducibility in Sudoku" paper
                     3? Syntax of First Order Logic
                         3.1 Introduction -> limitations of FOL and necessity of formal system, quantifier range, addition of axioms to P2
