@@ -6,7 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="../../../style.css">
     <link rel="icon" sizes="125x99" href="../../../images/GameSolver.png?v=3" type="image/png">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <!-- MathJax Configuration -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['\\(', '\\)'], ['$', '$']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']]
+            },
+            TeX: {
+                Macros: {
+                    // Define \bigcomp as a large operator similar to \sum
+                    bigcomp: ["\\mathop{\\huge\\circ}\\limits", 0]
+                    //bigcomp: ["\\mathop{\\scalebox{2.0}{\\circ}}\\limits", 0]
+                }
+            }
+        });
+    </script>
     <title>Language</title>
 </head>
 <body>
@@ -69,11 +85,11 @@
                 <ul>
                     <li>
                         Normally, I should put the symbols inside quotation marks or in italic to specify that they are elements 
-                        of the object language, but to simplify the writting I'm assuming you are aware what symbols I'm talking 
+                        of the object language, but to simplify the writing I'm assuming you are aware what symbols I'm talking 
                         about
                     </li>
                     <li>
-                        From here on, to simplify the writting I'll omit the word "symbol/s" from "elementary proposition 
+                        From here on, to simplify the writing I'll omit the word "symbol/s" from "elementary proposition 
                         symbol/s" and "logical connective symbol/s" when referring to them
                     </li>
                     <li>
@@ -141,6 +157,17 @@
                 <p>
                     Polish notation may be harder for us humans to read, but it is much more compact. Thus, it would be a more 
                     suitable notation to define the length of wffs, if we were to study it.
+                </p>
+                <br>
+                <h2> <u>Sigma notation</u> </h2>
+                <p>
+                    Sigma notation is another metalinguistical notation that we'll use to abbreviate the writing of wffs.
+                </p>
+                <p>
+                    Let \(\circ\) denote a binary logical connective. Whenever one has expressions of the form 
+                    \(\neg\neg...\neg A\) or \(A_1 \circ A_2 \circ...\circ A_n\), where the same connective appears in sequence 
+                    \(n\) times in a wff and in the variables \(A_i\), \(i\) ranges from 1 to \(n\), one may instead respectively 
+                    write \(\mathop{\huge\neg}\limits_{i=1}^nA\) or \(\bigcomp\limits_{i=1}^nA_i\).
                 </p>
             </section>
         </article>
