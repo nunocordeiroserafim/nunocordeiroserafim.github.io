@@ -136,15 +136,29 @@
                         strongest connective whose compound wff isn't yet surrounded by paranthesis)</li>
                     <li>If its wff is of the form \(\neg A\), convert it to \((\neg A)\)</li>
                     <li>
-                        If its wff is of the form \(A \circ B\), where \(\circ\) is a binary connective, convert it to 
-                        \((A \circ B)\)
+                        If \(A \circ B\) is of the form \(\varphi_1 \circ...\circ \varphi_{n-1} \circ \varphi_n\), where the 
+                        same logical connective \(\circ\) appears \(n\) times (at least once) in sequence and in the variables
+                        \(\varphi_k\), \(k\) ranges from 1 to \(n+1\), from right to left convert 
+                        \(\varphi_k \circ \varphi_{k+1}\) to \((\varphi_k \circ \varphi_{k+1})\) for all \(k\) between 1 and 
+                        \(n-1\)
                     </li>
                 </ol>
-                <p>
-                    <u><strong>Remark:</strong></u> This order of precedence is purely conventional/arbitrary. We could agree on 
-                    any order of precedence as long as we are in possession of an algorithm to rediscover the original wff from 
-                    the abbreviated one
-                </p>
+                <p> <u><strong>Remarks:</strong></u> </p>
+                <ul>
+                    <li>
+                        This order of precedence is purely conventional/arbitrary. We could agree on any order of precedence as 
+                        long as we are in possession of an algorithm to rediscover the original wff from the abbreviated one
+                    </li>
+                    <li>
+                        This comment is for those who are not familiar with algebra or with the practice of using letters as 
+                        variables to denote numbers (for those familiar with the existence of various number systems, here by 
+                        numbers, I specifically mean natural numbers): here we used the letters \(n\) and \(k\) to denote numbers, 
+                        \(n+1\) for the number that comes after \(n\) and \(n-1\) for the number that comes before \(n\), as is 
+                        common practice in the mathematical litterature. Any other letters could have been used instead of \(n\) 
+                        and \(k\) and it should always be clear from the context (blame the author otherwise) when letters are 
+                        used to denote numbers
+                    </li>
+                </ul>
                 <p>
                     Another thing I could have done, this time to completely eliminate parenthesis from our language, would be to 
                     define wffs otherwise, through the use of Polish notation. In Polish notation, a wff would be
@@ -165,9 +179,10 @@
                 </p>
                 <p>
                     Let \(\circ\) denote a binary logical connective. Whenever one has expressions of the form 
-                    \(\neg\neg...\neg A\) or \(A_1 \circ A_2 \circ...\circ A_n\), where the same connective appears in sequence 
-                    \(n\) times in a wff and in the variables \(A_i\), \(i\) ranges from 1 to \(n\), one may instead respectively 
-                    write \(\mathop{\huge\neg}\limits_{i=1}^nA\) or \(\bigcomp\limits_{i=1}^nA_i\).
+                    \(\neg\neg...\neg A\) or \(A_1 \circ A_2 \circ...\circ A_n\), where the same connective appears \(n\) times 
+                    (at least once) in sequence in a wff and in the variables \(A_i\), \(i\) ranges from 1 to \(n+1\) in that 
+                    order, one may instead respectively write \(\mathop{\huge\neg}\limits_{i=1}^nA\) or 
+                    \(\bigcomp\limits_{i=1}^nA_i\).
                 </p>
             </section>
         </article>
