@@ -7,6 +7,22 @@
     <link rel="stylesheet" href="../../../../style.css">
     <link rel="icon" sizes="125x99" href="../../../../images/GameSolver.png?v=3" type="image/png">
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <!-- MathJax Configuration -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['\\(', '\\)'], ['$', '$']],
+                displayMath: [['\\[', '\\]'], ['$$', '$$']]
+            },
+            TeX: {
+                Macros: {
+                    // Define \bigcomp as a large operator similar to \sum
+                    bigcomp: ["\\mathop{\\huge\\circ}\\limits", 0]
+                    //bigcomp: ["\\mathop{\\scalebox{2.0}{\\circ}}\\limits", 0]
+                }
+            }
+        });
+    </script>
     <title>Definitions</title>
 </head>
 <body>
@@ -522,6 +538,24 @@
                     </tr>
                 </table>
                 <p>Remark that \(\not\leftrightarrow\) has the same meaning as \(\oplus\).</p>
+                <p>
+                    What is meant by taking the conjunction, the disjunction, the implication, or whatever other application of 
+                    a binary logical connective \(\circ\) to \(n\) metavariables (at least 2) ranging from \(A_1\) to \(A_n\), is 
+                    to create the wff \(\bigcomp\limits_{i=1}^{n}A_i\).
+                </p>
+                <br>
+                <h2> <u>Evaluating a wff</u> </h2>
+                <p>
+                    With those definitions in place, we are now in position to evaluate the truth value of a wff given an 
+                    assignment of either \(\mathcal{T}\) or \(\mathcal{F}\) to each individual metavariable:
+                </p>
+                <ol>
+                    <li>Evaluate the subwffs for which the truth assignments have been made</li>
+                    <li>
+                        Given evaluated subwffs, evaluate the compound wffs created from them by the binding of logical 
+                        connectives by checking the corresponding row in the truth table for the respective connective
+                    </li>
+                </ol>
                 <br>
                 <h2> <u>Some abbreviation notation for the metalanguage</u> </h2>
                 <p>

@@ -57,21 +57,42 @@
                 </p>
                 <p> <span style="font-size: 17pt;"><strong>Proof:</strong></span> </p>
                 <p>
-                    Let \(f\) denote the given truth function of \(n\) arguments, which are denoted by \(x_j\), with \(j\) from 1 
-                    to \(n\). Let \(A_j\) be the most basic wffs of \(f\)'s truth table, i.e. the subformulas that correspond to 
-                    its arguments.
+                    Consider the wff created by the following procedure. Given a truth function, do the following for each of its
+                    rows whose output is true:
                 </p>
+                <ol>
+                    <li>
+                        Make an ordered list of wffs \(U_{ij}\), such that \(U_{ij}\) is \(A_j\) if the \(j^\text{th}\) value of 
+                        the \(i^\text{th}\) row is true and is \(\neg A_j\) if the \(j^\text{th}\) value of the \(i^\text{th}\) 
+                        row is false
+                    </li>
+                    <li> Let \(C_i\) be the conjunction of all these \(U_{ij}\) </li>
+                </ol>
+                <p>
+                    The wff that I want you to consider is the disjunction of all \(C_i\), which I'll call \(D\). Remark that the 
+                    only symbols it contains are \(\neg\), \(\land\) and \(\lor\). Now I'm going to prove that the truth table of 
+                    that wff is exactly the truth table of the given truth function.
+                </p>
+                <p>
+                    Each \(C_i\)'s truth table is such that all of its outputs are false except for the \(i^\text{th}\) row. The 
+                    reason is that for each \(C_i\), because of the way that each \(U_{ij}\) was defined, whenever \(A_j\) is 
+                    true, \(U_{ij}\) is true and whenever \(A_j\) is false, \(U_{ij}\) is again true. Thus, the output of 
+                    \(C_i\)'s truth table is necessarily true for the \(i^\text{th}\) row. For any other row however, there will 
+                    be a column for which at least one of the \(U_{ij}\) is false, so for any row other than the \(i^\text{th}\), 
+                    \(C_i\)'s output will be false (as conjunction is false iff at least one of its closest subformulas is false).
+                </p>
+                <p>
+                    Therefore, since the disjunction is true when at least one of its closest subformulas is true and false when 
+                    all its closest subformulas are false, \(D\)'s truth table is exactly the same as the given function's!
+                </p>
+                <p style="text-align: right">∎</p>
+                <!--what this thm intuitively means-->
+                <!--disjunctive normal form, disjunctive normal form, De Morgan's laws-->
+                <!--Karnaugh maps-->
+                <!--uniqueness of nand and nor as sufficient binary operators-->
                 <br>
                 <h1 style="color: red">Work in progress, stay tuned!</h1>
             </section>
-            <!--<section>
-                <br>
-                <h2>Source</h2>
-                <hr>
-                <ul style="margin-top: .5em;">
-                    <li class="aligned-text"><strong>Introduction to Mathematical Logic</strong><span><em>Eliott Mendelson</em></span></li>
-                </ul>
-            </section>-->
         </article>
     </main>
 </body>
