@@ -39,18 +39,182 @@
                 <p>
                     You might be aware, especially if you already are familiar with set theory, that this is an informal 
                     definition. Indeed, we are going to assume the function concept as part of our metalanguage, but of course, 
-                    this won't prevent us from rigorously defining what a function is in our formal theory later on.
+                    this won't prevent us from rigorously defining what a function is in our formal theory later on. Also, do not 
+                    fret if you are familiar with the paradoxes from set theory. Here we did use the concept of a set, but 
+                    nothing crazy was done. I'm assuming this is a concept of our informal metalanguage and once we formally 
+                    develop set theory, you may come back and realize that everything's fine.
                 </p>
                 <p>
                     A truth function is a function that has at least one input and a single output. Both inputs and output take 
                     in truth values. In propositional logic, a truth function is defined by a truth table, where one lists all 
                     the truth value combinations that its arguments can take as well as their respective output value. As we saw 
-                    in <a style="color: var(--url-color)" title="Definitions" href="definitions.html">2.1 Definitions</a>, truth 
-                    tables are used to determine all the truth values that a wff can take. Thus, you may view wffs as truth 
-                    functions, whose arguments are most basic subformulas and whose output takes the wff's truth value. One of 
-                    the things that we are going to do in this chapter is to find wffs whose truth tables correspond to any given 
-                    truth function by providing an algorithm to do so.
+                    in <a style="color: var(--url-color)" title="Definitions" href="definitions.html">2.2.1 Definitions</a>, 
+                    truth tables are used to determine all the truth values that a wff can take. Thus, you may view wffs as truth 
+                    functions whose arguments are the most basic subformulas and whose output takes the wff's truth value.
                 </p>
+                <p>One of the things that we are going to do in this chapter is to find wffs whose truth tables correspond to any 
+                    given truth function by providing an algorithm to do so, but first, let's talk about the De Morgan's laws, 
+                    which will be useful for our discussion.
+                </p>
+                <p>
+                    Let \(A_k\) be metavariables. The De Morgan's laws state that 
+                </p>
+                <ul>
+                    <li>
+                        \(\neg\bigwedge\limits_{k=1}^nA_k \Leftrightarrow \bigvee\limits_{k=1}^n\neg A_k\), i.e. the negation of 
+                        conjunctions is equivalent to the disjunction of negations
+                    </li>
+                    <li>
+                        \(\neg\bigvee\limits_{k=1}^nA_k \Leftrightarrow \bigwedge\limits_{k=1}^n\neg A_k\), i.e. the negation of 
+                        disjunctions is equivalent to the conjunction of negations
+                    </li>
+                </ul>
+                <p>
+                    To check this, it suffices to draw the respective truth tables for two metavariables \(A\) and \(B\):
+                </p>
+                <div class="tables-container" style="margin-left: 200px; margin-right: 200px;">
+                    <table>
+                        <tr>
+                            <th>\(A\)</th>
+                            <th>\(B\)</th>
+                            <th>\(A \land B\)</th>
+                            <th>\(\neg(A \land B)\)</th>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <th>\(A\)</th>
+                            <th>\(B\)</th>
+                            <th>\(\neg A\)</th>
+                            <th>\(\neg B\)</th>
+                            <th>\(\neg A \lor \neg B\)</th>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tables-container" style="margin-left: 200px; margin-right: 200px;">
+                    <table>
+                        <tr>
+                            <th>\(A\)</th>
+                            <th>\(B\)</th>
+                            <th>\(A \lor B\)</th>
+                            <th>\(\neg(A \lor B)\)</th>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <th>\(A\)</th>
+                            <th>\(B\)</th>
+                            <th>\(\neg A\)</th>
+                            <th>\(\neg B\)</th>
+                            <th>\(\neg A \land \neg B\)</th>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                        </tr>
+                    </table>
+                </div>
+                <p> If \(A\) and \(B\) also are conjunctions or disjunctions, then the De Morgan's laws hold by induction. </p>
                 <p style="margin-top: 1em;">
                     <span style="font-size: 17pt;"><u><strong>Proposition:</strong></u></span> Every truth function can be 
                     generated by a wff involving only the connectives \(\neg\), \(\land\) and \(\lor\).
@@ -86,7 +250,46 @@
                     all its closest subformulas are false, \(D\)'s truth table is exactly the same as the given function's!
                 </p>
                 <p style="text-align: right">∎</p>
-                <!--what this thm intuitively means-->
+                <p>
+                    <u><strong>Remark:</strong></u> If you think about it, what the algorithm from the above proof tells is that 
+                    saying "\(A\)" is the same as saying "\(A\) is true"
+                </p>
+                <p>
+                    The wff obtained from the proof's algorithm contains disjunctions of conjunctions. Such wffs are said to be 
+                    in disjunctive normal form. The more rows for which the truth function evaluates to \(\mathcal{T}\) its truth 
+                    table contains, the longest its disjunctive normal form formula is going to be. Thus, if its truth table 
+                    contains more true rows than false ones, the following algorithm will produce a shorter wff:
+                </p>
+                <ol>
+                    <li>Given a truth function, do the following for each of its rows whose output is false:</li>
+                    <ol>
+                        <li>
+                            Make an ordered list of wffs \(U_{ij}\), such that \(U_{ij}\) is \(A_j\) if the \(j^\text{th}\) value 
+                            of the \(i^\text{th}\) row is true and is \(\neg A_j\) if the \(j^\text{th}\) value of the 
+                            \(i^\text{th}\) row is false
+                        </li>
+                        <li> Let \(C_i\) be the conjunction of all these \(U_{ij}\) </li>
+                    </ol>
+                    <li>Let \(D\) the negation of the disjunction of all \(C_i\)</li>
+                    <li>
+                        The final wff is the one obtained by applying the De Morgan's laws to \(D\) and to each of its \(C_i\)
+                    </li>
+                </ol>
+                <p>
+                    In step 2., if we were to simply consider the disjunction of all \(C_i\), this would be the same algorithm 
+                    that we used to create the disjunctive normal form wff, but for the truth table whose values of the final 
+                    column would be opposite, as the \(C_i\) would only be taken from rows that evaluate to false. That's why the 
+                    negation of the disjunction of all \(C_i\) was taken.
+                </p>
+                <p>
+                    <u><strong>Remark:</strong></u> This could have been stated as a theorem. In fact, many informations that are 
+                    transmitted in the mathematical literature could be stated as theorems, but since communication is usually 
+                    done in a informal metalanguage, the proofs are informal and it's up to the author to decide whether to write 
+                    statements as theorems or simply to discuss them
+                </p>
+                <p>
+                    This new wff contains conjunctions of disjunctions, so it's said to be in conjunctive normal form.
+                </p>
                 <!--disjunctive normal form, disjunctive normal form, De Morgan's laws-->
                 <!--Karnaugh maps-->
                 <!--uniqueness of nand and nor as sufficient binary operators-->

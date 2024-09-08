@@ -242,6 +242,12 @@ ul {
     white-space: nowrap; /* Prevents text wrapping */
 }
 
+.tables-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px; /* Optional: Adds space between the tables */
+}
+
 .top-title {
     font-size: 2.5rem;
     font-variant: small-caps;
