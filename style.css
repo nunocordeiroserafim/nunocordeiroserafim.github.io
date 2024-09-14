@@ -70,6 +70,11 @@ hr {
     border-color: var(--body-color)
 }
 
+img {
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Responsive image */
+}
+
 main {
     display: flex;/*block*/
     flex-direction: row; /* Sidebar on the left, content on the right */
@@ -206,6 +211,15 @@ ul {
     width: 6px; /* Adjust the size of the bullet */
     height: 6px;
     border-radius: 50%; /* Makes it round */
+}
+
+.image-container {
+    margin-bottom: 20px; /* Space between images */
+}
+
+.image-container p {
+    font-size: 16px;
+    margin: 5px 0;
 }
 
 .post {
