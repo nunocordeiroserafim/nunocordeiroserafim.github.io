@@ -6,6 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="../style.css">
     <link rel="icon" sizes="125x99" href="../images/GameSolver.png?v=3" type="image/png">
+    <script>
+        function switchImage(imgElement, newSrc) {
+            const originalSrc = imgElement.getAttribute('data-original-src');
+            const currentSrc = imgElement.src;
+            // Log the paths for debugging
+            console.log("Current src:", currentSrc);
+            console.log("Original src:", originalSrc);
+            // Use endsWith to match the file names (or relative paths)
+            if (currentSrc.endsWith(originalSrc.split('/').pop())) {
+                imgElement.src = newSrc; // Switch to the new image
+            } else {
+                imgElement.src = originalSrc; // Switch back to the original image
+            }
+        }
+    </script>
     <title>Cube Mosaics</title>
 </head>
 <body>
@@ -26,13 +41,16 @@
                 <hr>
                 <br>
                 <p>Cube mosaics I've made:</p>
-                <div class="image-container"></div>
+                <div class="image-container">
                     <img src="../images/mosaics/Rui.jpeg" alt="My dad" title="My dad &#013 05/09/2024">
                 </div>
-                <div class="image-container">
-                    <img src="../images/mosaics/Guida.jpeg" alt="My mom" title="My mom &#013 13/09/2024">
+                <div class="image-container" style="cursor: pointer;">
+                    <img src="../images/mosaics/Guida1.jpeg" 
+                         alt="My mom" title="My mom &#013 13/09/2024" 
+                         data-original-src="../images/mosaics/Guida1.jpeg" 
+                         onclick="switchImage(this, '../images/mosaics/Guida2.jpeg')">
                 </div>
-                <div class="image-container"></div>
+                <div class="image-container">
                     <img src="../images/mosaics/Piggies_On_Fire.jpeg" alt="Piggies on Fire band logo" title="Piggies on Fire band logo &#013 05/09/2024">
                 </div>
             </section>
