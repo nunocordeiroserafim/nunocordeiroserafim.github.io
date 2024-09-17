@@ -42,7 +42,10 @@
                     this won't prevent us from rigorously defining what a function is in our formal theory later on. Also, do not 
                     fret if you are familiar with the paradoxes from set theory. Here we did use the concept of a set, but 
                     nothing crazy was done. I'm assuming this is a concept of our informal metalanguage and once we formally 
-                    develop set theory, you may come back and realize that everything's fine.
+                    develop set theory, you may come back and realize that everything's fine. From here on, when referring to a 
+                    set containing some given finite number of elements, I may write these elements separated by commas inside of 
+                    curly parenthesis \(\{\}\). Consider that sets containing the same elements or even repeated ones are the 
+                    same, i.e. element order and repetition doesn't matter.
                 </p>
                 <p>
                     A truth function is a function that has at least one input and a single output. Both inputs and output take 
@@ -654,16 +657,284 @@
                 <br>
                 <h2><u>Functionally complete connectives</u></h2>
                 <p>
-                    Such as any truth function can be represented by a wff containing only the symbols \(\neg\), \(\land\) and 
-                    \(\lor\), it's possible to represent any truth function by using a single binary logical connective. That's 
-                    the case of the Sheffer stroke and the nor connectives.
+                    A set of connectives that are enough to generate all truth functions is said to be functionally complete. 
+                    Just as is the case of \(\{\neg, \land, \lor\}\), there exist other functionally complete sets. The way to 
+                    prove that a set of connectives is functionally complete is pretty straightforward. Since we've already 
+                    proved that \(\neg\), \(\land\) and \(\lor\) can generate any truth function, it suffices to find wffs only 
+                    containing the connectives we want that have the same truth table as \(\neg A\), \(A \land B\) and 
+                    \(A \lor B\). To find a wff for a given truth function, one may then simply use one of the above algorithms 
+                    and then replace the expressions \(\neg A\), \(A \land B\) and \(A \lor B\) by their equivalent versions 
+                    containing only the connectives of interest.
                 </p>
+                <p>
+                    Here's an example of another functionally complete set of connectives: \(\{\neg, \rightarrow\}\). Since 
+                    \(\neg\) already belongs to \(\{\neg, \land, \lor\}\), it suffices to find equivalent wffs for \(A \land B\) 
+                    and \(A \lor B\) containing only negation and implication, like respectively \(\neg(A \rightarrow \neg B)\) 
+                    and \(\neg A \rightarrow B\). Behold their truth tables:
+                </p>
+                <div class="tables-container" style="margin-left: 200px; margin-right: 200px;">
+                    <table>
+                        <tr>
+                            <th>\(A\)</th>
+                            <th>\(B\)</th>
+                            <th>\(\neg B\)</th>
+                            <th>\(A \rightarrow \neg B\)</th>
+                            <th>\(\neg(A \rightarrow \neg B)\)</th>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <th>\(A\)</th>
+                            <th>\(B\)</th>
+                            <th>\(\neg A\)</th>
+                            <th>\(\neg A \rightarrow B\)</th>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                        </tr>
+                        <tr>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                            <td>\(\mathcal{F}\)</td>
+                            <td>\(\mathcal{T}\)</td>
+                        </tr>
+                    </table>
+                </div>
+                <p>
+                    It's also possible to represent any truth function by wffs containing a single binary logical connective, 
+                    which I'll conveniently call functionally complete. That's the case of the Sheffer stroke and the nor 
+                    connectives:
+                </p>
+                <ul>
+                    <li>Proof for Sheffer's stroke:</li>
+                    <ul>
+                        <li>\(\neg A\):</li>
+                        <table style="margin: .5em 0;">
+                            <tr>
+                                <th>\(A\)</th>
+                                <th>\(A \uparrow A\)</th>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                            </tr>
+                        </table>
+                        <li>\(A \land B\):</li>
+                        <table style="margin: .5em 0;">
+                            <tr>
+                                <th>\(A\)</th>
+                                <th>\(B\)</th>
+                                <th>\(A \uparrow B\)</th>
+                                <th>\((A \uparrow B)\uparrow(A \uparrow B)\)</th>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                        </table>
+                        <li>\(A \lor B\):</li>
+                        <table style="margin: .5em 0;">
+                            <tr>
+                                <th>\(A\)</th>
+                                <th>\(B\)</th>
+                                <th>\(A \uparrow A\)</th>
+                                <th>\(B \uparrow B\)</th>
+                                <th>\((A \uparrow A)\uparrow(B \uparrow B)\)</th>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                        </table>
+                        <p style="text-align: right">∎</p>
+                    </ul>
+                    <li>Proof for nor:</li>
+                    <ul>
+                        <li>\(\neg A\):</li>
+                        <table style="margin: .5em 0;">
+                            <tr>
+                                <th>\(A\)</th>
+                                <th>\(A \downarrow A\)</th>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                            </tr>
+                        </table>
+                        <li>\(A \land B\):</li>
+                        <table style="margin: .5em 0;">
+                            <tr>
+                                <th>\(A\)</th>
+                                <th>\(B\)</th>
+                                <th>\(A \downarrow A\)</th>
+                                <th>\(B \downarrow B\)</th>
+                                <th>\((A \downarrow A)\downarrow(B \downarrow B)\)</th>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                        </table>
+                        <li>\(A \lor B\):</li>
+                        <table style="margin: .5em 0;">
+                            <tr>
+                                <th>\(A\)</th>
+                                <th>\(B\)</th>
+                                <th>\(A \downarrow B\)</th>
+                                <th>\((A \downarrow B)\downarrow(A \downarrow B)\)</th>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                        </table>
+                        <p style="text-align: right">∎</p>
+                    </ul>
+                </ul>
                 <p style="margin-top: 1em;"></p>
-                    <span style="font-size: 17pt;"><u><strong>Theorem:</strong></u></span> Every truth function can be 
-                    generated by a wff involving only the connective \(\uparrow\) or the connective \(\downarrow\).
+                    <span style="font-size: 17pt;"><u><strong>Theorem:</strong></u></span> The only functionally complete binary 
+                    logical connectives are \(\uparrow\) and \(\downarrow\).
                 </p>
                 <p> <span style="font-size: 17pt;"><strong>Proof:</strong></span> </p>
-                <!--uniqueness of nand and nor as sufficient binary operators-->
                 <br>
                 <h1 style="color: red">Work in progress, stay tuned!</h1>
             </section>
