@@ -215,6 +215,13 @@
                     </tr>
                 </table>
                 <p>
+                    If you think that when \(A\) is false, then \(A \rightarrow B\) should be false, then you are likely 
+                    confusing \(A \rightarrow B\) with \(A \land (A \rightarrow B)\). One is saying "if \(A\), then \(B\)" and 
+                    the other "\(A\), so \(B\)", which is the same as just saying "\(A\) and \(B\)". Indeed, if you were to 
+                    define \(A \rightarrow B\) as being false when \(A\) is false, you would get the same truth table as 
+                    \(A \land B\).
+                </p>
+                <p>
                     The reason that \(A \rightarrow B\) is true whenever \(A\) is false is that one should interpret wffs as 
                     rules that are true whenever they are satisfied and false otherwise. Let's illustrate this with two examples.
                 </p>
@@ -245,11 +252,14 @@
                     third like card 5 and the fourth like card 6.
                 </p>
                 <p>
-                    I think that the source of many people's confusion comes from their thinking that there must be a causal link 
-                    between the hypothesis and the conclusion. "If pigs can fly, then Lisbon is the capital of the Portugal" is 
-                    true, because the rule is always satisfied. Pigs can't fly (at least as far as I'm aware), so whatever the 
+                    I think that a source of many people's confusion comes from their thinking that there should be some causal 
+                    link between the hypothesis and the conclusion. "If pigs can fly, then Lisbon is the capital of Portugal" is 
+                    true, because the rule is always satisfied. Pigs can't fly (at least as far as I'm aware), so whichever the 
                     conclusion, the implication is true, even though there is no link between the flying ability of pigs and the 
-                    city that's Portugal's capital.
+                    city that's Portugal's capital. In the same way, "if the sky is blue, then the Rubik's Cube was invented by 
+                    Ernő Rubik" is true because that rule is satisfied, but "if Darth Vader is Luke Skywalker's father, then I 
+                    (the author, not necessarily you) am the fastest speedcuber ever" is false, because Luke is Vader's son, but 
+                    I'm definitely not the best speedcuber ever.
                 </p>
                 <p>
                     The reverse implication \(A \leftarrow B\) is an implication in which \(A\) is the conclusion and \(B\) is 
