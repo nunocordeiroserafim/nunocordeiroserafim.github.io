@@ -17,7 +17,17 @@
             // Update the current index in the img element
             imgElement.setAttribute('data-index', currentIndex);
         }
+        function preloadImages(urls) {
+            urls.forEach(function(url) {
+                const img = new Image();
+                img.src = url;
+            });
+        }
     </script>
+    <!--Images to preload:-->
+    <link rel="preload" href="../images/mosaics/Guida/Guida2.jpeg" as="image">
+    <link rel="preload" href="../images/mosaics/Souper_de_classe2024/2.jpeg" as="image">
+    <link rel="preload" href="../images/mosaics/Souper_de_classe2024/3.jpeg" as="image">
     <title>Cube Mosaics</title>
 </head>
 <body>
@@ -41,7 +51,7 @@
                 <div class="image-container">
                     <img src="../images/mosaics/Rui.jpeg" alt="My dad" title="My dad&#013;05/09/2024&#013;600 Cubes">
                 </div>
-                <div class="image-container" style="cursor: pointer; display: none;">
+                <div class="image-container" style="cursor: pointer;">
                     <img src="../images/mosaics/Guida/Guida1.jpeg" 
                          style="cursor: pointer;"
                          alt="My mom" 
@@ -57,7 +67,7 @@
                              title="Piggies On Fire band logo&#013;05/09/2024&#013;600 Cubes">
                     </a>
                 </div>
-                <div class="image-container" style="cursor: pointer; display: none;">
+                <div class="image-container" style="cursor: pointer;">
                     <img src="../images/mosaics/Souper_de_classe2024/1.jpeg" 
                          style="cursor: pointer;"
                          alt="Souper de classe 2024" 
