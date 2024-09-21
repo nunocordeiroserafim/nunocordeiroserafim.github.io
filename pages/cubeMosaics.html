@@ -7,18 +7,15 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="icon" sizes="125x99" href="../images/GameSolver.png?v=3" type="image/png">
     <script>
-        function switchImage(imgElement, newSrc) {
-            const originalSrc = imgElement.getAttribute('data-original-src');
-            const currentSrc = imgElement.src;
-            // Log the paths for debugging
-            console.log("Current src:", currentSrc);
-            console.log("Original src:", originalSrc);
-            // Use endsWith to match the file names (or relative paths)
-            if (currentSrc.endsWith(originalSrc.split('/').pop())) {
-                imgElement.src = newSrc; // Switch to the new image
-            } else {
-                imgElement.src = originalSrc; // Switch back to the original image
-            }
+        function switchImage(imgElement, imageArray) {
+            // Get the current index from the img element's data attribute
+            let currentIndex = parseInt(imgElement.getAttribute('data-index'), 10);
+            // Calculate the next index (looping back to 0 if at the end)
+            currentIndex = (currentIndex + 1) % imageArray.length;
+            // Set the new image source
+            imgElement.src = imageArray[currentIndex];
+            // Update the current index in the img element
+            imgElement.setAttribute('data-index', currentIndex);
         }
     </script>
     <title>Cube Mosaics</title>
@@ -44,14 +41,29 @@
                 <div class="image-container">
                     <img src="../images/mosaics/Rui.jpeg" alt="My dad" title="My dad&#013;05/09/2024&#013;600 Cubes">
                 </div>
-                <div class="image-container" style="cursor: pointer;">
-                    <img src="../images/mosaics/Guida1.jpeg" 
-                         alt="My mom" title="My mom&#013;13/09/2024&#013;1099 Cubes" 
-                         data-original-src="../images/mosaics/Guida1.jpeg" 
-                         onclick="switchImage(this, '../images/mosaics/Guida2.jpeg')">
+                <div class="image-container" style="cursor: pointer;"></div>
+                    <img src="../images/mosaics/Guida/Guida1.jpeg" 
+                         style="cursor: pointer;"
+                         alt="My mom" 
+                         title="My mom&#013;13/09/2024&#013;1099 Cubes" 
+                         data-index="0" 
+                         onclick="switchImage(this, ['../images/mosaics/Guida/Guida1.jpeg', '../images/mosaics/Guida/Guida2.jpeg'])">
                 </div>
                 <div class="image-container">
-                    <img src="../images/mosaics/Piggies_On_Fire.jpeg" alt="Piggies on Fire band logo" title="Piggies on Fire band logo&#013;05/09/2024&#013;600 Cubes">
+                    <a href="https://www.youtube.com/@piggiesonfire4447" target="_blank">
+                        <img src="../images/mosaics/Piggies_On_Fire.jpeg" 
+                             style="cursor: pointer;"
+                             alt="Piggies On Fire band logo" 
+                             title="Piggies On Fire band logo&#013;05/09/2024&#013;600 Cubes">
+                    </a>
+                </div>
+                <div class="image-container" style="cursor: pointer;"></div>
+                    <img src="../images/mosaics/Souper_de_classe2024/1.jpeg" 
+                         style="cursor: pointer;"
+                         alt="Souper de classe 2024" 
+                         title="Souper de classe 2024&#013;21/09/2024&#013;1092 Cubes" 
+                         data-index="0"
+                         onclick="switchImage(this, ['../images/mosaics/Souper_de_classe2024/1.jpeg', '../images/mosaics/Souper_de_classe2024/2.jpeg', '../images/mosaics/Souper_de_classe2024/3.jpeg'])">
                 </div>
             </section>
         </article>
