@@ -263,7 +263,7 @@
                 </p>
                 <p>
                     The reverse implication \(A \leftarrow B\) is an implication in which \(A\) is the conclusion and \(B\) is 
-                    the hypothesis. Thus, its truth table is
+                    the hypothesis. \(A \leftarrow B\) is called the reciprocal of \(A \rightarrow B\). Thus, its truth table is
                 </p>
                 <table>
                     <tr>
@@ -363,7 +363,55 @@
                     </tr>
                 </table>
                 <p>
-                    Remark that \(A \leftrightarrow B\) is true if and only if \(A\) and \(B\) have the same truth values.
+                    Remark that \(A \leftrightarrow B\) is true if and only if \(A\) and \(B\) have the same truth values. An 
+                    example of equivalent formulas are the implication \(A \rightarrow B\) and its contrapositive, defined as 
+                    \(\neg B \rightarrow \neg A\):
+                </p>
+                <table>
+                    <tr>
+                        <th>\(A\)</th>
+                        <th>\(B\)</th>
+                        <th>\(\neg A\)</th>
+                        <th>\(\neg B\)</th>
+                        <th>\(A \rightarrow B\)</th>
+                        <th>\(\neg B \rightarrow \neg A\)</th>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{F}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                        <td>\(\mathcal{T}\)</td>
+                    </tr>
+                </table>
+                <p>
+                    Their truth values are all the same, so \((A \rightarrow B) \leftrightarrow (\neg B \rightarrow \neg A)\) is 
+                    true for all rows.
                 </p>
                 <p>
                     The symbol \(\uparrow\) is the negation of conjunction, called nand or Sheffer stroke. As the negation of 
