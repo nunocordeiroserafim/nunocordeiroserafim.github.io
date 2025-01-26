@@ -20,6 +20,7 @@
                 <a title="Propositional Logic | Language" href="language.html">2.1 Language</a>
                 <a title="Propositional Logic | Semantics" href="semantics.html">2.2 Semantics</a>
                 <a title="Propositional Logic | Propositional Calculus" href="propositionalCalculus.html">2.3 Propositional Calculus: \(P_2\)</a>
+                <a title="Propositional Logic | Soundness Theorem" href="soundnessTheorem.html">2.4 Soundness Theorem</a>
             </div>
         </nav>
         <article class="post">
@@ -28,9 +29,96 @@
                 <hr>
             </section>
             <section>
+                <p>
+                    The formal system that we are going to be using for Propositional Logic was built by Jan Łukasiewicz and is 
+                    called \(P_2\). The "\(P\)" stands for propositional logic and the "2" is there, because it was the second 
+                    such system in his explorations of propositional calculus. \(P_2\) is actually an improvement over another 
+                    system proposed by Frege: not only did he remove a redundant axiom scheme that could be proved by the others, 
+                    but he also managed to replace 3 other axiom schemes by a single one.
+                </p>
+                <p>
+                    Behold \(P_2\)'s axiom schemes:
+                </p>
+                <ul>
+                    <li>\(A_1\): \(\varphi\rightarrow(\psi\rightarrow\varphi)\)</li>
+                    <li>\(A_2\): \([\varphi\rightarrow(\psi\rightarrow\eta)]\rightarrow[(\varphi\rightarrow\psi)\rightarrow(\varphi\rightarrow\eta)]\) \(\qquad\longrightarrow\) you may call this implication distributivity</li>
+                    <li>\(A_3\): \((\neg\varphi\rightarrow\neg\psi)\rightarrow(\psi\rightarrow\varphi)\) \(\qquad\qquad\qquad\qquad\ \ \longrightarrow\) you may call this contraposition</li>
+                </ul>
+                <p>
+                    \(P_2\) has a single inference rule called Modus Ponens (abbreviated as MP), which states that from 
+                    \(\varphi\) and \(\varphi\rightarrow\psi\), which are either axiom schemes or proved theorems, one can prove 
+                    the theorem \(\psi\).
+                </p>
+                <p> <u><strong>Remarks:</strong></u> </p>
+                <ul>
+                    <li>
+                        This isn't the original version of \(P_2\), but another that is believed to be due to John von Neumann
+                        (according to Raymond M. Smullyan's <em>A Beginner's Guide to Mathematical Logic</em>). The original 
+                        \(P_2\) system uses axioms instead of axiom schemes. The difference is that in the axioms, the symbols 
+                        that aren't logical connectives stand for statement letters, whereas in the axiom schemes, they stand for 
+                        metavariables. Since metavariables stand for any wff of your choice, an axiom scheme stands for an 
+                        infinite amount of axioms. The reason that an axiom scheme is preferrable to an axiom is simply that if 
+                        we were to use axioms, we would require an additional inference rule which would allow us to replace any 
+                        statement letter by a wff
+                    </li>
+                    <li>
+                        You may realize that the only logical connectives that appear in the axiom schemes are \(\neg\) and 
+                        \(\rightarrow\). It's then impossible to create any statement containing any other connective. Indeed, 
+                        when using \(P_2\), we restrict our list of logical connectives to only these two and treat the others as 
+                        abbreviations in the metalanguage:
+                    </li>
+                    <ul>
+                        <li>\(A \land B\) stands for \(\neg(A \rightarrow\neg B)\)</li>
+                        <li>\(A \lor B\) stands for \(\neg A \rightarrow B\)</li>
+                        <li>\(A \oplus B\) stands for \((\neg A \land B) \lor (A \land\neg B) \lor (\neg A \land\neg B)\)</li>
+                        <li>\(A \leftarrow B\) stands for \(B \rightarrow A\)</li>
+                        <li>\(A \leftrightarrow B\) stands for \((A \rightarrow B) \land (A \leftarrow B)\)</li>
+                        <li>\(A \uparrow B\) stands for \(\neg(A \land B)\)</li>
+                        <li>\(A \downarrow B\) stands for \(\neg(A \lor B)\)</li>
+                        <li>\(A \not\rightarrow B\) stands for \(\neg(A \rightarrow B)\)</li>
+                        <li>\(A \not\leftarrow B\) stands for \(\neg(A \leftarrow B)\)</li>
+                        <li>\(A \not\leftrightarrow B\) stands for \(\neg(A \leftrightarrow B)\)</li>
+                    </ul>
+                    <p>
+                        These abbreviations do make sense from the semantics standpoint, as if you compare their truth tables, 
+                        they are equivalent.
+                    </p>
+                </ul>
+                <p>
+                    At this point, we don't know much about the properties of this formal system. By the way, you may be 
+                    wondering why I'm even bothering with a formal system in the first place. Besides the intent to model our 
+                    reasoning and mathematically study it, the reason is that I want a way to prove whether any given wff is a 
+                    tautology, i.e. a wff that always evaluates to true regardless of the truth value of any of its most basic 
+                    subformulas. Sure, we could simply check that with truth tables, but the problem with that brute-force 
+                    approach is that the number of the table's rows exponentially increases with the number of most basic 
+                    subformulas. It would then be useful to devise a faster way to check for tautologies, and that's where formal 
+                    systems come in. Another reason for using formal systems, is that after the chapter about Propositional Logic, 
+                    we'll eventually tackle the chapter on First-Order Logic, in which truth tables will be virtually useless.
+                </p>
+                <p>
+                    The Modus Ponens rule is pretty intuitive, but the choice of axiom schemes may seem obscure. In the following 
+                    chapters, we'll justify \(P_2\)'s design by proving that it does satisfy some desirable properties, namely
+                </p>
+                <ul>
+                    <li>Soundness: the system is by definition sound if it can only prove true theorems</li>
+                    <li>Consistency: the system is by definition consistent if it cannot prove both \(A\) and \(\neg A\)</li>
+                    <li>Completeness: the system is by definition complete if any true theorem is provable in \(P_2\)</li>
+                    <li>Independence: the list of axioms/axiom schemes is by definition independent if no axiom/axiom scheme can 
+                        be proved from another</li>
+                </ul>
+                <p>
+                    If you are still unclear as to what a formal proof looks like, you need not worry, as I'll dedicate a whole 
+                    chapter to formal proofs right after we prove the <a style="color: var(--url-color)" title="Propositional Logic | Soundness Theorem" href="soundnessTheorem.html">Soundness Theorem</a>!
+                </p>
+            </section>
+            <section>
                 <br>
-                <h1 style="color: red">Work in progress, stay tuned!</h1>
-                <!--check my whatsapp messages from 02/01-->
+                <hr>
+                <div style="text-align: center; margin-top: 20px; font-style: italic; display: flex; justify-content: center;">
+                    <p style="margin: 0;">
+                        <i>Posted 26/01/2025 | Last edited 26/01/2025</i>
+                    </p>
+                </div>
             </section>
         </article>
     </main>

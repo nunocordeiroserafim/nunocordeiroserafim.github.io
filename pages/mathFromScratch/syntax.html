@@ -40,7 +40,7 @@
                     I've mentioned that we need to communicate without ambiguity. A way to achieve such clarity is through the 
                     use of a formal system, which will allow us to derive formal proofs. Formal proofs are simply proofs written 
                     in a specific form, following a given syntax. A formal system is a <em>formal language</em> equipped with a 
-                    <em>deductive apparatus</em>.
+                    <em>deductive apparatus</em>. You may think of a formal system as a model of reasoning.
                 </p>
                 </p>
                     A <strong>formal language</strong> consists of formulas formed from an <em>alphabet</em> and a 
@@ -50,10 +50,10 @@
                     "\(>\)" and "\(=\)". By concatenating the alphabet's symbols, one creates strings. Among the strings, 
                     tokens/words are the ones that are described by the <strong>grammar</strong> according to its formation rules. 
                     In the previous example, the only formation rules are that digit symbols are terms and that any concatenation 
-                    of a term with another term forms a new term. By concatenating terms with relation symbols, one creates 
-                    formulas. Among formulas, well-formed formulas (or wffs for short) also follow the grammar's respective 
-                    formation rules. For our very primitive decimal number system language, formulas could simply be a term 
-                    followed by a relation symbol followed by another term.
+                    of a term with another term forms a new term. By concatenating terms with relation symbols in a specific way, 
+                    one creates formulas. Among formulas, well-formed formulas (or wffs for short) also follow the grammar's 
+                    respective formation rules. For our very primitive decimal number system language, formulas could simply be a 
+                    term followed by a relation symbol followed by another term.
                 </p>
                 <p> <u><strong>Remarks:</strong></u> </p>
                 <ul>
@@ -123,30 +123,31 @@
                 <br>
                 <h2> <u>The game of Chess</u> </h2>
                 <p>
-                    To give an example, let's define a formal system for the game of <a class="url" title="Rules of Chess" href="https://en.wikipedia.org/wiki/Rules_of_chess" target="_blank">Chess</a>.
+                    To give an example, here's what a formal system for the game of <a class="url" title="Rules of Chess" href="https://en.wikipedia.org/wiki/Rules_of_chess" target="_blank">Chess</a>
+                    would look like.
                 </p>
                 <p>
-                    Its alphabet consists of the pieces (Pawn, Bishop, Knight, Rook, Queen and King, black and white), of the 
-                    game board and of the informations of whose turn it is, of whether each player may castle if the opportunity 
-                    presents, of how many times each position has been visited (for the repetition rule) and of how many moves 
-                    have been made since a Pawn has been moved or a capture has been made (for the 50 and 75-move rules). Its 
-                    terms are the pieces, and its wffs are allocations of pieces to the game board with flags containing the 
-                    above informations.
+                    Its alphabet would consist of the pieces (Pawn, Bishop, Knight, Rook, Queen and King, black and white), of 
+                    the game board and of the informations of whose turn it is, of whether each player may castle if the 
+                    opportunity presents, of how many times each position has been visited (for the repetition rules) and of how 
+                    many moves have been made since a Pawn has been moved or a capture has been made (for the 50 and 75-move 
+                    rules). Its terms would be the pieces, and its wffs would be allocations of pieces to the game board with 
+                    flags containing the above informations.
                 </p>
                 <p>
-                    The only axiom is the starting position, with White to move, both players being allowed to castle if the 
-                    opportunity presents, no visited position except once for the starting one, and no made moves since last 
-                    capture or Pawn move. The rules of inference are simply the rules of the game, which from a given position 
-                    indicate which positions can be reached in the next move. Thus, the theorems are simply the starting position, 
-                    as well as all positions that arise from the inference rules.
+                    The only axiom would be the starting position, with White to move, both players being allowed to castle if 
+                    the opportunity presents, no visited position except the starting one, and no made moves since last capture 
+                    or Pawn move. The rules of inference would simply be the rules of the game, which from a given position 
+                    indicate which positions can be reached in the next move. Thus, the theorems would simply be the starting 
+                    position, as well as all positions that arise from the inference rules.
                 </p>
                 <p>
-                    You may have noticed that I kind of cheated, because a formal system was supposed to work with symbols, 
-                    whereas here I've instead used pieces, informations, board positions, etc. However, it should be clear that 
-                    one may may make this a proper formal system by associating symbols to each piece, relation symbols to 
-                    indicate where each piece stands on the board, logical connectives to allow one to say "the Pawn is in C3 
-                    <em>and</em> the Rook is in H1", etc. In other words, you may create a formal system for the game of chess if 
-                    you reverse-engineer the semantics.
+                    You may have noticed that it's debatable whether this is really a formal system, because a formal system is 
+                    supposed to work with symbols, whereas here I've instead used pieces, informations, board positions, etc. 
+                    However, it should be clear that one may may make this a proper formal system by associating symbols to each 
+                    piece, relation symbols to indicate where each piece stands on the board, logical connectives to allow one to 
+                    say "the Pawn is in C3 <em>and</em> the Rook is in H1", etc. In other words, you may create a formal system 
+                    for the game of chess if you reverse-engineer the semantics.
                 </p>
                 <br>
                 <h2> <u>Rigorous proof</u> </h2>
@@ -177,7 +178,7 @@
                 <hr>
                 <div style="text-align: center; margin-top: 20px; font-style: italic; display: flex; justify-content: center;">
                     <p style="margin: 0;">
-                        <i>Posted 21/08/2024 | Last edited 02/09/2024</i>
+                        <i>Posted 21/08/2024 | Last edited 26/01/2025</i>
                     </p>
                 </div>
             </section>
