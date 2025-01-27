@@ -32,10 +32,9 @@
             <section>
                 <p>
                     The formal system that we are going to be using for Propositional Logic was built by Jan Łukasiewicz and is 
-                    called \(P_2\). The "\(P\)" stands for propositional logic and the "2" is there, because it was the second 
-                    such system in his explorations of propositional calculus. \(P_2\) is actually an improvement over another 
-                    system proposed by Frege: not only did he remove a redundant axiom scheme that could be proved by the others, 
-                    but he also managed to replace 3 other axiom schemes by a single one.
+                    called \(P_2\). \(P_2\) is actually an improvement over another system proposed by Frege: not only did he 
+                    remove a redundant axiom scheme that could be proved by the others, but he also managed to replace 3 other 
+                    axiom schemes by a single one.
                 </p>
                 <p>
                     Behold \(P_2\)'s axiom schemes:
@@ -84,6 +83,12 @@
                         These abbreviations do make sense from the semantics standpoint, as if you compare their truth tables, 
                         they are equivalent.
                     </p>
+                    <li>
+                        These axiom schemes are called logical axiom schemes, because they are purely logical. After the chapter 
+                        on propositional calculus, we are going to work with more axioms along with the logical ones to study 
+                        other mathematical subjects, like set theory, number theory or group theory. Such additional axioms are 
+                        called non-logical axioms
+                    </li>
                 </ul>
                 <p>
                     At this point, we don't know much about the properties of this formal system. By the way, you may be 
@@ -104,6 +109,7 @@
                     <li>Soundness: the system is by definition sound if it can only prove true theorems</li>
                     <li>Consistency: the system is by definition consistent if it cannot prove both \(A\) and \(\neg A\)</li>
                     <li>Completeness: the system is by definition complete if any true theorem is provable</li>
+                    <li>Decidability: the system is by definition decidable if there is an algorithm to prove any theorem</li>
                     <li>Independence: the list of axioms/axiom schemes is by definition independent if no axiom/axiom scheme can 
                         be proved from another</li>
                 </ul>
@@ -113,6 +119,7 @@
                     looks like, you need not worry, as I'll dedicate a whole chapter to formal proofs right after we prove the 
                     <a style="color: var(--url-color)" title="Propositional Logic | Soundness Theorem" href="soundnessTheorem.html">Soundness Theorem</a>!
                 </p>
+                <!--Prove implication reflexion as an example of formal proof-->
             </section>
             <section>
                 <br>
