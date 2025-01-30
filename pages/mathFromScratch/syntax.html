@@ -150,6 +150,91 @@
                     for the game of chess if you reverse-engineer the semantics.
                 </p>
                 <br>
+                <h2> <u>Notation and Format</u> </h2>
+                <p>
+                    Let's use a concrete example to show the format in which formal proofs will be writen. The following toy 
+                    formal system was proposed by Paul Lorenzen.
+                </p>
+                <p>
+                    It's alphabet consists of the symbols \(+\) and \(o\). The language has no terms and wffs are the alphabet's 
+                    symbols and any concatenation of them.
+                </p>
+                <p>
+                    The only axiom of the deductive apparatus is the symbol \(+\) and its two rules of inference are
+                </p>
+                <ul>
+                    <li>\(o\) concatenation: \(x \vdash xo\)</li>
+                    <li>\(+\) concatenation: \(x \vdash +x+\)</li>
+                </ul>
+                <p>
+                    where \(x\) stands for any wff and \(\vdash\), called the turnstile, is a symbol which means "proves". For 
+                    example, \(x \vdash xo\) means that \(x\) proves \(xo\), or in other words, that from \(x\) you can 
+                    deduce/derive \(xo\). It's important to understand that the turnstile is a symbol of the metalanguage and is 
+                    not a part of the formal language.
+                </p>
+                <p>
+                    Let \(x\) and \(y\) be wffs. Whenever you write \(\vdash y\), even though nothing stands to the left of 
+                    \(\vdash\), it's implicitly assumed that \(y\) follows from the axiom/s or from the proved theorems. Whenever 
+                    you write \(x \vdash y\), \(x\) is either an hypothesis or another axiom that we wish to consider, not 
+                    necessarily an axiom or a theorem from our system. To make notation clearer, in the case one wishes to add 
+                    multiple axioms/hypothesis, say \(x_0\), \(x_1\), ..., we'll write \(\{x_0, x_1, ...\}\) to the left of the 
+                    turnstile, to mean that some statement is provable by the set \(\{x_0, x_1, ...\}\). If we have a set of wffs 
+                    \(\Phi\) and we wish to add a wff \(z\) to it, we may write \(\{x_0, x_1, ...\} \cup z\) or 
+                    \(\{x_0, x_1, ...\} + z\) (the "\(+\)" symbol that is meant here is not to be confused with the "\(+\)" 
+                    symbol of the language that we are considering in this example; it's just a coincidence that they're the 
+                    same). If instead of adding a wff, we want to add another set of wffs \(\Phi'\) to it, then we shall write 
+                    \(\Phi \cup \Phi'\).
+                </p>
+                <p>
+                    Now, to show what a formal proof looks like, let's prove the theorem "\(++oo+o\)":
+                </p>
+                <table class="formalProof">
+                    <tr>
+                        <th></th>
+                        <th>\(\vdash\)</th>
+                        <th>\(+\)</th>
+                        <th>: \(\varphi_0\)</th>
+                        <th>// axiom</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th>\(\vdash\)</th>
+                        <td>\(+o\)</td>
+                        <td>: \(\varphi_1\)</td>
+                        <td>// \(o\) concatenation from \(\varphi_0\)</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th>\(\vdash\)</th>
+                        <td>\(+oo\)</td>
+                        <td>: \(\varphi_2\)</td>
+                        <td>// \(o\) concatenation from \(\varphi_1\)</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th>\(\vdash\)</th>
+                        <td>\(++oo+\)</td>
+                        <td>: \(\varphi_3\)</td>
+                        <td>// \(+\) concatenation from \(\varphi_2\)</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th>\(\vdash\)</th>
+                        <td>\(++oo+o\)</td>
+                        <td>: \(\varphi_4\)</td>
+                        <td>// \(o\) concatenation from \(\varphi_3\)</td>
+                    </tr>
+                </table>
+                <p>
+                    Each line is either an axiom or the output of a rule of inference applied to a previously proved wff. To 
+                    refer to a previous wff, each wff is given a name, in this case ranging from \(\varphi_0\) to \(\varphi_4\).
+                    To the right of that given name stands a comment justifying the step.
+                </p>
+                <p>
+                    This proof makes no reference to the eventual meaning of the wffs. It's a purely mechanical procedure. This 
+                    is the case for all formal proofs of all formal systems.
+                </p>
+                <br>
                 <h2> <u>Rigorous proof</u> </h2>
                 <p>
                     If you formally prove something, meaning by using a formal system, then it will rigorously be proven. It 
@@ -178,7 +263,7 @@
                 <hr>
                 <div style="text-align: center; margin-top: 20px; font-style: italic; display: flex; justify-content: center;">
                     <p style="margin: 0;">
-                        <i>Posted 21/08/2024 | Last edited 26/01/2025</i>
+                        <i>Posted 21/08/2024 | Last edited 30/01/2025</i>
                     </p>
                 </div>
             </section>

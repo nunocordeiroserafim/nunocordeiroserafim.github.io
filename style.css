@@ -213,6 +213,46 @@ ul {
     border-radius: 50%; /* Makes it round */
 }
 
+.formalProof {
+    border-collapse: collapse;
+    width: auto; /* Allows the table to shrink to fit its content */
+    background-color: transparent; /* Ensures no unwanted background */
+    border: none; /* Invisible borders */
+    margin-left: 0; /* Aligns the table to the left */
+    margin-right: auto; /* Prevents centering */
+}
+
+.formalProof th {
+    background-color: transparent !important; /* Overrides any inherited background */
+    font-weight: normal !important; /* Removes bold */
+    text-align: left; /* Default alignment to override global CSS */
+    white-space: nowrap; /* Prevents wrapping */
+}
+
+/* Remove borders from table cells */
+.formalProof th, 
+.formalProof td {
+    border: none !important; /* Invisible borders */
+    padding: 8px;
+    white-space: nowrap; /* Ensures columns fit their content */
+}
+
+/* Column alignments for both headers and data cells */
+.formalProof th:nth-child(1), 
+.formalProof td:nth-child(1) { text-align: right; }   /* First column */
+
+.formalProof th:nth-child(2), 
+.formalProof td:nth-child(2) { text-align: center; }  /* Second column */
+
+.formalProof th:nth-child(3), 
+.formalProof td:nth-child(3) { text-align: left; }    /* Third column */
+
+.formalProof th:nth-child(4), 
+.formalProof td:nth-child(4) { text-align: center; }  /* Fourth column */
+
+.formalProof th:nth-child(5), 
+.formalProof td:nth-child(5) { text-align: left; }    /* Fifth column */
+
 .image-container {
     margin-bottom: 20px; /* Space between images */
 }
