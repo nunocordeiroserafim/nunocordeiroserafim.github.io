@@ -20,7 +20,7 @@
                 <a title="Propositional Logic | Language" href="language.html">2.1 Language</a>
                 <a title="Propositional Logic | Semantics" href="semantics.html">2.2 Semantics</a>
                 <a title="Propositional Logic | Propositional Calculus" href="propositionalCalculus.html">2.3 Propositional Calculus: \(P_2\)</a>
-                <!--<a title="Propositional Logic | Useful Theorems, Lemmas and Metatheorems" href="usefulTheoremsLemmasAndMetatheorems.html">2.4 Useful Theorems, Lemmas and Metatheorems</a>-->
+                <a title="Propositional Logic | Useful Theorems, Lemmas and Metatheorems" href="usefulTheoremsLemmasAndMetatheorems.html">2.4 Useful Theorems, Lemmas and Metatheorems</a>
                 <!--<a title="Propositional Logic | Soundness Theorem and Consistency" href="SoundnessTheoremAndConsistency.html">2.5 Soundness Theorem and Consistency</a>-->
             </div>
         </nav>
@@ -30,15 +30,107 @@
                 <hr>
             </section>
             <section>
+                <p>
+                    The goal of this chapter is to prove the required lemmas so that we become able to prove two things: the 
+                    principle of explosion and the completeness theorem. To do so, we'll prove some theorems, as well as some 
+                    metatheorems. If you are familiar with programming, metatheorems can be viewed as macros, an abbreviation in 
+                    the code that stands for other lines of code. In the same way, a metatheorem in this chapter can be viewed as 
+                    a shortcut to spare some lines of proof. You can also view them as additional rules of inference, procedures 
+                    to derive a wff from other wffs.
+                </p>
+                <p>
+                    To understand the proofs, you'll need to be able to consult, or even better, memorize the axioms \(A_1\), 
+                    \(A_2\) and \(A_3\), as well as the Modus Ponens rule of inference:
+                </p>
+                <ul>
+                    <li>\(A_1\): \(\varphi\rightarrow(\psi\rightarrow\varphi)\)</li>
+                    <li>\(A_2\): \([\varphi\rightarrow(\psi\rightarrow\eta)]\rightarrow[(\varphi\rightarrow\psi)\rightarrow(\varphi\rightarrow\eta)]\)</li>
+                    <li>\(A_3\): \((\neg\varphi\rightarrow\neg\psi)\rightarrow(\psi\rightarrow\varphi)\)</li>
+                    <li>MP: \(\{\varphi, \varphi \rightarrow \psi\} \vdash \psi\)</li>
+                </ul>
+                <p>
+                    Now, without further do, let the fun begin!
+                </p>
+                <h2> <u>Implication Reflexivity:</u> \(\varphi \rightarrow \varphi\) </h2>
+                <table class="formalProof">
+                    <tr>
+                        <th></th>
+                        <th>\(\vdash\)</th>
+                        <th>\(\varphi \rightarrow [(\varphi \rightarrow \varphi) \rightarrow \varphi]\)</th>
+                        <th>: \(\varphi_0\)</th>
+                        <th>// instance of \(A_1\)</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th>\(\vdash\)</th>
+                        <td>\([\varphi \rightarrow ((\varphi \rightarrow \varphi) \rightarrow \varphi)] \rightarrow [(\varphi \rightarrow (\varphi \rightarrow \varphi)) \rightarrow (\varphi \rightarrow \varphi)]\)</td>
+                        <td>: \(\varphi_1\)</td>
+                        <td>// instance of \(A_2\)</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th>\(\vdash\)</th>
+                        <td>\([\varphi \rightarrow (\varphi \rightarrow \varphi)] \rightarrow (\varphi \rightarrow \varphi)\)</td>
+                        <td>: \(\varphi_2\)</td>
+                        <td>// from \(\varphi_0\) and \(\varphi_1\) by MP</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th>\(\vdash\)</th>
+                        <td>\(\varphi \rightarrow (\varphi \rightarrow \varphi)\)</td>
+                        <td>: \(\varphi_3\)</td>
+                        <td>// instance of \(A_1\)</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th>\(\vdash\)</th>
+                        <td>\(\varphi \rightarrow \varphi\)</td>
+                        <td>: \(\varphi_4\)</td>
+                        <td>// from \(\varphi_2\) and \(\varphi_3\) by MP</td>
+                    </tr>
+                </table>
+                <p style="text-align: right">∎</p>
+                <h2> <u>Deduction Metatheorem:</u> \(\varphi \vdash \psi \Leftrightarrow\ \vdash \varphi \rightarrow \psi\) </h2>
+                <ul>
+                    <li>Proof of \(\quad\varphi \vdash \psi \quad\Leftarrow\quad \vdash \varphi \rightarrow \psi\quad\):</li>
+                    <p>Assume that \(\vdash \varphi \rightarrow \psi\).</p>
+                    <table class="formalProof">
+                        <tr>
+                            <th>\(\varphi\)</th>
+                            <th>\(\vdash\)</th>
+                            <th>\(\varphi\)</th>
+                            <th>: \(\varphi_0\)</th>
+                            <th>// hypothesis</th>
+                        </tr>
+                        <tr>
+                            <td>\(\varphi\)</td>
+                            <th>\(\vdash\)</th>
+                            <td>\(\varphi \rightarrow \phi\)</td>
+                            <td>: \(\varphi_1\)</td>
+                            <td>// assumption</td>
+                        </tr>
+                        <tr>
+                            <td>\(\varphi\)</td>
+                            <th>\(\vdash\)</th>
+                            <td>\(\psi\)</td>
+                            <td>: \(\varphi_2\)</td>
+                            <td>// from \(\varphi_0\) and \(\varphi_1\) by MP</td>
+                        </tr>
+                    </table>
+                    <!--<p style="text-align: right">∎</p>-->
+                    <li>Proof of \(\quad\varphi \vdash \psi \quad\Rightarrow\quad \vdash \varphi \rightarrow \psi\quad\):</li>
+                </ul>
+            </section>
+            <section>
                 <br>
                 <h1 style="color: red">Work in progress, stay tuned!</h1>
-                <!--<br>
+                <br>
                 <hr>
                 <div style="text-align: center; margin-top: 20px; font-style: italic; display: flex; justify-content: center;">
                     <p style="margin: 0;">
-                        <i>Posted 26/01/2025 | Last edited 26/01/2025</i>
+                        <i>Posted 31/01/2025 | Last edited 31/01/2025</i>
                     </p>
-                </div>-->
+                </div>
             </section>
         </article>
     </main>

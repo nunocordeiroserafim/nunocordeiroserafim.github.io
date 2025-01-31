@@ -20,7 +20,7 @@
                 <a title="Propositional Logic | Language" href="language.html">2.1 Language</a>
                 <a title="Propositional Logic | Semantics" href="semantics.html">2.2 Semantics</a>
                 <a title="Propositional Logic | Propositional Calculus" href="propositionalCalculus.html">2.3 Propositional Calculus: \(P_2\)</a>
-                <!--<a title="Propositional Logic | Useful Theorems, Lemmas and Metatheorems" href="usefulTheoremsLemmasAndMetatheorems.html">2.4 Useful Theorems, Lemmas and Metatheorems</a>-->
+                <a title="Propositional Logic | Useful Theorems, Lemmas and Metatheorems" href="usefulTheoremsLemmasAndMetatheorems.html">2.4 Useful Theorems, Lemmas and Metatheorems</a>
                 <!--<a title="Propositional Logic | Soundness Theorem and Consistency" href="SoundnessTheoremAndConsistency.html">2.5 Soundness Theorem and Consistency</a>-->
             </div>
         </nav>
@@ -45,9 +45,11 @@
                     <li>\(A_3\): \((\neg\varphi\rightarrow\neg\psi)\rightarrow(\psi\rightarrow\varphi)\) \(\qquad\qquad\qquad\qquad\ \ \longrightarrow\) you may call this contraposition</li>
                 </ul>
                 <p>
-                    \(P_2\) has a single inference rule called Modus Ponens (abbreviated as MP), which states that from 
+                    \(P_2\) has a single inference rule called Modus Ponens (abbreviated as MP): 
+                    \(\{\varphi, \varphi \rightarrow \psi\} \vdash \psi\)
+                    <!--, which states that from 
                     \(\varphi\) and \(\varphi\rightarrow\psi\), which are either axiom schemes or proved theorems, one can prove 
-                    the theorem \(\psi\).
+                    the theorem \(\psi\): -->
                 </p>
                 <p> <u><strong>Remarks:</strong></u> </p>
                 <ul>
@@ -59,7 +61,7 @@
                         metavariables. Since metavariables stand for any wff of your choice, an axiom scheme stands for an 
                         infinite amount of axioms. The reason that an axiom scheme is preferrable to an axiom is simply that if 
                         we were to use axioms, we would require an additional inference rule which would allow us to replace any 
-                        statement letter by a wff
+                        statement letter by a wff. In the following chapters, we'll always be working with metavariables
                     </li>
                     <li>
                         You may realize that the only logical connectives that appear in the axiom schemes are \(\neg\) and 
@@ -85,7 +87,7 @@
                     </p>
                     <li>
                         These axiom schemes are called logical axiom schemes, because they are purely logical. After the chapter 
-                        on propositional calculus, we are going to work with more axioms along with the logical ones to study 
+                        on Propositional Logic, we are going to work with more axioms along with the logical ones to study 
                         other mathematical subjects, like set theory, number theory or group theory. Such additional axioms are 
                         called non-logical axioms
                     </li>
@@ -102,7 +104,9 @@
                     we'll eventually tackle the chapter on First-Order Logic, in which truth tables will be virtually useless.
                 </p>
                 <p>
-                    The Modus Ponens rule is pretty intuitive, but the choice of axiom schemes may seem obscure. In the following 
+                    The Modus Ponens rule is pretty intuitive, but the choice of axiom schemes may seem obscure. The main reason 
+                    why the choice of considering \(\neg\) and \(\rightarrow\) as the only connectives of our language has been 
+                    made is that they work really well in systems possessing Modus Ponens as an inference rule. In the following 
                     chapters, we'll justify \(P_2\)'s design by proving that it does satisfy some desirable properties, namely
                 </p>
                 <ul>
@@ -115,20 +119,43 @@
                 </ul>
                 <p>
                     Just be aware that the soundness, consistency, completeness, decidability and independence theorems are 
-                    metatheorems and are then going to be informally, though rigorously proven. If you are still unclear as to 
-                    what a formal proof looks like, you need not wait any longer, as I'll dedicate a whole chapter to formal proofs right after we prove the 
-                    <a style="color: var(--url-color)" title="Propositional Logic | Soundness Theorem" href="soundnessTheorem.html">Soundness Theorem</a>!
+                    metatheorems and are then going to be informally, though rigorously proven.
                 </p>
-                <!--Prove implication reflexion as an example of formal proof-->
+                <p>
+                    Before ending this chapter, I just want to warn you one last time not to mix syntax and semantics. For 
+                    example, a mistake that I was tempted to make when I started learning about formal proofs was that whenever I 
+                    had an wff with two negation symbols, say \(\neg\neg\varphi\), I sometimes would for example want to write
+                </p>
+                <table class="formalProof">
+                    <tr>
+                        <th></th>
+                        <th>\(\vdash\)</th>
+                        <th>\((\neg\neg\varphi\rightarrow\neg\psi)\rightarrow(\psi\rightarrow\neg\varphi)\)</th>
+                        <th>: \(\varphi_0\)</th>
+                        <th>// instance of \(A_3\)</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th>\(\vdash\)</th>
+                        <td>\((\varphi\rightarrow\neg\psi)\rightarrow(\psi\rightarrow\neg\varphi)\)</td>
+                        <td>: \(\varphi_1\)</td>
+                        <td>// \(\neg\neg\varphi \vdash \varphi\) applied to \(\varphi_0\)</td>
+                    </tr>
+                </table>
+                <p>
+                    Even if I had previously shown that \(\neg\neg\varphi \vdash \varphi\), this wouldn't justify replacing 
+                    \(\neg\neg\varphi\) by \(\varphi\) in the middle of a wff. The reason why I made that mistake is that 
+                    semantically, \(\neg\neg\varphi\) and \(\varphi\) have the same truth value. However, our system doesn't have 
+                    a rule of inference that allows us to do that. Maybe such a rule could be proven as a metatheorem, but until 
+                    then, it's illegal to use it!
+                </p>
             </section>
             <section>
-                <br>
-                <h1 style="color: red">Work in progress, stay tuned!</h1>
                 <br>
                 <hr>
                 <div style="text-align: center; margin-top: 20px; font-style: italic; display: flex; justify-content: center;">
                     <p style="margin: 0;">
-                        <i>Posted 26/01/2025 | Last edited 27/01/2025</i>
+                        <i>Posted 26/01/2025 | Last edited 31/01/2025</i>
                     </p>
                 </div>
             </section>
