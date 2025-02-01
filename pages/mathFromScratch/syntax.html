@@ -39,7 +39,7 @@
                     In <a style="color: var(--url-color)" title="The Very Beginning" href="theVeryBeginning.html">0. The Very Beginning</a>,
                     I've mentioned that we need to communicate without ambiguity. A way to achieve such clarity is through the 
                     use of a formal system, which will allow us to derive formal proofs. Formal proofs are simply proofs written 
-                    in a specific form, following a given syntax. A formal system is a <em>formal language</em> equipped with a 
+                    in a specific form, adhering to a given syntax. A formal system is a <em>formal language</em> equipped with a 
                     <em>deductive apparatus</em>. You may think of a formal system as a model of reasoning.
                 </p>
                 </p>
@@ -128,15 +128,15 @@
                 </p>
                 <p>
                     Its alphabet would consist of the pieces (Pawn, Bishop, Knight, Rook, Queen and King, black and white), of 
-                    the game board and of the informations of whose turn it is, of whether each player may castle if the 
-                    opportunity presents, of how many times each position has been visited (for the repetition rules) and of how 
+                    the game board and of the information of whose turn it is, of whether each player may castle if the 
+                    opportunity arises, of how many times each position has been visited (for the repetition rules) and of how 
                     many moves have been made since a Pawn has been moved or a capture has been made (for the 50 and 75-move 
                     rules). Its terms would be the pieces, and its wffs would be allocations of pieces to the game board with 
                     flags containing the above informations.
                 </p>
                 <p>
                     The only axiom would be the starting position, with White to move, both players being allowed to castle if 
-                    the opportunity presents, no visited position except the starting one, and no made moves since last capture 
+                    the opportunity arises, no visited position except the starting one, and no made moves since last capture 
                     or Pawn move. The rules of inference would simply be the rules of the game, which from a given position 
                     indicate which positions can be reached in the next move. Thus, the theorems would simply be the starting 
                     position, as well as all positions that arise from the inference rules.
@@ -144,7 +144,7 @@
                 <p>
                     You may have noticed that it's debatable whether this is really a formal system, because a formal system is 
                     supposed to work with symbols, whereas here I've instead used pieces, informations, board positions, etc. 
-                    However, it should be clear that one may may make this a proper formal system by associating symbols to each 
+                    However, it should be clear that one may make this a proper formal system by associating symbols to each 
                     piece, relation symbols to indicate where each piece stands on the board, logical connectives to allow one to 
                     say "the Pawn is in C3 <em>and</em> the Rook is in H1", etc. In other words, you may create a formal system 
                     for the game of chess if you reverse-engineer the semantics.
@@ -152,11 +152,11 @@
                 <br>
                 <h2> <u>Notation and Format</u> </h2>
                 <p>
-                    Let's use a concrete example to show the format in which formal proofs will be writen. The following toy 
+                    Let's use a concrete example to show the format in which formal proofs will be written. The following toy 
                     formal system was proposed by Paul Lorenzen.
                 </p>
                 <p>
-                    It's alphabet consists of the symbols \(+\) and \(o\). The language has no terms and wffs are the alphabet's 
+                    Its alphabet consists of the symbols \(+\) and \(o\). The language has no terms and wffs are the alphabet's 
                     symbols and any concatenation of them.
                 </p>
                 <p>
@@ -254,8 +254,8 @@
                 </p>
                 <p>
                     One could also make metaproofs formal (and thus objectively rigorous) by creating a formal system for them, 
-                    but then the same problem would appear for the metametalaguage of the formalized metalanguage. Thus, it isn't 
-                    a worthy endeavour.
+                    but then the same problem would appear for the metametalanguage of the formalized metalanguage. Thus, it 
+                    isn't a worthy endeavour.
                 </p>
             </section>
             <section>
