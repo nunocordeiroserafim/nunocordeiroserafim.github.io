@@ -117,9 +117,102 @@
                             <td>// from \(\varphi_0\) and \(\varphi_1\) by MP</td>
                         </tr>
                     </table>
-                    <!--<p style="text-align: right">∎</p>-->
                     <li>Proof of \(\quad\varphi \vdash \psi \quad\Rightarrow\quad \vdash \varphi \rightarrow \psi\quad\):</li>
+                    <p>
+                        Assume \(\varphi \vdash \psi\) and let the wffs \(\psi_0\) till \(\psi_n\), where \(\psi_n\) and \(\psi\) 
+                        are the same, make up a formal proof for \(\psi\) from \(\varphi\). For each \(i\) from 0 till \(n\), we 
+                        shall reach \(\psi_i\) with a sequence of formulas which ends with \(\varphi \rightarrow \psi_i,\) which 
+                        will prove the theorem. Assume that \(\phi \vdash \psi_j\) for every \(j\) preceeding \(i\).
+                    </p>
+                    <ul>
+                        <li>Base cases:</li>
+                        <ul>
+                            <li>If \(\psi_i\) is an axiom:</li>
+                            <table class="formalProof">
+                                <tr>
+                                    <th></th>
+                                    <th>\(\vdash\)</th>
+                                    <th>\(\psi_i\)</th>
+                                    <th>: \(\varphi_{i,0}\)</th>
+                                    <th>// \(\psi_i\) is an axiom</th>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <th>\(\vdash\)</th>
+                                    <th>\(\psi_i \rightarrow (\varphi \rightarrow \psi_i)\)</th>
+                                    <th>: \(\varphi_{i,1}\)</th>
+                                    <th>// instance of \(A_1\)</th>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <th>\(\vdash\)</th>
+                                    <td>\(\varphi \rightarrow \psi_i\)</td>
+                                    <td>: \(\varphi_{i,2}\)</td>
+                                    <td>// from \(\varphi_{i,0}\) and \(\varphi_{i,1}\) by MP</td>
+                                </tr>
+                            </table>
+                            <li>If \(\psi_i\) is \(\varphi\):</li>
+                            <table class="formalProof">
+                                <tr>
+                                    <th></th>
+                                    <th>\(\vdash\)</th>
+                                    <th>\(\varphi \rightarrow \varphi\)</th>
+                                    <th>: \(\varphi_{i,0}\)</th>
+                                    <th>// instance of Implication Reflexivity</th>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <th>\(\vdash\)</th>
+                                    <th>\(\varphi \rightarrow \psi_i\)</th>
+                                    <th>: \(\varphi_{i,0}\)</th>
+                                    <th>// \(\psi_i\) is \(\varphi\)</th>
+                                </tr>
+                            </table>
+                        </ul>
+                        <li>Inductive case: \(\psi_i\) is obtained from MP by \(\psi_j\) and \(\psi_j \rightarrow \psi_i\)</li>
+                        <table class="formalProof">
+                            <tr>
+                                <th></th>
+                                <th>\(\vdash\)</th>
+                                <th>\(\varphi \rightarrow \psi_j\)</th>
+                                <th>: \(\varphi_{i,0}\)</th>
+                                <th>// induction hypothesis</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>\(\vdash\)</th>
+                                <th>\(\varphi \rightarrow (\psi_j \rightarrow \psi_i)\)</th>
+                                <th>: \(\varphi_{i,1}\)</th>
+                                <th>// induction hypothesis</th>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <th>\(\vdash\)</th>
+                                <th>\([\varphi \rightarrow (\psi_j \rightarrow \psi_i)] \rightarrow [(\varphi \rightarrow \psi_j) \rightarrow (\varphi \rightarrow \psi_i)]\)</th>
+                                <th>: \(\varphi_{i,2}\)</th>
+                                <th>// instance of \(A_2\)</th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\varphi \rightarrow \psi_j) \rightarrow (\varphi \rightarrow \psi_i)\)</td>
+                                <td>: \(\varphi_{i,3}\)</td>
+                                <td>// from \(\varphi_{i,1}\) and \(\varphi_{i,2}\) by MP</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\(\varphi \rightarrow \psi_i\)</td>
+                                <td>: \(\varphi_{i,4}\)</td>
+                                <td>// from \(\varphi_{i,0}\) and \(\varphi_{i,3}\) by MP</td>
+                            </tr>
+                        </table>
+                    </ul>
                 </ul>
+                <p style="text-align: right">∎</p>
+                <p>
+                    Whenever this theorem is invoked in later proofs, we shall abbreviate its name as DT.
+                </p>
             </section>
             <section>
                 <br>
@@ -128,7 +221,7 @@
                 <hr>
                 <div style="text-align: center; margin-top: 20px; font-style: italic; display: flex; justify-content: center;">
                     <p style="margin: 0;">
-                        <i>Posted 31/01/2025 | Last edited 31/01/2025</i>
+                        <i>Posted 31/01/2025 | Last edited 01/02/2025</i>
                     </p>
                 </div>
             </section>
