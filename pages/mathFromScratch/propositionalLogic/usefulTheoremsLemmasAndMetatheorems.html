@@ -33,10 +33,10 @@
                 <p>
                     The goal of this chapter is to prove the required lemmas so that we become able to prove two things: the 
                     principle of explosion and the completeness theorem. To do so, we'll prove some theorems, as well as some 
-                    metatheorems. If you are familiar with programming, metatheorems can be viewed as macros, an abbreviation in 
-                    the code that stands for other lines of code. In the same way, a metatheorem in this chapter can be viewed as 
-                    a shortcut to spare some lines of proof. You can also view them as additional rules of inference, procedures 
-                    to derive a wff from other wffs.
+                    metatheorems. If you are familiar with programming, all metatheorems of this chapter, with the exception of 
+                    the Deduction Theorem, can be viewed as macros, an abbreviation in the code that stands for other lines of 
+                    code. In the same way, a metatheorem can be viewed as a shortcut to spare some lines of proof. You can also 
+                    view them as additional rules of inference, procedures to derive a wff from other wffs.
                 </p>
                 <p>
                     To understand the proofs, you'll need to be able to consult, or even better, memorize the axioms \(A_1\), 
@@ -103,11 +103,18 @@
                             <th>// hypothesis</th>
                         </tr>
                         <tr>
-                            <td>\(\varphi\)</td>
+                            <td></td>
                             <th>\(\vdash\)</th>
                             <td>\(\varphi \rightarrow \phi\)</td>
                             <td>: \(\varphi_1\)</td>
                             <td>// assumption</td>
+                        </tr>
+                        <tr>
+                            <td>\(\varphi\)</td>
+                            <th>\(\vdash\)</th>
+                            <td>\(\varphi \rightarrow \phi\)</td>
+                            <td>: \(\varphi_1\)</td>
+                            <td>// \(\vdash \varphi \rightarrow \phi \ \Rightarrow\ \varphi \vdash \varphi \rightarrow \phi\) *</td>
                         </tr>
                         <tr>
                             <td>\(\varphi\)</td>
@@ -117,24 +124,33 @@
                             <td>// from \(\varphi_0\) and \(\varphi_1\) by MP</td>
                         </tr>
                     </table>
+                    <p>
+                        *: Indeed, if something can be proved without hypothesis, then adding hypothesis won't change the fact 
+                        that it can be proved
+                    </p>
                     <li>Proof of \(\quad\varphi \vdash \psi \quad\Rightarrow\quad \vdash \varphi \rightarrow \psi\quad\):</li>
                     <p>
-                        Assume \(\varphi \vdash \psi\) and let the wffs \(\psi_0\) till \(\psi_n\), where \(\psi_n\) and \(\psi\) 
-                        are the same, make up a formal proof for \(\psi\) from \(\varphi\). For each \(i\) from 0 till \(n\), we 
+                        Assume that \(\varphi \vdash \psi\). That means that \(\psi\) is either trivial, i.e. it is either 
+                        \(\varphi\), or an axiom/proved theorem of \(P_2\) (base cases), or it can be proved by MP from two wffs \(\psi_j\) and 
+                        \(\psi_j \rightarrow \psi\) (inductive case).
+                    </p>
+                    <p>
+                        Let the wffs \(\psi_0\) till \(\psi_n\), where \(\psi_n\) and \(\psi\) 
+                        are the same, make up a formal proof for \(\psi\) from \(\varphi\). For all \(i\) from 0 till \(n\), we 
                         shall reach \(\psi_i\) with a sequence of formulas which ends with \(\varphi \rightarrow \psi_i,\) which 
-                        will prove the theorem. Assume that \(\phi \vdash \psi_j\) for every \(j\) preceeding \(i\).
+                        will prove the theorem.<!-- Assume that \(\phi \vdash \psi_j\) for every \(j\) preceeding \(i\).-->
                     </p>
                     <ul>
                         <li>Base cases:</li>
                         <ul>
-                            <li>If \(\psi_i\) is an axiom:</li>
+                            <li>If \(\psi_i\) is an axiom or a proved theorem of \(P_2\):</li>
                             <table class="formalProof">
                                 <tr>
                                     <th></th>
                                     <th>\(\vdash\)</th>
                                     <th>\(\psi_i\)</th>
                                     <th>: \(\varphi_{i,0}\)</th>
-                                    <th>// \(\psi_i\) is an axiom</th>
+                                    <th>// \(\psi_i\) is an axiom or a proved theorem</th>
                                 </tr>
                                 <tr>
                                     <th></th>
@@ -169,7 +185,7 @@
                                 </tr>
                             </table>
                         </ul>
-                        <li>Inductive case: \(\psi_i\) is obtained from MP by \(\psi_j\) and \(\psi_j \rightarrow \psi_i\)</li>
+                        <li>Inductive case: \(\psi_i\) is obtained by MP from \(\psi_j\) and \(\psi_j \rightarrow \psi_i\):</li>
                         <table class="formalProof">
                             <tr>
                                 <th></th>
@@ -213,6 +229,30 @@
                 <p>
                     Whenever this theorem is invoked in later proofs, we shall abbreviate its name as DT.
                 </p>
+                <!--<p>
+                    The proof of \(\quad\vdash \varphi \rightarrow \psi \quad\Rightarrow\quad \varphi \vdash \psi\quad\) is 
+                    constructive and can thus be converted into a formal proof. The same is true for 
+                    \(\quad\varphi \vdash \psi \quad\Rightarrow\quad \vdash \varphi \rightarrow \psi\quad\) if \(\psi\) is either 
+                    \(\varphi\) or an axiom/proved theorem. However, because we aren't told exactly how \(\psi_j\) and 
+                    \(\psi_j \rightarrow \psi\) are derived, the inductive case of our proof isn't constructive and doesn't 
+                    provide us with a way of converting the application of DT to a pure formal proof.
+                </p>
+                <p>
+                    Therefore, the Deduction Theorem isn't always just an abbreviation to spare lines of proof. It does 
+                    intuitively make sense that it isn't constructive, because all \(\varphi \vdash \psi\) tells us is that 
+                    \(\varphi\) proves \(\psi\), without exactly explaining how. In that case, any proof of 
+                    \(\vdash \varphi \rightarrow \psi\) in which \(\psi\) isn't trivial and which applies DT, after introducing 
+                    \(\varphi\) as an hypothesis and proving \(\psi\) from it, is no longer a pure formal proof, but a metaproof. 
+                    It is still a correct proof, but possibly not constructive, because we won't necessarily know exactly how to 
+                    go from \(\varphi \vdash \psi\) to \(\vdash \varphi \rightarrow \psi\).
+                </p>
+                <p>
+                    In this chapter, all our formal theorems will be provided a constructive proof, without the use of DT, which 
+                    will instead be used in metaproofs from future chapters.
+                </p>-->
+                <!--I may actually be wrong when saying that the deduction theorem isn't a macro, after finding the following
+                staackexchange post https://math.stackexchange.com/questions/4607540/axiomatic-proof-of-%E2%8A%A2a%E2%86%92b%E2%86%92%C2%ACb%E2%86%92%C2%ACa-without-using-the-deduction-theorem
+                in which someone appears to be giving an alg to convert the use of DT into a pure formal proof-->
                 <br>
                 <h2> <u>Hypothetical Syllogism</u> </h2>
                 <p>The following theorems and metatheorem will be proven:</p>
@@ -230,7 +270,7 @@
                 <hr>
                 <div style="text-align: center; margin-top: 20px; font-style: italic; display: flex; justify-content: center;">
                     <p style="margin: 0;">
-                        <i>Posted 31/01/2025 | Last edited 01/02/2025</i>
+                        <i>Posted 31/01/2025 | Last edited 02/02/2025</i>
                     </p>
                 </div>
             </section>
