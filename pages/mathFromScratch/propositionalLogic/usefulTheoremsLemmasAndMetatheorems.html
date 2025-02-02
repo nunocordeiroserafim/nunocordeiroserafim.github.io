@@ -229,33 +229,16 @@
                 <p>
                     Whenever this theorem is invoked in later proofs, we shall abbreviate its name as DT.
                 </p>
-                <!--<p>
-                    The proof of \(\quad\vdash \varphi \rightarrow \psi \quad\Rightarrow\quad \varphi \vdash \psi\quad\) is 
-                    constructive and can thus be converted into a formal proof. The same is true for 
-                    \(\quad\varphi \vdash \psi \quad\Rightarrow\quad \vdash \varphi \rightarrow \psi\quad\) if \(\psi\) is either 
-                    \(\varphi\) or an axiom/proved theorem. However, because we aren't told exactly how \(\psi_j\) and 
-                    \(\psi_j \rightarrow \psi\) are derived, the inductive case of our proof isn't constructive and doesn't 
-                    provide us with a way of converting the application of DT to a pure formal proof.
-                </p>
-                <p>
-                    Therefore, the Deduction Theorem isn't always just an abbreviation to spare lines of proof. It does 
-                    intuitively make sense that it isn't constructive, because all \(\varphi \vdash \psi\) tells us is that 
-                    \(\varphi\) proves \(\psi\), without exactly explaining how. In that case, any proof of 
-                    \(\vdash \varphi \rightarrow \psi\) in which \(\psi\) isn't trivial and which applies DT, after introducing 
-                    \(\varphi\) as an hypothesis and proving \(\psi\) from it, is no longer a pure formal proof, but a metaproof. 
-                    It is still a correct proof, but possibly not constructive, because we won't necessarily know exactly how to 
-                    go from \(\varphi \vdash \psi\) to \(\vdash \varphi \rightarrow \psi\).
-                </p>
-                <p>
-                    In this chapter, all our formal theorems will be provided a constructive proof, without the use of DT, which 
-                    will instead be used in metaproofs from future chapters.
-                </p>-->
-
-                <!--I may actually be wrong when saying that the deduction theorem isn't a macro, after finding the following
+                
+                <!--I was actually wrong when I said that the deduction theorem isn't a macro, after finding the following
                 staackexchange post https://math.stackexchange.com/questions/4607540/axiomatic-proof-of-%E2%8A%A2a%E2%86%92b%E2%86%92%C2%ACb%E2%86%92%C2%ACa-without-using-the-deduction-theorem
-                in which someone appears to be giving an alg to convert the use of DT into a pure formal proof
-                If the alg and example take too long, then it's better to dedicate DT its own chapter (no theorem of this chapter 
-                requires DT anyway)-->
+                in which someone gives an alg to convert the use of DT into a pure formal proof
+                In the meantime, I've found a clearer way to present his alg, using trees, but it will take too long, so I've 
+                decided to dedicate DT with its own chapter
+                After its proof, I want to show how 2 examples of transforming a proof using DT into a pure formal proof:
+                 - HS: <=
+                 - (phi -> psi) -> (not psi -> not phi): =>
+                -->
 
                 <!--<br>
                 <h2> <u>Hypothetical Syllogism</u> </h2>
