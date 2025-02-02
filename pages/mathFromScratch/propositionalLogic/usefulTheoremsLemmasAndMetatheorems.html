@@ -33,10 +33,10 @@
                 <p>
                     The goal of this chapter is to prove the required lemmas so that we become able to prove two things: the 
                     principle of explosion and the completeness theorem. To do so, we'll prove some theorems, as well as some 
-                    metatheorems. If you are familiar with programming, all metatheorems of this chapter<!--, with the exception of 
-                    the Deduction Theorem,--> can be viewed as macros, an abbreviation in the code that stands for other lines of 
-                    code. In the same way, a metatheorem can be viewed as a shortcut to spare some lines of proof. You can also 
-                    view them as additional rules of inference, procedures to derive a wff from other wffs.
+                    metatheorems. If you are familiar with programming, all metatheorems of this chapter can be viewed as macros, 
+                    an abbreviation in the code that stands for other lines of code. In the same way, a metatheorem can be viewed 
+                    as a shortcut to spare some lines of proof. You can also view them as additional rules of inference, 
+                    procedures to derive a wff from other wffs.
                 </p>
                 <p>
                     To understand the proofs, you'll need to be able to consult, or even better, memorize the axioms \(A_1\), 
@@ -105,16 +105,16 @@
                         <tr>
                             <td></td>
                             <th>\(\vdash\)</th>
-                            <td>\(\varphi \rightarrow \phi\)</td>
+                            <td>\(\varphi \rightarrow \psi\)</td>
                             <td>: \(\varphi_1\)</td>
                             <td>// assumption</td>
                         </tr>
                         <tr>
                             <td>\(\varphi\)</td>
                             <th>\(\vdash\)</th>
-                            <td>\(\varphi \rightarrow \phi\)</td>
+                            <td>\(\varphi \rightarrow \psi\)</td>
                             <td>: \(\varphi_1\)</td>
-                            <td>// \(\vdash \varphi \rightarrow \phi \ \Rightarrow\ \varphi \vdash \varphi \rightarrow \phi\) *</td>
+                            <td>// \(\vdash \varphi \rightarrow \psi \ \Rightarrow\ \varphi \vdash \varphi \rightarrow \psi\) * \(\qquad\longrightarrow\) this step may be omitted</td>
                         </tr>
                         <tr>
                             <td>\(\varphi\)</td>
@@ -135,10 +135,10 @@
                         \(\psi_j \rightarrow \psi\) (inductive case).
                     </p>
                     <p>
-                        Let the wffs \(\psi_0\) till \(\psi_n\), where \(\psi_n\) and \(\psi\) 
-                        are the same, make up a formal proof for \(\psi\) from \(\varphi\). For all \(i\) from 0 till \(n\), we 
-                        shall reach \(\psi_i\) with a sequence of formulas which ends with \(\varphi \rightarrow \psi_i,\) which 
-                        will prove the theorem.<!-- Assume that \(\phi \vdash \psi_j\) for every \(j\) preceeding \(i\).-->
+                        Let the wffs \(\psi_0\) till \(\psi_n\), where \(\psi_n\) and \(\psi\) are the same, make up a formal 
+                        proof for \(\psi\) from \(\varphi\). For all \(i\) from 0 till \(n\), we shall reach \(\psi_i\) with a 
+                        sequence of formulas which ends with \(\varphi \rightarrow \psi_i\). By doing so for all \(\psi_i\), we 
+                        shall eventually reach \(\varphi \rightarrow \psi_n\), which will prove the theorem.<!-- Assume that \(\phi \vdash \psi_j\) for every \(j\) preceeding \(i\).-->
                     </p>
                     <ul>
                         <li>Base cases:</li>
@@ -274,7 +274,7 @@
                 <hr>
                 <div style="text-align: center; margin-top: 20px; font-style: italic; display: flex; justify-content: center;">
                     <p style="margin: 0;">
-                        <i>Posted 31/01/2025 | Last edited 02/02/2025</i>
+                        <i>Posted 31/01/2025 | Last edited 03/02/2025</i>
                     </p>
                 </div>
             </section>
