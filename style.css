@@ -262,8 +262,15 @@ ul {
     margin: 5px 0;
 }
 
+.latex-container {
+    overflow-x: auto;  /* Enables horizontal scrolling */
+    max-width: 100%;   /* Prevents expanding beyond parent */
+    display: block;
+}
+
 .post {
     flex: 1; /* Content takes up the remaining space */
+    min-width: 0;  /* Allows it to shrink if necessary */
     padding: 0 var(--sidebar-max-width) 1rem 1rem;
 }
 

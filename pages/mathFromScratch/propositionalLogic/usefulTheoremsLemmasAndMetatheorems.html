@@ -21,7 +21,7 @@
                 <a title="Propositional Logic | Semantics" href="semantics.html">2.2 Semantics</a>
                 <a title="Propositional Logic | Propositional Calculus" href="propositionalCalculus.html">2.3 Propositional Calculus: \(P_2\)</a>
                 <a title="Propositional Logic | Useful Theorems, Lemmas and Metatheorems" href="usefulTheoremsLemmasAndMetatheorems.html">2.4 Useful Theorems, Lemmas and Metatheorems</a>
-                <!--<a title="Propositional Logic | Soundness Theorem and Consistency" href="SoundnessTheoremAndConsistency.html">2.5 Soundness Theorem and Consistency</a>-->
+                <!--<a title="Propositional Logic | Soundness Theorem and Consistency" href="SoundnessTheoremAndConsistency.html">2.6 Soundness Theorem and Consistency</a>-->
             </div>
         </nav>
         <article class="post">
@@ -32,7 +32,7 @@
             <section>
                 <p>
                     The goal of this chapter is to prove the required lemmas so that we become able to prove two things: the 
-                    principle of explosion and the completeness theorem. To do so, we'll prove some theorems, as well as some 
+                    Principle of Explosion and the Completeness Theorem. To do so, we'll prove some theorems, as well as some 
                     metatheorems. If you are familiar with programming, all metatheorems of this chapter can be viewed as macros, 
                     an abbreviation in the code that stands for other lines of code. In the same way, a metatheorem can be viewed 
                     as a shortcut to spare some lines of proof. You can also view them as additional rules of inference, 
@@ -90,174 +90,186 @@
                     </tr>
                 </table>
                 <p style="text-align: right">∎</p>
-                <h2> <u>Deduction Metatheorem:</u> \(\varphi \vdash \psi\ \Leftrightarrow\ \vdash \varphi \rightarrow \psi\) </h2>
-                <ul>
-                    <li>Proof of \(\quad\varphi \vdash \psi \quad\Leftarrow\quad \vdash \varphi \rightarrow \psi\quad\):</li>
-                    <p>Assume that \(\vdash \varphi \rightarrow \psi\).</p>
-                    <table class="formalProof">
-                        <tr>
-                            <th>\(\varphi\)</th>
-                            <th>\(\vdash\)</th>
-                            <th>\(\varphi\)</th>
-                            <th>: \(\varphi_0\)</th>
-                            <th>// hypothesis</th>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <th>\(\vdash\)</th>
-                            <td>\(\varphi \rightarrow \psi\)</td>
-                            <td>: \(\varphi_1\)</td>
-                            <td>// assumption</td>
-                        </tr>
-                        <tr>
-                            <td>\(\varphi\)</td>
-                            <th>\(\vdash\)</th>
-                            <td>\(\varphi \rightarrow \psi\)</td>
-                            <td>: \(\varphi_1\)</td>
-                            <td>// \(\vdash \varphi \rightarrow \psi \ \Rightarrow\ \varphi \vdash \varphi \rightarrow \psi\) * \(\qquad\longrightarrow\) this step may be omitted</td>
-                        </tr>
-                        <tr>
-                            <td>\(\varphi\)</td>
-                            <th>\(\vdash\)</th>
-                            <td>\(\psi\)</td>
-                            <td>: \(\varphi_2\)</td>
-                            <td>// from \(\varphi_0\) and \(\varphi_1\) by MP</td>
-                        </tr>
-                    </table>
-                    <p>
-                        *: Indeed, if something can be proved without hypothesis, then adding hypothesis won't change the fact 
-                        that it can be proved
-                    </p>
-                    <li>Proof of \(\quad\varphi \vdash \psi \quad\Rightarrow\quad \vdash \varphi \rightarrow \psi\quad\):</li>
-                    <p>
-                        Assume that \(\varphi \vdash \psi\). That means that \(\psi\) is either trivial, i.e. it is either 
-                        \(\varphi\), or an axiom/proved theorem of \(P_2\) (base cases), or it can be proved by MP from two wffs \(\psi_j\) and 
-                        \(\psi_j \rightarrow \psi\) (inductive case).
-                    </p>
-                    <p>
-                        Let the wffs \(\psi_0\) till \(\psi_n\), where \(\psi_n\) and \(\psi\) are the same, make up a formal 
-                        proof for \(\psi\) from \(\varphi\). For all \(i\) from 0 till \(n\), we shall reach \(\psi_i\) with a 
-                        sequence of formulas which ends with \(\varphi \rightarrow \psi_i\). By doing so for all \(\psi_i\), we 
-                        shall eventually reach \(\varphi \rightarrow \psi_n\), which will prove the theorem.<!-- Assume that \(\phi \vdash \psi_j\) for every \(j\) preceeding \(i\).-->
-                    </p>
-                    <ul>
-                        <li>Base cases:</li>
-                        <ul>
-                            <li>If \(\psi_i\) is an axiom or a proved theorem of \(P_2\):</li>
-                            <table class="formalProof">
-                                <tr>
-                                    <th></th>
-                                    <th>\(\vdash\)</th>
-                                    <th>\(\psi_i\)</th>
-                                    <th>: \(\varphi_{i,0}\)</th>
-                                    <th>// \(\psi_i\) is an axiom or a proved theorem</th>
-                                </tr>
-                                <tr>
-                                    <th></th>
-                                    <th>\(\vdash\)</th>
-                                    <th>\(\psi_i \rightarrow (\varphi \rightarrow \psi_i)\)</th>
-                                    <th>: \(\varphi_{i,1}\)</th>
-                                    <th>// instance of \(A_1\)</th>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <th>\(\vdash\)</th>
-                                    <td>\(\varphi \rightarrow \psi_i\)</td>
-                                    <td>: \(\varphi_{i,2}\)</td>
-                                    <td>// from \(\varphi_{i,0}\) and \(\varphi_{i,1}\) by MP</td>
-                                </tr>
-                            </table>
-                            <li>If \(\psi_i\) is \(\varphi\):</li>
-                            <table class="formalProof">
-                                <tr>
-                                    <th></th>
-                                    <th>\(\vdash\)</th>
-                                    <th>\(\varphi \rightarrow \varphi\)</th>
-                                    <th>: \(\varphi_{i,0}\)</th>
-                                    <th>// instance of Implication Reflexivity</th>
-                                </tr>
-                                <tr>
-                                    <th></th>
-                                    <th>\(\vdash\)</th>
-                                    <th>\(\varphi \rightarrow \psi_i\)</th>
-                                    <th>: \(\varphi_{i,0}\)</th>
-                                    <th>// \(\psi_i\) is \(\varphi\)</th>
-                                </tr>
-                            </table>
-                        </ul>
-                        <li>Inductive case: \(\psi_i\) is obtained by MP from \(\psi_j\) and \(\psi_j \rightarrow \psi_i\):</li>
-                        <table class="formalProof">
-                            <tr>
-                                <th></th>
-                                <th>\(\vdash\)</th>
-                                <th>\(\varphi \rightarrow \psi_j\)</th>
-                                <th>: \(\varphi_{i,0}\)</th>
-                                <th>// induction hypothesis</th>
-                            </tr>
-                            <tr>
-                                <th></th>
-                                <th>\(\vdash\)</th>
-                                <th>\(\varphi \rightarrow (\psi_j \rightarrow \psi_i)\)</th>
-                                <th>: \(\varphi_{i,1}\)</th>
-                                <th>// induction hypothesis</th>
-                            </tr>
-                            <tr>
-                                <th></th>
-                                <th>\(\vdash\)</th>
-                                <th>\([\varphi \rightarrow (\psi_j \rightarrow \psi_i)] \rightarrow [(\varphi \rightarrow \psi_j) \rightarrow (\varphi \rightarrow \psi_i)]\)</th>
-                                <th>: \(\varphi_{i,2}\)</th>
-                                <th>// instance of \(A_2\)</th>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <th>\(\vdash\)</th>
-                                <td>\((\varphi \rightarrow \psi_j) \rightarrow (\varphi \rightarrow \psi_i)\)</td>
-                                <td>: \(\varphi_{i,3}\)</td>
-                                <td>// from \(\varphi_{i,1}\) and \(\varphi_{i,2}\) by MP</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <th>\(\vdash\)</th>
-                                <td>\(\varphi \rightarrow \psi_i\)</td>
-                                <td>: \(\varphi_{i,4}\)</td>
-                                <td>// from \(\varphi_{i,0}\) and \(\varphi_{i,3}\) by MP</td>
-                            </tr>
-                        </table>
-                    </ul>
-                </ul>
-                <p style="text-align: right">∎</p>
                 <p>
-                    Whenever this theorem is invoked in later proofs, we shall abbreviate its name as DT.
+                    We shall denote the use of this theorem by (R).
                 </p>
-                
-                <!--I was actually wrong when I said that the deduction theorem isn't a macro, after finding the following
-                staackexchange post https://math.stackexchange.com/questions/4607540/axiomatic-proof-of-%E2%8A%A2a%E2%86%92b%E2%86%92%C2%ACb%E2%86%92%C2%ACa-without-using-the-deduction-theorem
-                in which someone gives an alg to convert the use of DT into a pure formal proof
-                In the meantime, I've found a clearer way to present his alg, using trees, but it will take too long, so I've 
-                decided to dedicate DT with its own chapter
-                After its proof, I want to show how 2 examples of transforming a proof using DT into a pure formal proof:
-                 - HS: <=
-                 - (phi -> psi) -> (not psi -> not phi): =>
-                -->
-
-                <!--<br>
+                <br>
                 <h2> <u>Hypothetical Syllogism</u> </h2>
                 <p>The following theorems and metatheorem will be proven:</p>
                 <ul>
                     <li>(HS1): \((\psi \rightarrow \eta) \rightarrow [(\varphi \rightarrow \psi) \rightarrow (\varphi \rightarrow \eta)]\)</li>
                     <li>(HS2): \((\varphi \rightarrow \psi) \rightarrow [(\psi \rightarrow \eta) \rightarrow (\varphi \rightarrow \eta)]\)</li>
                     <li>HS: \(\{\varphi \rightarrow \psi, \psi \rightarrow \eta\} \vdash \varphi \rightarrow \eta\)</li>
-                </ul>-->
+                </ul>
+                <p>
+                    Proofs:
+                </p>
+                <ul>
+                    <li>(HS1):</li>
+                    <div class="latex-container">
+                        <table class="formalProof">
+                            <tr>
+                                <th></th>
+                                <th>\(\vdash\)</th>
+                                <th>\([\varphi\rightarrow(\psi\rightarrow\eta)]\rightarrow[(\varphi\rightarrow\psi)\rightarrow(\varphi\rightarrow\eta)]\)</th>
+                                <th>: \(\varphi_0\)</th>
+                                <th>// instance of \(A_2\)</th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\(([\varphi\rightarrow(\psi\rightarrow\eta)]\rightarrow[(\varphi\rightarrow\psi)\rightarrow(\varphi\rightarrow\eta)]) \rightarrow [(\psi \rightarrow \eta) \rightarrow ([\varphi\rightarrow(\psi\rightarrow\eta)]\rightarrow[(\varphi\rightarrow\psi)\rightarrow(\varphi\rightarrow\eta)])]\)</td>
+                                <td>: \(\varphi_1\)</td>
+                                <td>// instance of \(A_1\)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\psi \rightarrow \eta) \rightarrow ([\varphi\rightarrow(\psi\rightarrow\eta)]\rightarrow[(\varphi\rightarrow\psi)\rightarrow(\varphi\rightarrow\eta)])\)</td>
+                                <td>: \(\varphi_2\)</td>
+                                <td>// from \(\varphi_0\) and \(\varphi_1\) by MP</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\([(\psi \rightarrow \eta) \rightarrow ([\varphi\rightarrow(\psi\rightarrow\eta)]\rightarrow[(\varphi\rightarrow\psi)\rightarrow(\varphi\rightarrow\eta)])] \rightarrow [((\psi \rightarrow \eta) \rightarrow (\varphi\rightarrow(\psi\rightarrow\eta))) \rightarrow ((\psi \rightarrow \eta) \rightarrow ((\varphi\rightarrow\psi)\rightarrow(\varphi\rightarrow\eta)))]\)</td>
+                                <td>: \(\varphi_3\)</td>
+                                <td>// instance of \(A_2\)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\(((\psi \rightarrow \eta) \rightarrow (\varphi\rightarrow(\psi\rightarrow\eta))) \rightarrow ((\psi \rightarrow \eta) \rightarrow ((\varphi\rightarrow\psi)\rightarrow(\varphi\rightarrow\eta)))\)</td>
+                                <td>: \(\varphi_4\)</td>
+                                <td>// from \(\varphi_2\) and \(\varphi_3\) by MP</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\psi \rightarrow \eta) \rightarrow (\varphi\rightarrow(\psi\rightarrow\eta))\)</td>
+                                <td>: \(\varphi_5\)</td>
+                                <td>// instance of \(A_1\)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\psi \rightarrow \eta) \rightarrow ((\varphi\rightarrow\psi)\rightarrow(\varphi\rightarrow\eta))\)</td>
+                                <td>: \(\varphi_6\)</td>
+                                <td>// from \(\varphi_4\) and \(\varphi_5\) by MP</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <p style="text-align: right">∎</p>
+                    <li>(HS2):</li>
+                    <div class="latex-container">
+                        <table class="formalProof">
+                            <tr>
+                                <th></th>
+                                <th>\(\vdash\)</th>
+                                <th>\((\psi \rightarrow \eta) \rightarrow ((\varphi\rightarrow\psi)\rightarrow(\varphi\rightarrow\eta))\)</th>
+                                <th>: \(\varphi_0\)</th>
+                                <th>// instance of (HS1)</th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\([(\psi \rightarrow \eta) \rightarrow ((\varphi\rightarrow\psi)\rightarrow(\varphi\rightarrow\eta))] \rightarrow [((\psi \rightarrow \eta) \rightarrow (\varphi\rightarrow\psi)) \rightarrow ((\psi \rightarrow \eta) \rightarrow (\varphi\rightarrow\eta))]\)</td>
+                                <td>: \(\varphi_1\)</td>
+                                <td>// instance of \(A_2\)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\(((\psi \rightarrow \eta) \rightarrow (\varphi\rightarrow\psi)) \rightarrow ((\psi \rightarrow \eta) \rightarrow (\varphi\rightarrow\eta))\)</td>
+                                <td>: \(\varphi_2\)</td>
+                                <td>// from \(\varphi_0\) and \(\varphi_1\) by MP</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((((\psi \rightarrow \eta) \rightarrow (\varphi\rightarrow\psi)) \rightarrow ((\psi \rightarrow \eta) \rightarrow (\varphi\rightarrow\eta))) \rightarrow [((\varphi \rightarrow \psi) \rightarrow ((\psi \rightarrow \eta) \rightarrow (\varphi\rightarrow\psi))) \rightarrow ((\varphi \rightarrow \psi) \rightarrow ((\psi \rightarrow \eta) \rightarrow (\varphi\rightarrow\eta)))]\)</td>
+                                <td>: \(\varphi_3\)</td>
+                                <td>// instance of (HS1)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\(((\varphi \rightarrow \psi) \rightarrow ((\psi \rightarrow \eta) \rightarrow (\varphi\rightarrow\psi))) \rightarrow ((\varphi \rightarrow \psi) \rightarrow ((\psi \rightarrow \eta) \rightarrow (\varphi\rightarrow\eta)))\)</td>
+                                <td>: \(\varphi_4\)</td>
+                                <td>// from \(\varphi_2\) and \(\varphi_3\) by MP</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\varphi \rightarrow \psi) \rightarrow ((\psi \rightarrow \eta) \rightarrow (\varphi\rightarrow\psi))\)</td>
+                                <td>: \(\varphi_5\)</td>
+                                <td>// instance of \(A_1\)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\varphi \rightarrow \psi) \rightarrow ((\psi \rightarrow \eta) \rightarrow (\varphi\rightarrow\eta))\)</td>
+                                <td>: \(\varphi_6\)</td>
+                                <td>// from \(\varphi_4\) and \(\varphi_5\) by MP</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <p style="text-align: right">∎</p>
+                    <li>HS:</li>
+                    <table class="formalProof">
+                        <tr>
+                            <th></th>
+                            <th>\(\vdash\)</th>
+                            <th>\((\varphi \rightarrow \psi) \rightarrow [(\psi \rightarrow \eta) \rightarrow (\varphi \rightarrow \eta)]\)</th>
+                            <th>: \(\varphi_0\)</th>
+                            <th>// instance of (HS2)</th>
+                        </tr>
+                        <tr>
+                            <td>\(\varphi \rightarrow \psi\)</td>
+                            <th>\(\vdash\)</th>
+                            <td>\(\varphi \rightarrow \psi\)</td>
+                            <td>: \(\varphi_1\)</td>
+                            <td>// hypothesis</td>
+                        </tr>
+                        <tr>
+                            <td>\(\varphi \rightarrow \psi\)</td>
+                            <th>\(\vdash\)</th>
+                            <td>\((\psi \rightarrow \eta) \rightarrow (\varphi \rightarrow \eta)\)</td>
+                            <td>: \(\varphi_2\)</td>
+                            <td>// from \(\varphi_0\) and \(\varphi_1\) by MP</td>
+                        </tr>
+                        <tr>
+                            <td>\(\psi \rightarrow \eta\)</td>
+                            <th>\(\vdash\)</th>
+                            <td>\(\psi \rightarrow \eta\)</td>
+                            <td>: \(\varphi_3\)</td>
+                            <td>// hypothesis</td>
+                        </tr>
+                        <tr>
+                            <td>\(\{\varphi \rightarrow \psi, \psi \rightarrow \eta\}\)</td>
+                            <th>\(\vdash\)</th>
+                            <td>\(\varphi \rightarrow \eta\)</td>
+                            <td>: \(\varphi_4\)</td>
+                            <td>// from \(\varphi_2\) and \(\varphi_3\) by MP</td>
+                        </tr>
+                    </table>
+                    <p style="text-align: right">∎</p>
+                </ul>
+                <br>
+                <h2> <u>Lemma:</u> \(\varphi \rightarrow [(\varphi \rightarrow \psi) \rightarrow \psi]\) </h2>
+                <p>
+                    We shall denote the use of this theorem by (L\(_1\)).
+                </p>
             </section>
             <section>
                 <br>
                 <h1 style="color: red">Work in progress, stay tuned!</h1>
-                <!--<h1 style="color: red">In the meantime, can you prove them by yourself?</h1>-->
+                <h1>In the meantime, can you prove it by yourself?</h1>
                 <br>
                 <hr>
                 <div style="text-align: center; margin-top: 20px; font-style: italic; display: flex; justify-content: center;">
                     <p style="margin: 0;">
-                        <i>Posted 31/01/2025 | Last edited 03/02/2025</i>
+                        <i>Posted 31/01/2025 | Last edited 04/02/2025</i>
                     </p>
                 </div>
             </section>
