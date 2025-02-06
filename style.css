@@ -270,7 +270,7 @@ ul {
 
 .post {
     flex: 1; /* Content takes up the remaining space */
-    min-width: 0;  /* Allows it to shrink if necessary */
+    min-width: 0;  /* Allows it to shrink if necessary --> without it, if a LaTeX line is too long, the block becomes horizontally larger and a horizontal scroll bar appears*/
     padding: 0 var(--sidebar-max-width) 1rem 1rem;
 }
 
