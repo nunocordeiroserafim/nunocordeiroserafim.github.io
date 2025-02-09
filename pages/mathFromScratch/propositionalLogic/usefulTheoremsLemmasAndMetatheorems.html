@@ -21,6 +21,7 @@
                 <a title="Propositional Logic | Semantics" href="semantics.html">2.2 Semantics</a>
                 <a title="Propositional Logic | Propositional Calculus" href="propositionalCalculus.html">2.3 Propositional Calculus: \(P_2\)</a>
                 <a title="Propositional Logic | Useful Theorems, Lemmas and Metatheorems" href="usefulTheoremsLemmasAndMetatheorems.html">2.4 Useful Theorems, Lemmas and Metatheorems</a>
+                <a title="Propositional Logic | Deduction Metatheorem" href="deductionMetatheorem.html">2.5 Deduction Metatheorem</a>
                 <!--<a title="Propositional Logic | Soundness Theorem and Consistency" href="SoundnessTheoremAndConsistency.html">2.6 Soundness Theorem and Consistency</a>-->
             </div>
         </nav>
@@ -549,21 +550,268 @@
                 <p>
                     Proofs:
                 </p>
-                <!--<p>
+                <ul>
+                    <li>(TR1):</li>
+                    <div class="latex-container">
+                        <table class="formalProof">
+                            <tr>
+                                <th></th>
+                                <th>\(\vdash\)</th>
+                                <th>\(\psi \rightarrow \neg\neg\psi\)</th>
+                                <th>: \(\varphi_0\)</th>
+                                <th>// instance of (DN2)</th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\psi \rightarrow \neg\neg\psi) \rightarrow [(\varphi \rightarrow \psi) \rightarrow (\varphi \rightarrow \neg\neg\psi)]\)</td>
+                                <td>: \(\varphi_1\)</td>
+                                <td>// instance of (HS1)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\varphi \rightarrow \psi) \rightarrow (\varphi \rightarrow \neg\neg\psi)\)</td>
+                                <td>: \(\varphi_2\)</td>
+                                <td>// from \(\varphi_0\) and \(\varphi_1\) by MP</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\(\neg\neg\varphi \rightarrow \varphi\)</td>
+                                <td>: \(\varphi_3\)</td>
+                                <td>// instance of (DN1)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\neg\neg\varphi \rightarrow \varphi) \rightarrow [(\varphi \rightarrow \neg\neg\psi) \rightarrow (\neg\neg\varphi \rightarrow \neg\neg\psi)]\)</td>
+                                <td>: \(\varphi_4\)</td>
+                                <td>// instance of (HS2)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\varphi \rightarrow \neg\neg\psi) \rightarrow (\neg\neg\varphi \rightarrow \neg\neg\psi)\)</td>
+                                <td>: \(\varphi_5\)</td>
+                                <td>// from \(\varphi_3\) and \(\varphi_4\) by MP</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\varphi \rightarrow \psi) \rightarrow (\neg\neg\varphi \rightarrow \neg\neg\psi)\)</td>
+                                <td>: \(\varphi_6\)</td>
+                                <td>// from \(\varphi_2\) and \(\varphi_5\) by HS</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\neg\neg\varphi \rightarrow \neg\neg\psi) \rightarrow (\neg\psi \rightarrow \neg\varphi)\)</td>
+                                <td>: \(\varphi_7\)</td>
+                                <td>// instance of \(A_3\)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\varphi \rightarrow \psi) \rightarrow (\neg\psi \rightarrow \neg\varphi)\)</td>
+                                <td>: \(\varphi_8\)</td>
+                                <td>// from \(\varphi_6\) and \(\varphi_7\) by HS</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <p style="text-align: right">∎</p>
+                    <li>(TR2):</li>
+                    <div class="latex-container">
+                        <table class="formalProof">
+                            <tr>
+                                <th></th>
+                                <th>\(\vdash\)</th>
+                                <th>\(\psi \rightarrow \neg\neg\psi\)</th>
+                                <th>: \(\varphi_0\)</th>
+                                <th>// instance of (DN2)</th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\psi \rightarrow \neg\neg\psi) \rightarrow [(\neg\varphi \rightarrow \psi) \rightarrow (\neg\varphi \rightarrow \neg\neg\psi)]\)</td>
+                                <td>: \(\varphi_1\)</td>
+                                <td>// instance of (HS1)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\neg\varphi \rightarrow \psi) \rightarrow (\neg\varphi \rightarrow \neg\neg\psi)\)</td>
+                                <td>: \(\varphi_2\)</td>
+                                <td>// from \(\varphi_0\) and \(\varphi_1\) by MP</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\neg\varphi \rightarrow \neg\neg\psi) \rightarrow (\neg\psi \rightarrow \varphi)\)</td>
+                                <td>: \(\varphi_3\)</td>
+                                <td>// instance of \(A_3\)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\neg\varphi \rightarrow \psi) \rightarrow (\neg\psi \rightarrow \varphi)\)</td>
+                                <td>: \(\varphi_4\)</td>
+                                <td>// from \(\varphi_2\) and \(\varphi_3\) by HS</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <p style="text-align: right">∎</p>
+                    <li>(TR3):</li>
+                    <div class="latex-container">
+                        <table class="formalProof">
+                            <tr>
+                                <th></th>
+                                <th>\(\vdash\)</th>
+                                <th>\(\neg\neg\varphi \rightarrow \varphi\)</th>
+                                <th>: \(\varphi_0\)</th>
+                                <th>// instance of (DN1)</th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\neg\neg\varphi \rightarrow \varphi) \rightarrow [(\varphi \rightarrow \neg\psi) \rightarrow (\neg\neg\varphi \rightarrow \neg\psi)]\)</td>
+                                <td>: \(\varphi_1\)</td>
+                                <td>// instance of (HS2)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\varphi \rightarrow \neg\psi) \rightarrow (\neg\neg\varphi \rightarrow \neg\psi)\)</td>
+                                <td>: \(\varphi_2\)</td>
+                                <td>// from \(\varphi_0\) and \(\varphi_1\) by MP</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\neg\neg\varphi \rightarrow \neg\psi) \rightarrow (\psi \rightarrow \neg\varphi)\)</td>
+                                <td>: \(\varphi_3\)</td>
+                                <td>// instance of \(A_3\)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\varphi \rightarrow \neg\psi) \rightarrow (\psi \rightarrow \neg\varphi)\)</td>
+                                <td>: \(\varphi_4\)</td>
+                                <td>// from \(\varphi_2\) and \(\varphi_3\) by HS</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <p style="text-align: right">∎</p>
+                </ul>
+                <p>
                     (TR2) and (TR3) won't actually be required to prove the Completeness Theorem, nor the Principle of Explosion, 
-                    but I decided to include them to complete the set of contraposition theorems.
-                </p>-->
+                    but I've decided to include them to complete the set of contraposition theorems.
+                </p>
+                <br>
+                <h2 id="Lemmas"> <u>Lemmas:</u> </h2>
+                <p>The following lemmas will be proven:</p>
+                <ul>
+                    <li>(L4): \(\varphi \rightarrow [\neg\psi \rightarrow \neg(\varphi \rightarrow \psi)]\)</li>
+                    <li>(L5): \((\varphi \rightarrow \psi) \rightarrow [(\neg\varphi \rightarrow \psi) \rightarrow \psi]\)</li>
+                </ul>
+                <p>
+                    Proofs:
+                </p>
+                <ul>
+                    <li>(L4):</li>
+                    <div class="latex-container">
+                        <table class="formalProof">
+                            <tr>
+                                <th></th>
+                                <th>\(\vdash\)</th>
+                                <th>\(\varphi \rightarrow [(\varphi \rightarrow \psi) \rightarrow \psi]\)</th>
+                                <th>: \(\varphi_0\)</th>
+                                <th>// instance of (L1)</th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\(((\varphi \rightarrow \psi) \rightarrow \psi) \rightarrow (\neg\psi \rightarrow \neg(\varphi \rightarrow \psi))\)</td>
+                                <td>: \(\varphi_1\)</td>
+                                <td>// instance of (TR1)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\(\varphi \rightarrow (\neg\psi \rightarrow \neg(\varphi \rightarrow \psi))\)</td>
+                                <td>: \(\varphi_2\)</td>
+                                <td>// from \(\varphi_0\) and \(\varphi_1\) by HS</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <p style="text-align: right">∎</p>
+                    <li>(L5):</li>
+                    <div class="latex-container">
+                        <table class="formalProof">
+                            <tr>
+                                <th></th>
+                                <th>\(\vdash\)</th>
+                                <th>\((\varphi \rightarrow \psi) \rightarrow (\neg\psi \rightarrow \neg\varphi)\)</th>
+                                <th>: \(\varphi_0\)</th>
+                                <th>// instance of (TR1)</th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\neg\psi \rightarrow \neg\varphi) \rightarrow [(\neg\varphi \rightarrow \psi) \rightarrow (\neg\psi \rightarrow \psi)]\)</td>
+                                <td>: \(\varphi_1\)</td>
+                                <td>// instance of (HS2)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\neg\psi \rightarrow \psi) \rightarrow \psi\)</td>
+                                <td>: \(\varphi_2\)</td>
+                                <td>// instance of (L3)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\(((\neg\psi \rightarrow \psi) \rightarrow \psi) \rightarrow [((\neg\varphi \rightarrow \psi) \rightarrow (\neg\psi \rightarrow \psi)) \rightarrow ((\neg\varphi \rightarrow \psi) \rightarrow \psi)]\)</td>
+                                <td>: \(\varphi_3\)</td>
+                                <td>// instance of (HS1)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\(((\neg\varphi \rightarrow \psi) \rightarrow (\neg\psi \rightarrow \psi)) \rightarrow ((\neg\varphi \rightarrow \psi) \rightarrow \psi)\)</td>
+                                <td>: \(\varphi_4\)</td>
+                                <td>// from \(\varphi_2\) and \(\varphi_3\) by MP</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\neg\psi \rightarrow \neg\varphi) \rightarrow ((\neg\varphi \rightarrow \psi) \rightarrow \psi)\)</td>
+                                <td>: \(\varphi_5\)</td>
+                                <td>// from \(\varphi_1\) and \(\varphi_4\) by HS</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\varphi \rightarrow \psi) \rightarrow ((\neg\varphi \rightarrow \psi) \rightarrow \psi)\)</td>
+                                <td>: \(\varphi_6\)</td>
+                                <td>// from \(\varphi_0\) and \(\varphi_5\) by HS</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <p style="text-align: right">∎</p>
+                </ul>
             </section>
             <section>
-                <br>
+                <!--<br>
                 <h1 style="color: red">Work in progress, stay tuned!</h1>
-                <h1>In the meantime, can you prove them by yourself?</h1>
+                <h1>In the meantime, can you prove them by yourself?</h1>-->
                 <br>
                 <hr>
                 <br>
                 <h2> Sources: </h2>
                 <ul>
-                    <li class="aligned-text"><a class="url" title="Proof of (HS2)" href="https://www.reddit.com/r/math/comments/yg07e5/a_novel_proof_of_hypothetical_syllogism_in_a/" target="_blank">A Novel Proof of Hypothetical Syllogism in a Hilbert-Style Calculus</a><span><em>pwithee24 (Reddit's user)</em></span></li>
+                    <li class="aligned-text"><a class="url" title="Proof of (HS2)" href="https://www.reddit.com/r/math/comments/yg07e5/a_novel_proof_of_hypothetical_syllogism_in_a/" target="_blank">A Novel Proof of Hypothetical Syllogism in a Hilbert-Style Calculus</a><span><em>pwithee24 (Reddit user)</em></span></li>
                     <li class="aligned-text"><a class="url" title="Proof of (L1)" href="https://web.archive.org/web/20240820145517/https://en.wikipedia.org/wiki/Axiomatic_system_(logic)" target="_blank">Axiomatic system (logic)</a><span><em>Wikipedia</em></span></li>
                     <li class="aligned-text"><a class="url" title="Proof of (TR1)" href="https://en.wikipedia.org/wiki/Contraposition#In_classical_propositional_calculus_system" target="_blank">Contraposition</a><span><em>Wikipedia</em></span></li>
                     <li class="aligned-text"><a class="url" title="Proof of (TR2) and (TR3)" href="http://www.geometry.org/tex/conc/dg.html" target="_blank">Differential geometry reconstructed</a><span><em>Alan U. Kennington</em></span></li>
