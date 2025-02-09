@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="icon" sizes="125x99" href="../../../images/GameSolver.png?v=3" type="image/png">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <title>Soundness Theorem and Consistency</title>
+</head>
+<body>
+    <main>
+        <nav class="sidebar">
+            <div class="sidebar-links">
+                <a title="Math From Scratch" href="../../mathFromScratch.html">Table of Contents</a>
+                <a title="The Very Beginning" href="../theVeryBeginning.html">0. The Very Beginning</a>
+                <a title="Syntax" href="../syntax.html">1. Syntax</a>
+                <a title="Propositional Logic" href="../propositionalLogic.html">2. Propositional Logic</a>
+                <a title="Propositional Logic | Language" href="language.html">2.1 Language</a>
+                <a title="Propositional Logic | Semantics" href="semantics.html">2.2 Semantics</a>
+                <a title="Propositional Logic | Propositional Calculus" href="propositionalCalculus.html">2.3 Propositional Calculus: \(P_2\)</a>
+                <a title="Propositional Logic | Useful Theorems, Lemmas and Metatheorems" href="usefulTheoremsLemmasAndMetatheorems.html">2.4 Useful Theorems, Lemmas and Metatheorems</a>
+                <a title="Propositional Logic | Deduction Metatheorem" href="deductionMetatheorem.html">2.5 Deduction Metatheorem</a>
+                <!--<a title="Propositional Logic | Soundness Theorem and Consistency" href="SoundnessTheoremAndConsistency.html">2.6 Soundness Theorem and Consistency</a>-->
+            </div>
+        </nav>
+        <article class="post">
+            <section>
+                <h1 class="top-title">2.6 Soundness Theorem and Consistency</h1>
+                <hr>
+            </section>
+            <section>
+                <!--Before starting with the proof, or at its end, give the double turnstile notation-->
+                <p>
+                    To prove that \(P_2\)'s theorems are necessarily tautologies, we need to do two things:
+                </p>
+                <ul>
+                    <li><strong>Base case:</strong> show that all axiom schemes are tautologies</li>
+                    <li><strong>Inductive case:</strong> show that from two tautologies, the Modus Ponens inference rule can only produce another tautology</li>
+                </ul>
+                <p>
+                    Behold the truth tables for each axiom scheme:
+                </p>
+                <ul>
+                    <li>
+                        \(A_1\): \(\varphi \rightarrow (\psi \rightarrow \varphi)\)
+                        <table>
+                            <tr>
+                                <th>\(\varphi\)</th>
+                                <th>\(\psi\)</th>
+                                <th>\(\psi \rightarrow \varphi\)</th>
+                                <th>\(\varphi \rightarrow (\psi \rightarrow \varphi)\)</th>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li>
+                        \(A_2\): \([\varphi\rightarrow(\psi\rightarrow\eta)]\rightarrow[(\varphi\rightarrow\psi)\rightarrow(\varphi\rightarrow\eta)]\)
+                        <table>
+                            <tr>
+                                <th>\(\varphi\)</th>
+                                <th>\(\psi\)</th>
+                                <th>\(\eta\)</th>
+                                <th>\(\psi \rightarrow \eta\)</th>
+                                <th>\(\varphi \rightarrow \psi\)</th>
+                                <th>\(\varphi \rightarrow \eta\)</th>
+                                <th>\(\varphi \rightarrow (\psi \rightarrow \eta)\)</th>
+                                <th>\((\varphi \rightarrow \psi) \rightarrow (\varphi \rightarrow \eta)\)</th>
+                                <th>\(A_2\)</th>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li>
+                        \(A_3\): \((\neg\varphi\rightarrow\neg\psi)\rightarrow(\psi\rightarrow\varphi)\)
+                        <table>
+                            <tr>
+                                <th>\(\varphi\)</th>
+                                <th>\(\psi\)</th>
+                                <th>\(\neg\varphi\)</th>
+                                <th>\(\neg\psi\)</th>
+                                <th>\(\neg\varphi\rightarrow\neg\psi\)</th>
+                                <th>\(\psi \rightarrow \varphi\)</th>
+                                <th>\((\neg\varphi\rightarrow\neg\psi)\rightarrow(\psi\rightarrow\varphi)\)</th>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                            <tr>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{F}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                                <td>\(\mathcal{T}\)</td>
+                            </tr>
+                        </table>
+                    </li>
+                </ul>
+                <p>
+                    We do indeed observe that each entry of the last column is true and this proves the base case.
+                </p>
+                <p>
+                    To prove the inductive case, assume that \(\varphi\) and \(\varphi \rightarrow \psi\) are true. Since 
+                    \(\varphi\) is true, \(\varphi \rightarrow \psi\) can only be true whenever \(\psi\) is true. Thus, \(\psi\), 
+                    the theorem produced by Modus Ponens applied to \(\varphi\) and \(\varphi \rightarrow \psi\), is necessarily 
+                    true.
+                </p>
+                <p style="text-align: right">∎</p>
+                <p>
+                    This metatheorem tells us that a wff isn't provable if it isn't a tautology. If A wff is a tautology though, 
+                    we aren't yet sure whether it's provable. That's what we'll be aiming to prove with the completeness theorem.
+                </p>
+            </section>
+            <section>
+                <br>
+                <hr>
+                <div style="text-align: center; margin-top: 20px; font-style: italic; display: flex; justify-content: center;">
+                    <p style="margin: 0;">
+                        <i>Posted 27/01/2025 | Last edited 27/01/2025</i>
+                    </p>
+                </div>
+            </section>
+        </article>
+    </main>
+</body>
+</html>
