@@ -256,63 +256,183 @@
                     <p style="text-align: right">∎</p>
                 </ul>
                 <br>
-                <h2 id="(L1)"> <u>Lemma:</u> \(\varphi \rightarrow [(\varphi \rightarrow \psi) \rightarrow \psi]\) </h2>
-                <div class="latex-container">
+                <h2 id="Lemmas"> <u>Lemmas:</u> </h2>
+                <p>The following lemmas will be proven:</p>
+                <ul>
+                    <li>(L1): \(\varphi \rightarrow [(\varphi \rightarrow \psi) \rightarrow \psi]\)</li>
+                    <li>(L2): \(\neg\varphi \rightarrow (\varphi \rightarrow \psi)\)</li>
+                    <li>(L3): \((\neg\varphi \rightarrow \varphi) \rightarrow \varphi\)</li>
+                </ul>
+                <p>
+                    Proofs:
+                </p>
+                <ul>
+                    <li>(L1):</li>
+                    <div class="latex-container">
+                        <table class="formalProof">
+                            <tr>
+                                <th></th>
+                                <th>\(\vdash\)</th>
+                                <th>\([(\varphi \rightarrow \psi) \rightarrow (\varphi \rightarrow \psi)] \rightarrow [((\varphi \rightarrow \psi) \rightarrow \varphi) \rightarrow ((\varphi \rightarrow \psi) \rightarrow \psi)]\)</th>
+                                <th>: \(\varphi_0\)</th>
+                                <th>// instance of \(A_2\)</th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\varphi \rightarrow \psi) \rightarrow (\varphi \rightarrow \psi)\)</td>
+                                <td>: \(\varphi_1\)</td>
+                                <td>// instance of (R)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\(((\varphi \rightarrow \psi) \rightarrow \varphi) \rightarrow ((\varphi \rightarrow \psi) \rightarrow \psi)\)</td>
+                                <td>: \(\varphi_2\)</td>
+                                <td>// from \(\varphi_0\) and \(\varphi_1\) by MP</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((((\varphi \rightarrow \psi) \rightarrow \varphi) \rightarrow ((\varphi \rightarrow \psi) \rightarrow \psi)) \rightarrow [(\varphi \rightarrow ((\varphi \rightarrow \psi) \rightarrow \varphi)) \rightarrow (\varphi \rightarrow ((\varphi \rightarrow \psi) \rightarrow \psi))]\)</td>
+                                <td>: \(\varphi_3\)</td>
+                                <td>// instance of (HS1)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\varphi \rightarrow ((\varphi \rightarrow \psi) \rightarrow \varphi)) \rightarrow (\varphi \rightarrow ((\varphi \rightarrow \psi) \rightarrow \psi))\)</td>
+                                <td>: \(\varphi_4\)</td>
+                                <td>// from \(\varphi_2\) and \(\varphi_3\) by MP</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\(\varphi \rightarrow ((\varphi \rightarrow \psi) \rightarrow \varphi)\)</td>
+                                <td>: \(\varphi_5\)</td>
+                                <td>// instance of \(A_1\)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\(\varphi \rightarrow ((\varphi \rightarrow \psi) \rightarrow \psi)\)</td>
+                                <td>: \(\varphi_6\)</td>
+                                <td>// from \(\varphi_4\) and \(\varphi_5\) by MP</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <p style="text-align: right">∎</p>
+                    <li>(L2):</li>
                     <table class="formalProof">
                         <tr>
                             <th></th>
                             <th>\(\vdash\)</th>
-                            <th>\([(\varphi \rightarrow \psi) \rightarrow (\varphi \rightarrow \psi)] \rightarrow [((\varphi \rightarrow \psi) \rightarrow \varphi) \rightarrow ((\varphi \rightarrow \psi) \rightarrow \psi)]\)</th>
+                            <th>\(\neg\varphi \rightarrow (\neg\psi \rightarrow \neg\varphi)\)</th>
                             <th>: \(\varphi_0\)</th>
-                            <th>// instance of \(A_2\)</th>
+                            <th>// instance of \(A_1\)</th>
                         </tr>
                         <tr>
                             <td></td>
                             <th>\(\vdash\)</th>
-                            <td>\((\varphi \rightarrow \psi) \rightarrow (\varphi \rightarrow \psi)\)</td>
+                            <td>\((\neg\psi\rightarrow\neg\varphi)\rightarrow(\varphi\rightarrow\psi)\)</td>
                             <td>: \(\varphi_1\)</td>
-                            <td>// instance of (R)</td>
+                            <td>// instance of \(A_3\)</td>
                         </tr>
                         <tr>
                             <td></td>
                             <th>\(\vdash\)</th>
-                            <td>\(((\varphi \rightarrow \psi) \rightarrow \varphi) \rightarrow ((\varphi \rightarrow \psi) \rightarrow \psi)\)</td>
+                            <td>\(\neg\varphi \rightarrow (\varphi \rightarrow \psi)\)</td>
                             <td>: \(\varphi_2\)</td>
-                            <td>// from \(\varphi_0\) and \(\varphi_1\) by MP</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <th>\(\vdash\)</th>
-                            <td>\((((\varphi \rightarrow \psi) \rightarrow \varphi) \rightarrow ((\varphi \rightarrow \psi) \rightarrow \psi)) \rightarrow [(\varphi \rightarrow ((\varphi \rightarrow \psi) \rightarrow \varphi)) \rightarrow (\varphi \rightarrow ((\varphi \rightarrow \psi) \rightarrow \psi))]\)</td>
-                            <td>: \(\varphi_3\)</td>
-                            <td>// instance of (HS1)</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <th>\(\vdash\)</th>
-                            <td>\((\varphi \rightarrow ((\varphi \rightarrow \psi) \rightarrow \varphi)) \rightarrow (\varphi \rightarrow ((\varphi \rightarrow \psi) \rightarrow \psi))\)</td>
-                            <td>: \(\varphi_4\)</td>
-                            <td>// from \(\varphi_2\) and \(\varphi_3\) by MP</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <th>\(\vdash\)</th>
-                            <td>\(\varphi \rightarrow ((\varphi \rightarrow \psi) \rightarrow \varphi)\)</td>
-                            <td>: \(\varphi_5\)</td>
-                            <td>// instance of \(A_1\)</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <th>\(\vdash\)</th>
-                            <td>\(\varphi \rightarrow ((\varphi \rightarrow \psi) \rightarrow \psi)\)</td>
-                            <td>: \(\varphi_6\)</td>
-                            <td>// from \(\varphi_4\) and \(\varphi_5\) by MP</td>
+                            <td>// from \(\varphi_0\) and \(\varphi_1\) by HS</td>
                         </tr>
                     </table>
-                </div>
-                <p style="text-align: right">∎</p>
+                    <p style="text-align: right">∎</p>
+                    <li>(L3):</li>
+                    <div class="latex-container">
+                        <table class="formalProof">
+                            <tr>
+                                <th></th>
+                                <th>\(\vdash\)</th>
+                                <th>\(\neg\varphi \rightarrow (\neg\neg(\psi \rightarrow \psi) \rightarrow \neg\varphi)\)</th>
+                                <th>: \(\varphi_0\)</th>
+                                <th>// instance of \(A_1\)</th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\neg\neg(\psi \rightarrow \psi) \rightarrow \neg\varphi) \rightarrow (\varphi \rightarrow \neg(\psi \rightarrow \psi))\)</td>
+                                <td>: \(\varphi_1\)</td>
+                                <td>// instance of \(A_3\)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\(\neg\varphi \rightarrow (\varphi \rightarrow \neg(\psi \rightarrow \psi))\)</td>
+                                <td>: \(\varphi_2\)</td>
+                                <td>// from \(\varphi_0\) and \(\varphi_1\) by HS</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\([\neg\varphi \rightarrow (\varphi \rightarrow \neg(\psi \rightarrow \psi))] \rightarrow [(\neg\varphi \rightarrow \varphi) \rightarrow (\neg\varphi \rightarrow \neg(\psi \rightarrow \psi))]\)</td>
+                                <td>: \(\varphi_3\)</td>
+                                <td>// instance of \(A_2\)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\neg\varphi \rightarrow \varphi) \rightarrow (\neg\varphi \rightarrow \neg(\psi \rightarrow \psi))\)</td>
+                                <td>: \(\varphi_4\)</td>
+                                <td>// from \(\varphi_2\) and \(\varphi_3\) by MP</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\neg\varphi \rightarrow \neg(\psi \rightarrow \psi)) \rightarrow ((\psi \rightarrow \psi) \rightarrow \varphi)\)</td>
+                                <td>: \(\varphi_5\)</td>
+                                <td>// instance of \(A_3\)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\neg\varphi \rightarrow \varphi) \rightarrow ((\psi \rightarrow \psi) \rightarrow \varphi)\)</td>
+                                <td>: \(\varphi_6\)</td>
+                                <td>// from \(\varphi_4\) and \(\varphi_5\) by HS</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\(\psi \rightarrow \psi\)</td>
+                                <td>: \(\varphi_7\)</td>
+                                <td>// instance of (R)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\psi \rightarrow \psi) \rightarrow [((\psi \rightarrow \psi) \rightarrow \varphi) \rightarrow \varphi]\)</td>
+                                <td>: \(\varphi_8\)</td>
+                                <td>// instance of (L1)</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\(((\psi \rightarrow \psi) \rightarrow \varphi) \rightarrow \varphi\)</td>
+                                <td>: \(\varphi_9\)</td>
+                                <td>// from \(\varphi_7\) and \(\varphi_8\) by MP</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th>\(\vdash\)</th>
+                                <td>\((\neg\varphi \rightarrow \varphi) \rightarrow \varphi\)</td>
+                                <td>: \(\varphi_{10}\)</td>
+                                <td>// from \(\varphi_6\) and \(\varphi_9\) by HS</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <p style="text-align: right">∎</p>
+                </ul>
                 <p>
-                    We shall denote the use of this theorem by (L1).
+                    (L3) is also known as Clavius's law or Consequentia Mirabilis.
                 </p>
                 <br>
                 <h2 id="DN"> <u>Double Negation Theorems</u> </h2>
@@ -455,7 +575,7 @@
                 <hr>
                 <div style="text-align: center; margin-top: 20px; font-style: italic; display: flex; justify-content: center;">
                     <p style="margin: 0;">
-                        <i>Posted 31/01/2025 | Last edited 08/02/2025</i>
+                        <i>Posted 31/01/2025 | Last edited 09/02/2025</i>
                     </p>
                 </div>
             </section>
