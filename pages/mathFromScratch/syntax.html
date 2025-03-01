@@ -179,11 +179,12 @@
                     necessarily an axiom or a theorem from our system. To make notation clearer, in the case one wishes to add 
                     multiple axioms/hypothesis, say \(x_0\), \(x_1\), ..., we'll write \(\{x_0, x_1, ...\}\) to the left of the 
                     turnstile, to mean that some statement is provable by the set \(\{x_0, x_1, ...\}\). If we have a set of wffs 
-                    \(\Phi\) and we wish to add a wff \(z\) to it, we may write \(\{x_0, x_1, ...\} \cup z\) or 
-                    \(\{x_0, x_1, ...\} + z\) (the "\(+\)" symbol that is meant here is not to be confused with the "\(+\)" 
+                    \(\Phi\) and we wish to add a wff \(z\) to it, we may write \(\Phi \cup z\) or 
+                    \(\Phi + z\) (the "\(+\)" symbol that is meant here is not to be confused with the "\(+\)" 
                     symbol of the language that we are considering in this example; it's just a coincidence that they're the 
                     same). If instead of adding a wff, we want to add another set of wffs \(\Phi'\) to it, then we shall write 
-                    \(\Phi \cup \Phi'\).
+                    \(\Phi \cup \Phi'\). You may consider \(\Phi \vdash \varphi\), where \(\varphi\) is in \(\Phi\), as an 
+                    implicit inference rule inherent to all proof systems, a property of provability.
                 </p>
                 <p>
                     Now, to show what a formal proof looks like, let's prove the theorem "\(++oo+o\)":
@@ -274,7 +275,7 @@
                 <hr>
                 <div style="text-align: center; margin-top: 20px; font-style: italic; display: flex; justify-content: center;">
                     <p style="margin: 0;">
-                        <i>Posted 21/08/2024 | Last edited 08/02/2025</i>
+                        <i>Posted 21/08/2024 | Last edited 01/03/2025</i>
                     </p>
                 </div>
             </section>
