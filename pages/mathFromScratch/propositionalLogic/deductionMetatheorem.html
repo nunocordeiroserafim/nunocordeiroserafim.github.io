@@ -32,7 +32,7 @@
             </section>
             <section>
                 <p>
-                    The Deduction theorem states that \(\varphi \vdash \psi\ \Leftrightarrow\ \vdash \varphi \rightarrow \psi\)
+                    The Deduction Theorem states that \(\varphi \vdash \psi\ \Leftrightarrow\ \vdash \varphi \rightarrow \psi\)
                 </p>
                 <ul>
                     <li>Proof of \(\quad\varphi \vdash \psi \quad\Leftarrow\quad \vdash \varphi \rightarrow \psi\quad\):</li>
@@ -173,6 +173,14 @@
                     Whenever this theorem is invoked, we shall abbreviate its name as DT.
                 </p>
                 <p>
+                    The main reason why \(A_1\) and \(A_2\) were chosen as the axioms of \(P_2\) is that they are designed to 
+                    prove the Deduction Metatheorem. Just like the Hypothetical Syllogism Metatheorem, once you've proved it, 
+                    proving theorems becomes easier, as you get a new tool that works as an additional inference rule, like Modus 
+                    Ponens.
+                </p>
+                <br>
+                <h2> <u>Examples of decompression</u> </h2>
+                <p>
                     In case you are still a bit foggy about induction, I'll present two examples of theorems in which the 
                     Deduction Theorem is used and convert them into pure formal proofs, without its use.
                 </p>
@@ -250,95 +258,92 @@
                     This was easy, but now comes the interesting part. Let's illustrate the use of 
                     \(\varphi \vdash \psi\ \Rightarrow\ \vdash \varphi \rightarrow \psi\) with an alternative proof of (TR1):
                 </p>
-                <div class="latex-container">
-                    <table class="formalProof">
-                        <tr>
-                            <th>\(\varphi \rightarrow \psi\)</th>
-                            <th>\(\vdash\)</th>
-                            <th>\(\varphi \rightarrow \psi\)</th>
-                            <th>: \(\varphi_0\)</th>
-                            <th>// hypothesis</th>
-                        </tr>
-                        <tr>
-                            <td>\(\neg\neg\varphi\)</td>
-                            <th>\(\vdash\)</th>
-                            <td>\(\neg\neg\varphi\)</td>
-                            <td>: \(\varphi_1\)</td>
-                            <td>// hypothesis</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <th>\(\vdash\)</th>
-                            <td>\(\neg\neg\varphi \rightarrow \varphi\)</td>
-                            <td>: \(\varphi_2\)</td>
-                            <td>// instance of (DN1)</td>
-                        </tr>
-                        <tr>
-                            <td>\(\neg\neg\varphi\)</td>
-                            <th>\(\vdash\)</th>
-                            <td>\(\varphi\)</td>
-                            <td>: \(\varphi_3\)</td>
-                            <td>// from \(\varphi_1\) and \(\varphi_2\) by MP</td>
-                        </tr>
-                        <tr>
-                            <td>\(\{\varphi \rightarrow \psi, \neg\neg\varphi\}\)</td>
-                            <th>\(\vdash\)</th>
-                            <td>\(\psi\)</td>
-                            <td>: \(\varphi_4\)</td>
-                            <td>// from \(\varphi_0\) and \(\varphi_3\) by MP</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <th>\(\vdash\)</th>
-                            <td>\(\psi \rightarrow \neg\neg\psi\)</td>
-                            <td>: \(\varphi_5\)</td>
-                            <td>// instance of (DN2)</td>
-                        </tr>
-                        <tr>
-                            <td>\(\{\varphi \rightarrow \psi, \neg\neg\varphi\}\)</td>
-                            <th>\(\vdash\)</th>
-                            <td>\(\neg\neg\psi\)</td>
-                            <td>: \(\varphi_6\)</td>
-                            <td>// from \(\varphi_4\) and \(\varphi_5\) by MP</td>
-                        </tr>
-                        <tr>
-                            <td>\(\varphi \rightarrow \psi\)</td>
-                            <th>\(\vdash\)</th>
-                            <td>\(\neg\neg\varphi \rightarrow \neg\neg\psi\)</td>
-                            <td>: \(\varphi_7\)</td>
-                            <td>// from \(\varphi_6\) by DT</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <th>\(\vdash\)</th>
-                            <td>\((\neg\neg\varphi \rightarrow \neg\neg\psi) \rightarrow (\neg\psi \rightarrow \neg\varphi)\)</td>
-                            <td>: \(\varphi_8\)</td>
-                            <td>// instance of \(A_3\)</td>
-                        </tr>
-                        <tr>
-                            <td>\(\varphi \rightarrow \psi\)</td>
-                            <th>\(\vdash\)</th>
-                            <td>\(\neg\psi \rightarrow \neg\varphi\)</td>
-                            <td>: \(\varphi_9\)</td>
-                            <td>// from \(\varphi_7\) and \(\varphi_8\) by MP</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <th>\(\vdash\)</th>
-                            <td>\((\varphi \rightarrow \psi) \rightarrow (\neg\psi \rightarrow \neg\varphi)\)</td>
-                            <td>: \(\varphi_{10}\)</td>
-                            <td>// from \(\varphi_9\) by DT</td>
-                        </tr>
-                    </table>
-                    <p style="text-align: right">∎</p>
-                </div>
+                <table class="formalProof">
+                     <tr>
+                        <th>\(\varphi \rightarrow \psi\)</th>
+                        <th>\(\vdash\)</th>
+                        <th>\(\varphi \rightarrow \psi\)</th>
+                        <th>: \(\varphi_0\)</th>
+                        <th>// hypothesis</th>
+                    </tr>
+                    <tr>
+                        <td>\(\neg\neg\varphi\)</td>
+                        <th>\(\vdash\)</th>
+                        <td>\(\neg\neg\varphi\)</td>
+                        <td>: \(\varphi_1\)</td>
+                        <td>// hypothesis</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th>\(\vdash\)</th>
+                        <td>\(\neg\neg\varphi \rightarrow \varphi\)</td>
+                        <td>: \(\varphi_2\)</td>
+                        <td>// instance of (DN1)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\neg\neg\varphi\)</td>
+                        <th>\(\vdash\)</th>
+                        <td>\(\varphi\)</td>
+                        <td>: \(\varphi_3\)</td>
+                        <td>// from \(\varphi_1\) and \(\varphi_2\) by MP</td>
+                    </tr>
+                    <tr>
+                        <td>\(\{\varphi \rightarrow \psi, \neg\neg\varphi\}\)</td>
+                        <th>\(\vdash\)</th>
+                        <td>\(\psi\)</td>
+                        <td>: \(\varphi_4\)</td>
+                        <td>// from \(\varphi_0\) and \(\varphi_3\) by MP</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th>\(\vdash\)</th>
+                        <td>\(\psi \rightarrow \neg\neg\psi\)</td>
+                        <td>: \(\varphi_5\)</td>
+                        <td>// instance of (DN2)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\{\varphi \rightarrow \psi, \neg\neg\varphi\}\)</td>
+                        <th>\(\vdash\)</th>
+                        <td>\(\neg\neg\psi\)</td>
+                        <td>: \(\varphi_6\)</td>
+                        <td>// from \(\varphi_4\) and \(\varphi_5\) by MP</td>
+                    </tr>
+                    <tr>
+                        <td>\(\varphi \rightarrow \psi\)</td>
+                        <th>\(\vdash\)</th>
+                        <td>\(\neg\neg\varphi \rightarrow \neg\neg\psi\)</td>
+                        <td>: \(\varphi_7\)</td>
+                        <td>// from \(\varphi_6\) by DT</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th>\(\vdash\)</th>
+                        <td>\((\neg\neg\varphi \rightarrow \neg\neg\psi) \rightarrow (\neg\psi \rightarrow \neg\varphi)\)</td>
+                        <td>: \(\varphi_8\)</td>
+                        <td>// instance of \(A_3\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\varphi \rightarrow \psi\)</td>
+                        <th>\(\vdash\)</th>
+                        <td>\(\neg\psi \rightarrow \neg\varphi\)</td>
+                        <td>: \(\varphi_9\)</td>
+                        <td>// from \(\varphi_7\) and \(\varphi_8\) by MP</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th>\(\vdash\)</th>
+                        <td>\((\varphi \rightarrow \psi) \rightarrow (\neg\psi \rightarrow \neg\varphi)\)</td>
+                        <td>: \(\varphi_{10}\)</td>
+                        <td>// from \(\varphi_9\) by DT</td>
+                    </tr>
+                </table>
+                <p style="text-align: right">∎</p>
                 <p>
                     The Deduction Theorem was used twice, once for the hypothesis \(\neg\neg\varphi\) and another for the 
                     hypothesis \(\varphi \rightarrow \psi\). Let's first expand the proof for the first use of DT. To do so, we 
                     refer to the algorithm provided in the "\(\Rightarrow\)" direction of the proof the Deduction Theorem and draw 
                     the following tree:
                 </p>
-                <!--maybe check out https://www.youtube.com/watch?v=JyuX0qmGpcs&ab_channel=AlvaroMontoro-->
                 <!--<div class="tree">
                     <svg>
                         <line x1="50%" y1="10%" x2="30%" y2="30%" stroke="black" stroke-width="2" />
@@ -433,7 +438,70 @@
                             <p>\(\varphi_2\)</p>
                         </div>
                     </foreignObject>
-                </svg>
+                </svg>-->
+                <div class="binary-tree">
+                    <div>
+                        <span>&#120593;&#8326;</span>
+                        <div>
+                            <span>&#120593;&#8324;</span>
+                            <div>
+                                <span>&#120593;&#8320;</span>
+                                <div>
+                                    <span></span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div>
+                                    <span></span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div>
+                                <span>&#120593;&#8323;</span>
+                                <div>
+                                    <span>&#120593;&#8321;</span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div>
+                                    <span>&#120593;&#8322;</span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <span>&#120593;&#8325;</span>
+                            <div>
+                                <span></span>
+                                <div>
+                                    <span></span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div>
+                                    <span></span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div>
+                                <span></span>
+                                <div>
+                                    <span></span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div>
+                                    <span></span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <p>
                     The arrows mean "depends on"/"is proved by". Each node (\(\varphi_i\)) corresponds to an inductive case and 
                     is proved by two others (\(\varphi_j\) and \(\varphi_j \rightarrow \varphi_i\)) by MP, unless it is a leaf, 
@@ -441,9 +509,268 @@
                     proof of DT, for each node \(\varphi_i\), we wish to prove \(\neg\neg\varphi \rightarrow \varphi_i\).
                 </p>
                 <p>
-                    Before starting, notice that \(\varphi_3\) will become \(\varphi \rightarrow \neg\neg\varphi\), which is (DN2), 
-                    so you won't need to prove it from \(\varphi_1\) and \(\varphi_2\). Thus, the tree gets simplified to
-                </p>-->
+                    Before starting, notice that \(\varphi_3\) will become \(\neg\neg\varphi \rightarrow \varphi\), which is a 
+                    direct instance of (DN1), so you won't actually need to prove it from \(\neg\neg\varphi \rightarrow \varphi_1\) 
+                    and \(\neg\neg\varphi \rightarrow \varphi_2\). Thus, we can simplify the tree to 
+                </p>
+                <div class="binary-tree">
+                    <div>
+                        <span>&#120593;&#8326;</span>
+                        <div>
+                            <span>&#120593;&#8324;</span>
+                            <div>
+                                <span>&#120593;&#8320;</span>
+                                <div>
+                                    <span></span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div>
+                                    <span></span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div>
+                                <span>&#120593;&#8323;</span>
+                                <div>
+                                    <span></span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div>
+                                    <span></span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <span>&#120593;&#8325;</span>
+                            <div>
+                                <span></span>
+                                <div>
+                                    <span></span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div>
+                                    <span></span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div>
+                                <span></span>
+                                <div>
+                                    <span></span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div>
+                                    <span></span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p style="margin-top: -4rem;">
+                    and spare some lines of proof. Furthermore, \(\neg\neg\varphi \rightarrow \varphi\) is simply \(\varphi_2\), 
+                    so in the final decompressed proof, you'll be able to simply remove \(\varphi_3\), as well as \(\varphi_1\), 
+                    which was used to prove \(\varphi_3\).
+                </p>
+                <p>
+                    The first decompression step/the removal of the \(\neg\neg\varphi\) hypothesis goes as follows:
+                </p>
+                <table class="formalProof">
+                    <tr>
+                        <th>\(\varphi \rightarrow \psi\)</th>
+                        <th>\(\vdash\)</th>
+                        <th>\(\varphi \rightarrow \psi\)</th>
+                        <th>: \(\varphi_0\)</th>
+                        <th>// hypothesis</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th><span style="color: red;">\(\vdash\)</span></th>
+                        <td><span style="color: red;">\({(\varphi \rightarrow \psi) \rightarrow (\neg\neg\varphi \rightarrow (\varphi \rightarrow \psi))}\)</span></td>
+                        <td><span style="color: red;">: \(\varphi_{0,1}\)</span></td>
+                        <td><span style="color: red;">// instance of \(A_1\)</span></td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: red;">\(\varphi \rightarrow \psi\)</span></td>
+                        <th><span style="color: red;">\(\vdash\)</span></th>
+                        <td><span style="color: red;">\(\neg\neg\varphi \rightarrow (\varphi \rightarrow \psi)\)</span></td>
+                        <td><span style="color: red;">: \(\varphi_{0,2}\)</span></td>
+                        <td><span style="color: red;">// from \(\varphi_{0}\) and \(\varphi_{0,1}\) by MP</span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th>\(\vdash\)</th>
+                        <td>\(\neg\neg\varphi \rightarrow \varphi\)</td>
+                        <td>: \(\varphi_2\)</td>
+                        <td>// instance of (DN1)</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th><span style="color: orange;">\(\vdash\)</span></th>
+                        <td><span style="color: orange;">\([\neg\neg\varphi \rightarrow (\varphi \rightarrow \psi)] \rightarrow [(\neg\neg\varphi \rightarrow \varphi) \rightarrow (\neg\neg\varphi \rightarrow \psi)]\)</span></td>
+                        <td><span style="color: orange;">: \(\varphi_{4,1}\)</span></td>
+                        <td><span style="color: orange;">// instance of \(A_2\)</span></td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: orange;">\(\varphi \rightarrow \psi\)</span></td>
+                        <th><span style="color: orange;">\(\vdash\)</span></th>
+                        <td><span style="color: orange;">\((\neg\neg\varphi \rightarrow \varphi) \rightarrow (\neg\neg\varphi \rightarrow \psi)\)</span></td>
+                        <td><span style="color: orange;">: \(\varphi_{4,2}\)</span></td>
+                        <td><span style="color: orange;">// from \(\varphi_{0,2}\) and \(\varphi_{4,1}\) by MP</span></td>
+                    </tr>
+                    <tr>
+                        <td><span style="color: orange;">\(\varphi \rightarrow \psi\)</span></td>
+                        <th><span style="color: orange;">\(\vdash\)</span></th>
+                        <td><span style="color: orange;">\(\neg\neg\varphi \rightarrow \psi\)</span></td>
+                        <td><span style="color: orange;">: \(\varphi_{4,3}\)</span></td>
+                        <td><span style="color: orange;">// from \(\varphi_2\) and \(\varphi_{4,2}\) by MP</span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th>\(\vdash\)</th>
+                        <td>\(\psi \rightarrow \neg\neg\psi\)</td>
+                        <td>: \(\varphi_5\)</td>
+                        <td>// instance of (DN2)</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th><span style="color: green;">\(\vdash\)</span></th>
+                        <td><span style="color: green;">\((\psi \rightarrow \neg\neg\psi) \rightarrow [\neg\neg\varphi \rightarrow (\psi \rightarrow \neg\neg\psi)]\)</span></td>
+                        <td><span style="color: green;">: \(\varphi_{5,1}\)</span></td>
+                        <td><span style="color: green;">// instance of \(A_1\)</span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th><span style="color: green;">\(\vdash\)</span></th>
+                        <td><span style="color: green;">\(\neg\neg\varphi \rightarrow (\psi \rightarrow \neg\neg\psi)\)</span></td>
+                        <td><span style="color: green;">: \(\varphi_{5,2}\)</span></td>
+                        <td><span style="color: green;">// from \(\varphi_5\) and \(\varphi_{5,1}\) by MP</span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th><span style="color: blue;">\(\vdash\)</span></th>
+                        <td><span style="color: blue;">\([\neg\neg\varphi \rightarrow (\psi \rightarrow \neg\neg\psi)] \rightarrow [(\neg\neg\varphi \rightarrow \psi) \rightarrow (\neg\neg\varphi \rightarrow \neg\neg\psi)]\)</span></td>
+                        <td><span style="color: blue;">: \(\varphi_{6,1}\)</span></td>
+                        <td><span style="color: blue;">// instance of \(A_2\)</span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th><span style="color: blue;">\(\vdash\)</span></th>
+                        <td><span style="color: blue;">\((\neg\neg\varphi \rightarrow \psi) \rightarrow (\neg\neg\varphi \rightarrow \neg\neg\psi)\)</span></td>
+                        <td><span style="color: blue;">: \(\varphi_{6,2}\)</span></td>
+                        <td><span style="color: blue;">// from \(\varphi_{5,2}\) and \(\varphi_{6,1}\) by MP</span></td>
+                    </tr>
+                    <tr>
+                        <td>\(\varphi \rightarrow \psi\)</td>
+                        <th>\(\vdash\)</th>
+                        <td>\(\neg\neg\varphi \rightarrow \neg\neg\psi\)</td>
+                        <td>: \(\varphi_7\)</td>
+                        <td><span style="color: blue;">// from \(\varphi_{4,3}\) and \(\varphi_{6,2}\) by MP</span></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th>\(\vdash\)</th>
+                        <td>\((\neg\neg\varphi \rightarrow \neg\neg\psi) \rightarrow (\neg\psi \rightarrow \neg\varphi)\)</td>
+                        <td>: \(\varphi_8\)</td>
+                        <td>// instance of \(A_3\)</td>
+                    </tr>
+                    <tr>
+                        <td>\(\varphi \rightarrow \psi\)</td>
+                        <th>\(\vdash\)</th>
+                        <td>\(\neg\psi \rightarrow \neg\varphi\)</td>
+                        <td>: \(\varphi_9\)</td>
+                        <td>// from \(\varphi_7\) and \(\varphi_8\) by MP</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <th>\(\vdash\)</th>
+                        <td>\((\varphi \rightarrow \psi) \rightarrow (\neg\psi \rightarrow \neg\varphi)\)</td>
+                        <td>: \(\varphi_{10}\)</td>
+                        <td>// from \(\varphi_9\) by DT</td>
+                    </tr>
+                </table>
+                <p style="text-align: right">∎</p>
+                <p>
+                    To help you follow, notice which subproof/decompression each color corresponds to:
+                </p>
+                <div class="binary-tree">
+                    <div>
+                        <span class="highlight-blue">&#120593;&#8326;</span>
+                        <div>
+                            <span class="highlight-orange">&#120593;&#8324;</span>
+                            <div>
+                                <span class="highlight-red">&#120593;&#8320;</span>
+                                <div>
+                                    <span></span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div>
+                                    <span></span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div>
+                                <span>&#120593;&#8323;</span>
+                                <div>
+                                    <span></span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div>
+                                    <span></span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="highlight-green">&#120593;&#8325;</span>
+                            <div>
+                                <span></span>
+                                <div>
+                                    <span></span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div>
+                                    <span></span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div>
+                                <span></span>
+                                <div>
+                                    <span></span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div>
+                                    <span></span>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p style="margin-top: -4rem;">
+                    We were lucky, because the theorem length went from 11 lines up to a mere 16. Unfortunately, our luck is about 
+                    to run out, as we're about to tackle the removal of the \(\varphi \rightarrow \psi\) hypothesis. Behold the 
+                    dependence tree:
+                </p>
+                <!-- Do not forget to place the proof inside a LaTeX container, as the proof lines will be long -->
             </section>
             <section>
                 <br>
@@ -460,7 +787,7 @@
                 <hr>
                 <div style="text-align: center; margin-top: 20px; font-style: italic; display: flex; justify-content: center;">
                     <p style="margin: 0;">
-                        <i>Posted 01/02/2025 | Last edited 24/02/2025</i>
+                        <i>Posted 01/02/2025 | Last edited 10/03/2025</i>
                     </p>
                 </div>
             </section>

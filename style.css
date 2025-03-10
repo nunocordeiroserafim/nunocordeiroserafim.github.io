@@ -248,7 +248,7 @@ ul {
 .formalProof td:nth-child(3) { text-align: left; }    /* Third column */
 
 .formalProof th:nth-child(4), 
-.formalProof td:nth-child(4) { text-align: center; }  /* Fourth column */
+.formalProof td:nth-child(4) { text-align: left; }  /* Fourth column */
 
 .formalProof th:nth-child(5), 
 .formalProof td:nth-child(5) { text-align: left; }    /* Fifth column */
@@ -346,7 +346,7 @@ ul {
     left: 0;
     pointer-events: none;
 }*/
-.tree {
+/*.tree {
             position: relative;
             width: 500px;
             height: 500px;
@@ -368,6 +368,203 @@ ul {
     top: 0;
     left: 0;
     pointer-events: none;
+}*/
+
+.binary-tree{
+    /*width: fit-content;*/
+    display: flex;
+    justify-content: center;
+    /*margin: auto;*/
+    /*display: inline-block; /* Keeps it within the text flow */
+    /*margin: 0; /* Removes extra space */
+    margin-bottom: 0; /* Remove extra spacing below */
+    padding-bottom: 0; /* Ensure no extra padding */
+    vertical-align: middle; /* Aligns with nearby text */
+    /*width: 100%;*/
+}
+
+.binary-tree div{
+    display: grid;
+    gap: .5rem;  /* if you change this, update height from span::before */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto;
+    margin-top: 1.5rem; /* regulates vertical spacing btw nodes */  /* if you change this, update height from span::before */
+    position: relative;
+}
+
+.binary-tree span{
+    /*border: 1px solid;
+    border-radius: 50%; /* makes borders rounded */
+    border: none;
+    display: grid; /* centers content together with "place-items:center;" */
+    grid-column: 1 / 3;
+    height: 2rem;
+    margin: auto auto; /* centers nodes/makes tree sym */
+    place-items:center; /* centers content together with "display: grid;" */
+    width: 2rem;
+}
+
+.binary-tree span::before{ /* edges */
+    background: linear-gradient(to bottom right, #0000 49%, #000 0 51%, #0000 0);
+    content: "";
+    height: 2rem; /* = div's margin-top + gap */
+    left: 50%;
+    position: absolute; /* makes pos relative to div and not to span */
+    top: 0;
+    transform: translateY(-100%);
+    width: 50%;
+}
+
+.binary-tree :nth-child(3) > span::before{ /* 3rd child = right edge */
+    background: linear-gradient(to bottom left, #0000 49%, #000 0 51%, #0000 0);
+    left: auto;
+    right: 50%;
+}
+
+.binary-tree > div > span::before{ /* removes edge from the top of the starting node */
+    content: none;
+}
+
+/*.binary-tree span:empty {
+    display: none;
+}
+
+.binary-tree span:empty::before {
+    content: none;
+}*/
+
+.binary-tree span:empty {
+    visibility: hidden; /* Makes the empty nodes invisible but keeps their space */
+    border: none; /* Hides the circular border */
+}
+
+.binary-tree span:empty::before {
+    content: none; /* Removes the connecting edge */
+}
+
+.highlight-blue {
+    background-color: lightblue;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.highlight-brown {
+    background-color: peru;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.highlight-cyan {
+    background-color: cyan;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.highlight-gray {
+    background-color: lightgray;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.highlight-green {
+    background-color: lightgreen;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.highlight-lime {
+    background-color: limegreen;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.highlight-magenta {
+    background-color: hotpink;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.highlight-navy {
+    background-color: navy;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.highlight-orange {
+    background-color: lightsalmon; /* Light orange shade */
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.highlight-pink {
+    background-color: lightpink;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.highlight-purple {
+    background-color: mediumorchid;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.highlight-red {
+    background-color: lightcoral; /* Light red shade */
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.highlight-teal {
+    background-color: teal;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.highlight-turquoise {
+    background-color: paleturquoise; /* Light turquoise shade */
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.highlight-violet {
+    background-color: plum; /* Light violet shade */
+    border-radius: 50%;
+    padding: 5px;
+}
+
+/* orders --> not sure it's useful */
+.binary-tree.inorder div,
+.binary-tree.preorder div,
+.binary-tree.postorder div{
+    display: flex;
+    gap: 0;
+    margin: 0;
+}
+
+.binary-tree.inorder span::before,
+.binary-tree.preorder div span::before,
+.binary-tree.postorder div span::before{
+    content: none;
+}
+
+.binary-tree.preorder :nth-child(1) { order: 1; } /* value */
+.binary-tree.preorder :nth-child(2) { order: 2; } /* left side */
+.binary-tree.preorder :nth-child(3) { order: 3; } /* right side */
+
+.binary-tree.inorder :nth-child(1) { order: 2; } /* value */
+.binary-tree.inorder :nth-child(2) { order: 1; } /* left side */
+.binary-tree.inorder :nth-child(3) { order: 3; } /* right side */
+
+.binary-tree.postorder :nth-child(1) { order: 3; } /* value */
+.binary-tree.postorder :nth-child(2) { order: 1; } /* left side */
+.binary-tree.postorder :nth-child(3) { order: 2; } /* right side */
+
+.binary-tree.invert{
+    transform: scaleX(-1);
+}
+
+.subscript {
+    font-size: 0.7em; /* Make the subscript smaller */
 }
 
 #contact-box {
