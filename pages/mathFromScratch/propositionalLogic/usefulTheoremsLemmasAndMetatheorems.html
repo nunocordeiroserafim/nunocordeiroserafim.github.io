@@ -338,67 +338,67 @@
                     <div class="latex-container">
                         <table class="formalProof">
                             <tr>
+                                <th></th>
+                                <th>\(\vdash\)</th>
+                                <th>\(\psi\)</th>
+                                <th>: \(\varphi_0\)</th>
+                                <th>// instance of any axiom schema or proved theorem</th>
+                            </tr>
+                            <tr>
                                 <td></td>
                                 <th>\(\vdash\)</th>
-                                <td>\(\neg\varphi \rightarrow (\varphi \rightarrow \neg(\psi \rightarrow \psi))\)</td>
-                                <td>: \(\varphi_0\)</td>
+                                <td>\(\neg\varphi \rightarrow (\varphi \rightarrow \neg\psi)\)</td>
+                                <td>: \(\varphi_1\)</td>
                                 <td>// instance of (L2)</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <th>\(\vdash\)</th>
-                                <td>\([\neg\varphi \rightarrow (\varphi \rightarrow \neg(\psi \rightarrow \psi))] \rightarrow [(\neg\varphi \rightarrow \varphi) \rightarrow (\neg\varphi \rightarrow \neg(\psi \rightarrow \psi))]\)</td>
-                                <td>: \(\varphi_1\)</td>
+                                <td>\([\neg\varphi \rightarrow (\varphi \rightarrow \neg\psi)] \rightarrow [(\neg\varphi \rightarrow \varphi) \rightarrow (\neg\varphi \rightarrow \neg\psi)]\)</td>
+                                <td>: \(\varphi_2\)</td>
                                 <td>// instance of \(A_2\)</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <th>\(\vdash\)</th>
-                                <td>\((\neg\varphi \rightarrow \varphi) \rightarrow (\neg\varphi \rightarrow \neg(\psi \rightarrow \psi))\)</td>
-                                <td>: \(\varphi_2\)</td>
-                                <td>// from \(\varphi_0\) and \(\varphi_1\) by MP</td>
+                                <td>\((\neg\varphi \rightarrow \varphi) \rightarrow (\neg\varphi \rightarrow \neg\psi)\)</td>
+                                <td>: \(\varphi_3\)</td>
+                                <td>// from \(\varphi_1\) and \(\varphi_2\) by MP</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <th>\(\vdash\)</th>
-                                <td>\((\neg\varphi \rightarrow \neg(\psi \rightarrow \psi)) \rightarrow ((\psi \rightarrow \psi) \rightarrow \varphi)\)</td>
-                                <td>: \(\varphi_3\)</td>
+                                <td>\((\neg\varphi \rightarrow \neg\psi) \rightarrow (\psi \rightarrow \varphi)\)</td>
+                                <td>: \(\varphi_4\)</td>
                                 <td>// instance of \(A_3\)</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <th>\(\vdash\)</th>
-                                <td>\((\neg\varphi \rightarrow \varphi) \rightarrow ((\psi \rightarrow \psi) \rightarrow \varphi)\)</td>
-                                <td>: \(\varphi_4\)</td>
-                                <td>// from \(\varphi_2\) and \(\varphi_3\) by HS</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <th>\(\vdash\)</th>
-                                <td>\(\psi \rightarrow \psi\)</td>
+                                <td>\((\neg\varphi \rightarrow \varphi) \rightarrow (\psi \rightarrow \varphi)\)</td>
                                 <td>: \(\varphi_5\)</td>
-                                <td>// instance of (R)</td>
+                                <td>// from \(\varphi_3\) and \(\varphi_4\) by HS</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <th>\(\vdash\)</th>
-                                <td>\((\psi \rightarrow \psi) \rightarrow [((\psi \rightarrow \psi) \rightarrow \varphi) \rightarrow \varphi]\)</td>
+                                <td>\(\psi \rightarrow [(\psi \rightarrow \varphi) \rightarrow \varphi]\)</td>
                                 <td>: \(\varphi_6\)</td>
                                 <td>// instance of (L1)</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <th>\(\vdash\)</th>
-                                <td>\(((\psi \rightarrow \psi) \rightarrow \varphi) \rightarrow \varphi\)</td>
+                                <td>\((\psi \rightarrow \varphi) \rightarrow \varphi\)</td>
                                 <td>: \(\varphi_7\)</td>
-                                <td>// from \(\varphi_5\) and \(\varphi_6\) by MP</td>
+                                <td>// from \(\varphi_0\) and \(\varphi_6\) by MP</td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <th>\(\vdash\)</th>
                                 <td>\((\neg\varphi \rightarrow \varphi) \rightarrow \varphi\)</td>
                                 <td>: \(\varphi_8\)</td>
-                                <td>// from \(\varphi_4\) and \(\varphi_7\) by HS</td>
+                                <td>// from \(\varphi_5\) and \(\varphi_7\) by HS</td>
                             </tr>
                         </table>
                     </div>
