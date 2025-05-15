@@ -47,7 +47,7 @@
                     <li>\(A_1\): \(\varphi\rightarrow(\psi\rightarrow\varphi)\)</li>
                     <li>\(A_2\): \([\varphi\rightarrow(\psi\rightarrow\eta)]\rightarrow[(\varphi\rightarrow\psi)\rightarrow(\varphi\rightarrow\eta)]\)</li>
                     <li>\(A_3\): \((\neg\varphi\rightarrow\neg\psi)\rightarrow(\psi\rightarrow\varphi)\)</li>
-                    <li>MP: \(\{\varphi, \varphi \rightarrow \psi\} \vdash \psi\)</li>
+                    <li>MP: \(\vdash\varphi\) and \(\vdash\varphi\rightarrow\psi\) \(\Rightarrow\) \(\vdash\psi\)</li>
                 </ul>
                 <p>
                     Now, without further ado, let the fun begin!
@@ -100,7 +100,7 @@
                 <ul>
                     <li>(HS1): \((\psi \rightarrow \eta) \rightarrow [(\varphi \rightarrow \psi) \rightarrow (\varphi \rightarrow \eta)]\)</li>
                     <li>(HS2): \((\varphi \rightarrow \psi) \rightarrow [(\psi \rightarrow \eta) \rightarrow (\varphi \rightarrow \eta)]\)</li>
-                    <li>HS: \(\{\varphi \rightarrow \psi, \psi \rightarrow \eta\} \vdash \varphi \rightarrow \eta\)</li>
+                    <li>HS: \(\vdash\varphi \rightarrow \psi\) and \(\vdash\psi \rightarrow \eta\) \(\Rightarrow\) \(\vdash \varphi \rightarrow \eta\)</li>
                 </ul>
                 <p>
                     Proofs:
@@ -219,39 +219,39 @@
                     <li>HS:</li>
                     <table class="formalProof">
                         <tr>
+                            <td></td>
+                            <th>\(\vdash\)</th>
+                            <td>\(\varphi \rightarrow \psi\)</td>
+                            <td>: \(\varphi_0\)</td>
+                            <td>// assumption</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <th>\(\vdash\)</th>
+                            <td>\(\psi \rightarrow \eta\)</td>
+                            <td>: \(\varphi_1\)</td>
+                            <td>// assumption</td>
+                        </tr>
+                        <tr>
                             <th></th>
                             <th>\(\vdash\)</th>
                             <th>\((\varphi \rightarrow \psi) \rightarrow [(\psi \rightarrow \eta) \rightarrow (\varphi \rightarrow \eta)]\)</th>
-                            <th>: \(\varphi_0\)</th>
+                            <th>: \(\varphi_2\)</th>
                             <th>// instance of (HS2)</th>
                         </tr>
                         <tr>
-                            <td>\(\varphi \rightarrow \psi\)</td>
-                            <th>\(\vdash\)</th>
-                            <td>\(\varphi \rightarrow \psi\)</td>
-                            <td>: \(\varphi_1\)</td>
-                            <td>// hypothesis</td>
-                        </tr>
-                        <tr>
-                            <td>\(\varphi \rightarrow \psi\)</td>
+                            <td></td>
                             <th>\(\vdash\)</th>
                             <td>\((\psi \rightarrow \eta) \rightarrow (\varphi \rightarrow \eta)\)</td>
-                            <td>: \(\varphi_2\)</td>
-                            <td>// from \(\varphi_0\) and \(\varphi_1\) by MP</td>
-                        </tr>
-                        <tr>
-                            <td>\(\psi \rightarrow \eta\)</td>
-                            <th>\(\vdash\)</th>
-                            <td>\(\psi \rightarrow \eta\)</td>
                             <td>: \(\varphi_3\)</td>
-                            <td>// hypothesis</td>
+                            <td>// from \(\varphi_0\) and \(\varphi_2\) by MP</td>
                         </tr>
                         <tr>
-                            <td>\(\{\varphi \rightarrow \psi, \psi \rightarrow \eta\}\)</td>
+                            <td></td>
                             <th>\(\vdash\)</th>
                             <td>\(\varphi \rightarrow \eta\)</td>
                             <td>: \(\varphi_4\)</td>
-                            <td>// from \(\varphi_2\) and \(\varphi_3\) by MP</td>
+                            <td>// from \(\varphi_1\) and \(\varphi_3\) by MP</td>
                         </tr>
                     </table>
                     <p style="text-align: right">∎</p>
