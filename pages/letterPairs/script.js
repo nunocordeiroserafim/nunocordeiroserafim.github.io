@@ -599,7 +599,7 @@ function openInfoPopup(type) {
                     For people: first letter of first name + first letter of chosen surname.
                 </li>
                 <li>
-                    Name edge sticker images by listing the colors in alphabetical order (e.g., “green/white edge” rather than 
+                    Name edge sticker images by listing the colors in alphabetical order (e.g. “green/white edge” rather than 
                     “white/green edge”).
                 </li>
             </ol>
