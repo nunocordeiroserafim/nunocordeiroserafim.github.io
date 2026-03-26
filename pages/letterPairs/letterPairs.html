@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Pairs</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" sizes="125x99" href="../../images/GameSolver.png?v=3" type="image/png">
+</head>
+<body>
+
+<h1>Letter Pairs</h1>
+
+<div id="infoButtons">
+    <button onclick="openInfoPopup('pairRules')">Letter Pair Rules</button>
+    <button onclick="openInfoPopup('interfaceRules')">Interface Rules</button>
+</div>
+
+<div id="controls">
+    <label style="margin-right: 15px;"><input type="checkbox" id="hideInappropriate" checked> Hide inappropriate words</label>
+    <label style="margin-right: 15px;"><input type="checkbox" id="hideCommonWords"> Hide common words</label>
+    <label><input type="checkbox" id="toggleAllCategories" checked> Toggle all categories</label>
+    <br><br>
+    <label>Categories:</label><br>
+    <div id="categoryFilters"></div> <!-- dynamically generated checkboxes -->
+</div>
+
+<div id="grid"></div>
+
+<div id="overlay" onclick="closePopup()"></div>
+<div id="popup">
+    <div id="popupHeader">
+        <h3 id="popupTitle"></h3>
+        <button id="popupClose" onclick="closePopup()">&times;</button>
+    </div>
+    <ul id="popupContent"></ul>
+    <label><input type="checkbox" id="showInappropriate"> Show inappropriate words</label>
+</div>
+
+<div id="infoOverlay" onclick="closeInfoPopup()"></div>
+
+<div id="infoPopup">
+    <div id="infoHeader">
+        <h3 id="infoTitle"></h3>
+        <button onclick="closeInfoPopup()">&times;</button>
+    </div>
+    <div id="infoContent"></div>
+</div>
+
+<script src="script.js"></script>
+
+<section>
+    <div style="text-align: center; margin-top: 20px; font-style: italic; display: flex; justify-content: center;">
+        <p style="margin: 0;">
+            <i>Posted 26/03/2026 │ Last edited 26/03/2026</i>
+        </p>
+    </div>
+</section>
+
+</body>
+</html>
