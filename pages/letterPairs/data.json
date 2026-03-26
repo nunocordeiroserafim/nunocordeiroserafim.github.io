@@ -5664,7 +5664,7 @@
   "XE":{"words":[{"text":"Xenon arc lamp","categories":["Tech/IT"],"inappropriate":false}]},
   "XF":{"words":[{"text":"Xin Fu (Avatar)","categories":["Avatar"],"inappropriate":false}]},
   "XG":{"words":[]},
-  "XH":{"words":[]},
+  "XH":{"words":[{"text":"xHamster","categories":[],"inappropriate":true}]},
   "XI":{"words":[]},
   "XJ":{"words":[{"text":"Xi Jinping","categories":["Politicians", "Public Figures"],"inappropriate":false}]},
   "XK":{"words":[{"text":"xenomorph king","categories":["Generic Characters"],"inappropriate":false}]},
