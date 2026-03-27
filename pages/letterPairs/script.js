@@ -1,6 +1,7 @@
 let data = {};
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const gridContainer = document.getElementById("grid");
+let currentPopupCellId = null;
 
 // Load data.json and initialize
 fetch('data.json')
@@ -46,6 +47,20 @@ function generateGrid() {
     const headerRow = document.createElement("tr");
     const corner = document.createElement("th");
     corner.id = "cornerHeader";
+
+    // Count total visible words in the whole grid
+    let totalCount = 0;
+    alphabet.forEach(row => {
+        alphabet.forEach(col => {
+            totalCount += countVisibleWords(
+                data[row + col],
+                activeCategories,
+                hideInappropriate,
+                hideCommon
+            );
+        });
+    });
+    corner.title = totalCount + " words";
     headerRow.appendChild(corner);
 
     alphabet.forEach(col => {
@@ -177,6 +192,9 @@ function generateGrid() {
 
 // ------------------------- POPUP -------------------------
 function openPopup(cellId) {
+    // ✅ Store the real cell ID globally
+    currentPopupCellId = cellId;
+
     const popup = document.getElementById("popup");
     const overlay = document.getElementById("overlay");
     const title = document.getElementById("popupTitle");
@@ -192,13 +210,15 @@ function openPopup(cellId) {
     // Set disabled / checked based on hideInappropriate
     if (hideInappropriate) {
         showInappropriateToggle.checked = false;
-        showInappropriateToggle.disabled = false; // user can toggle
+        showInappropriateToggle.disabled = false;
     } else {
         showInappropriateToggle.checked = true;
-        showInappropriateToggle.disabled = true; // forced checked
+        showInappropriateToggle.disabled = true;
     }
 
-    // Map header IDs to clean titles
+    // -------------------------------
+    // Display title (UI only)
+    // -------------------------------
     title.textContent = cellId.startsWith("header_row_")
         ? cellId.replace("header_row_", "") + "_"
         : cellId.startsWith("header_col_")
@@ -224,13 +244,13 @@ function openPopup(cellId) {
         const showInappropriate = showInappropriateToggle.checked;
 
         cellData.words.forEach(word => {
-            // -------------------------------
-            // HEADER CELLS: ignore categories & common words
-            // -------------------------------
+
+            // HEADER CELLS
             if (cellId.startsWith("header_row_") || cellId.startsWith("header_col_")) {
-                if (word.inappropriate && !showInappropriate) return; // only hide if inappropriate
+                if (word.inappropriate && !showInappropriate) return;
             } else {
                 const hideCommonWords = document.getElementById("hideCommonWords").checked;
+
                 if (word.inappropriate && !showInappropriate) return;
                 if (hideCommonWords && word.categories.length === 0) return;
                 if (word.categories.length > 0 && !word.categories.some(cat => activeCategories.includes(cat))) return;
@@ -242,7 +262,7 @@ function openPopup(cellId) {
         });
     }
 
-    // Attach the listener AFTER the checkbox state is set
+    // Attach listener AFTER setup
     showInappropriateToggle.onchange = renderWordList;
 
     // Initial render
@@ -510,9 +530,14 @@ function generateCategoryCheckboxes() {
         cb.addEventListener("change", () => {
             const allChecked = Array.from(document.querySelectorAll(".categoryCheckbox")).every(c => c.checked);
             document.getElementById("toggleAllCategories").checked = allChecked;
-            updateGridColors();
+
+            generateGrid();       // 🔥 rebuild titles + structure
+            updateGridColors();   // 🔥 recolor
+
             const popup = document.getElementById("popup");
-            if (popup.style.display === "block") openPopup(document.getElementById("popupTitle").textContent);
+            if (popup.style.display === "block") {
+                openPopup(currentPopupCellId);
+            }
         });
     });
 }
@@ -525,7 +550,7 @@ document.getElementById("hideInappropriate").addEventListener("change", () => {
 
 document.getElementById("showInappropriate").addEventListener("change", () => {
     const popup = document.getElementById("popup");
-    if (popup.style.display === "block") openPopup(document.getElementById("popupTitle").textContent);
+    if (popup.style.display === "block") openPopup(currentPopupCellId);
 });
 
 document.getElementById("hideCommonWords").addEventListener("change", () => {
@@ -536,9 +561,10 @@ document.getElementById("hideCommonWords").addEventListener("change", () => {
 document.getElementById("toggleAllCategories").addEventListener("change", () => {
     const toggleAll = document.getElementById("toggleAllCategories").checked;
     document.querySelectorAll(".categoryCheckbox").forEach(cb => cb.checked = toggleAll);
+    generateGrid();
     updateGridColors();
     const popup = document.getElementById("popup");
-    if (popup.style.display === "block") openPopup(document.getElementById("popupTitle").textContent);
+    if (popup.style.display === "block") openPopup(currentPopupCellId);
 });
 
 document.addEventListener("keydown", function(event) {
