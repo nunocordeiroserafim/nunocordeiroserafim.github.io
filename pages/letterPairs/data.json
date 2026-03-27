@@ -715,6 +715,7 @@
 
   "CA":{"words":[ {"text":"cable trick arrow","categories":["Universal Words"],"inappropriate":false},
                   {"text":"Camilo dos Anjos Libertino (Camilo na Prisão)","categories":["Camilo de Oliveira"],"inappropriate":false},
+                  {"text":"Canadian flag","categories":["Flags"],"inappropriate":false},
                   {"text":"Captain Amelia","categories":["Treasure Planet", "Universal Words"],"inappropriate":false},
                   {"text":"Captain America","categories":["Marvel", "Universal Words"],"inappropriate":false},
                   {"text":"Captain Atom","categories":["DC", "Universal Words"],"inappropriate":false},
