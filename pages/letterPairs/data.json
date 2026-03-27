@@ -4283,6 +4283,7 @@
                   {"text":"Rouge the Bat","categories":["Games", "Sonic"],"inappropriate":false}]},
   "RF":{"words":[ {"text":"Rafael (Yu-Gi-Oh!)","categories":["Yu-Gi-Oh!"],"inappropriate":false},
                   {"text":"Rafiki","categories":["The Lion King"],"inappropriate":false},
+                  {"text":"Rainbow flag","categories":["Flags"],"inappropriate":false},
                   {"text":"Razorfist (TMNT)","categories":["TMNT"],"inappropriate":false},
                   {"text":"red fire","categories":["Universal Words"],"inappropriate":false},
                   {"text":"Reverse Flash","categories":["DC"],"inappropriate":false},
