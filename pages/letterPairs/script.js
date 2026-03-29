@@ -603,7 +603,7 @@ function openInfoPopup(type) {
                     Only concrete words that can be imagined.
                 </li>
                 <li>
-                    Only simple words/phrases (e.g. "crown jewels" instead of "queen's crown jewels").
+                    Only simple words/phrases (e.g. "urchin" instead of "sea urchin").
                 </li>
                 <li>
                     No verbs or standalone adjectives.
