@@ -3062,6 +3062,7 @@
                   {"text":"lasagna","categories":["Consumables"],"inappropriate":false},
                   {"text":"Lassie","categories":["Generic Characters"],"inappropriate":false},
                   {"text":"leaves","categories":[],"inappropriate":false},
+                  {"text":"LEGO Sabretooth","categories":["LEGO", "Marvel", "Universal Words"],"inappropriate":false},
                   {"text":"LEGO Shadow","categories":["LEGO", "Sonic", "Universal Words"],"inappropriate":false},
                   {"text":"LEGO Silver Surfer","categories":["LEGO", "Marvel", "Universal Words"],"inappropriate":false},
                   {"text":"LEGO skeleton","categories":["LEGO", "Universal Words"],"inappropriate":false},
