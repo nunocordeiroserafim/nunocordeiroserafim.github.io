@@ -1757,6 +1757,7 @@
                   {"text":"Fū","categories":["Naruto"],"inappropriate":false},
                   {"text":"Fugaku Uchiha","categories":["Naruto"],"inappropriate":false}]},
   "FV":{"words":[ {"text":"fishing vest","categories":["Clothing"],"inappropriate":false},
+                  {"text":"flyvan (Monster Allergy)","categories":["Monster Allergy"],"inappropriate":false},
                   {"text":"Future Valeria Richards","categories":["Marvel", "Universal Words"],"inappropriate":false}]},
   "FW":{"words":[ {"text":"firewoman","categories":["Firefighting", "Universal Words"],"inappropriate":false},
                   {"text":"fireworks","categories":[],"inappropriate":false},
