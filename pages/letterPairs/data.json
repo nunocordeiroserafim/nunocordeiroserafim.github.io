@@ -1040,6 +1040,7 @@
                   {"text":"chairs","categories":[],"inappropriate":false},
                   {"text":"Cham Syndulla","categories":["Star Wars"],"inappropriate":false},
                   {"text":"Chansey","categories":["Games", "Pokémon"],"inappropriate":false},
+                  {"text":"chaos spear","categories":["Games", "Sonic"],"inappropriate":false},
                   {"text":"chess","categories":["Chess", "Games"],"inappropriate":false},
                   {"text":"Chikara-Shisho","categories":["TMNT"],"inappropriate":false},
                   {"text":"chopsticks","categories":[],"inappropriate":false},
