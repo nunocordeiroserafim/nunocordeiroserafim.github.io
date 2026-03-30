@@ -660,7 +660,7 @@ function openInfoPopup(type) {
             <h4>Header Cells</h4>
             <ul>
                 <li>Hovering shows total visible words in that row or column.</li>
-                <li>Clicking opens "universal words" (if any exist).</li>
+                <li>Clicking opens "trigger words" (if any exist).</li>
                 <li>Header colors depend only on grid completeness, not their own words.</li>
             </ul>
 
