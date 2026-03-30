@@ -4122,6 +4122,7 @@
                   {"text":"pearls","categories":[],"inappropriate":false},
                   {"text":"peas","categories":["Consumables"],"inappropriate":false},
                   {"text":"Persian","categories":["Games", "Pokémon"],"inappropriate":false},
+                  {"text":"Petula Swift (Monster Allergy)","categories":["Monster Allergy"],"inappropriate":false},
                   {"text":"piassava","categories":[],"inappropriate":false},
                   {"text":"pies","categories":["Consumables"],"inappropriate":false},
                   {"text":"Piloswine","categories":["Games", "Pokémon"],"inappropriate":false},
