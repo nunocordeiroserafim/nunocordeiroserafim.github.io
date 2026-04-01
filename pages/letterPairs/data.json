@@ -5863,8 +5863,8 @@
   "WY":{"words":[ {"text":"winged yo-yo","categories":["Trigger Words"],"inappropriate":false},
                   {"text":"Wullf Yularen","categories":["Star Wars"],"inappropriate":false}]},
   "WZ":{"words":[ {"text":"Weezing","categories":["Games", "Pokémon"],"inappropriate":false},
-                  {"text":"Weezing","categories":["Games", "Pokémon"],"inappropriate":false},
                   {"text":"Werner Ziegler","categories":["Breaking Bad"],"inappropriate":false},
+                  {"text":"White Zetsu","categories":["Naruto"],"inappropriate":false},
                   {"text":"Wizard (FF's vilain)","categories":["Marvel"],"inappropriate":false}]},
 
   "XA":{"words":[{"text":"X Æ A-XII","categories":["Public Figures"],"inappropriate":false}]},
