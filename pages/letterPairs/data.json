@@ -2617,6 +2617,7 @@
                   {"text":"jar","categories":[],"inappropriate":false},
                   {"text":"Jarella","categories":["Marvel"],"inappropriate":false},
                   {"text":"Jerry (Tom & Jerry)","categories":["Generic Characters"],"inappropriate":false},
+                  {"text":"Jerry (Walking Dead)","categories":["Walking Dead"],"inappropriate":false},
                   {"text":"Jirachi","categories":["Games", "Pokémon"],"inappropriate":false},
                   {"text":"Jiraiya","categories":["Naruto"],"inappropriate":false},
                   {"text":"Jiren","categories":["Dragon Ball"],"inappropriate":false},
