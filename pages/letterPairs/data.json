@@ -521,6 +521,7 @@
                   {"text":"broom","categories":[],"inappropriate":false},
                   {"text":"brown M&M","categories":["Consumables", "Trigger Words"],"inappropriate":false},
                   {"text":"Bubbleman","categories":["Trigger Words", "Yu-Gi-Oh!"],"inappropriate":false},
+                  {"text":"Bully Maguire","categories":["Generic Characters"],"inappropriate":false},
                   {"text":"Bulma","categories":["Dragon Ball"],"inappropriate":false},
                   {"text":"Bumblebee Man","categories":["Simpsons", "Trigger Words"],"inappropriate":false},
                   {"text":"Bumi","categories":["Avatar"],"inappropriate":false},
