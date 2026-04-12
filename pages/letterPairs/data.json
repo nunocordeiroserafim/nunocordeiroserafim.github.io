@@ -3040,6 +3040,7 @@
                   {"text":"Living Laser","categories":["Marvel"],"inappropriate":false},
                   {"text":"Lois Lane","categories":["DC"],"inappropriate":false},
                   {"text":"Loki Laufeyson","categories":["Marvel"],"inappropriate":false},
+                  {"text":"Lucky Luke","categories":["Generic Characters"],"inappropriate":false},
                   {"text":"Luna Lovegood","categories":["Harry Potter"],"inappropriate":false}]},
   "LM":{"words":[ {"text":"Laércio Migon (Cheias de Charme)","categories":["Cheias de Charme"],"inappropriate":false},
                   {"text":"laser maze","categories":[],"inappropriate":false},
