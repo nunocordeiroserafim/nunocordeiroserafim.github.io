@@ -2220,6 +2220,7 @@
   "HM":{"words":[ {"text":"ham","categories":["Consumables"],"inappropriate":false},
                   {"text":"hammer","categories":[],"inappropriate":false},
                   {"text":"hangman game","categories":["Games", "Trigger Words"],"inappropriate":false},
+                  {"text":"Hans Moleman","categories":["Simpsons"],"inappropriate":false},
                   {"text":"Hawkgirl's mace","categories":[],"inappropriate":false},
                   {"text":"Hawkman","categories":["DC", "Trigger Words"],"inappropriate":false},
                   {"text":"helmet","categories":[],"inappropriate":false},
