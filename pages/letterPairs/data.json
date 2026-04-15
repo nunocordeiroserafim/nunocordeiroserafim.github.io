@@ -4118,6 +4118,7 @@
                   {"text":"purple M&M","categories":["Consumables", "Trigger Words"],"inappropriate":false},
                   {"text":"pyraminx","categories":["Cubing"],"inappropriate":false}]},
   "PN":{"words":[ {"text":"Pan (Dragon Ball)","categories":["Dragon Ball"],"inappropriate":false},
+                  {"text":"peanut","categories":["Consumables"],"inappropriate":false},
                   {"text":"pen","categories":[],"inappropriate":false},
                   {"text":"Penance","categories":["Marvel"],"inappropriate":false},
                   {"text":"penis","categories":["Body Parts"],"inappropriate":false},
