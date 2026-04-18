@@ -1011,6 +1011,7 @@
                   {"text":"chicken potion (Emperor's New Groove)","categories":["Emperor's New Groove", "Trigger Words"],"inappropriate":false},
                   {"text":"chimpanzee","categories":["Animals"],"inappropriate":false},
                   {"text":"chinchilla potion (Emperor's New Groove)","categories":["Emperor's New Groove", "Trigger Words"],"inappropriate":false},
+                  {"text":"Chip (Sonic Unleashed)","categories":["Games", "Sonic"],"inappropriate":false},
                   {"text":"clamp","categories":[],"inappropriate":false},
                   {"text":"Clamperl","categories":["Games", "Pokémon"],"inappropriate":false},
                   {"text":"clone (Emperor's New Groove)","categories":["Emperor's New Groove", "Trigger Words"],"inappropriate":false},
