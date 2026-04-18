@@ -4994,6 +4994,7 @@
   "SS":{"words":[ {"text":"6 of spades","categories":["Games", "Playing Cards"],"inappropriate":false},
                   {"text":"7 of spades","categories":["Games", "Playing Cards"],"inappropriate":false},
                   {"text":"safes","categories":[],"inappropriate":false},
+                  {"text":"Sam Speed","categories":["Sonic"],"inappropriate":false},
                   {"text":"Sandshrew","categories":["Games", "Pokémon"],"inappropriate":false},
                   {"text":"Sandslash","categories":["Games", "Pokémon"],"inappropriate":false},
                   {"text":"Sasori","categories":["Naruto"],"inappropriate":false},
