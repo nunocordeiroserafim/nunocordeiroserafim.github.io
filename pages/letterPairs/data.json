@@ -1918,6 +1918,7 @@
                   {"text":"green hat","categories":["Clothing", "Trigger Words"],"inappropriate":false},
                   {"text":"green highlighter","categories":["Trigger Words"],"inappropriate":false},
                   {"text":"Greenhill Zone","categories":["Games", "Places", "Sonic"],"inappropriate":false},
+                  {"text":"Grinch","categories":["Generic Characters"],"inappropriate":false},
                   {"text":"Guitar Hero","categories":[],"inappropriate":false}]},
   "GI":{"words":[ {"text":"gi (karate outfit)","categories":["Clothing"],"inappropriate":false},
                   {"text":"Grand Inquisitor","categories":["Star Wars"],"inappropriate":false},
