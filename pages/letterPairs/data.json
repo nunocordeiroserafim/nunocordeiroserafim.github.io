@@ -3856,6 +3856,7 @@
                   {"text":"Optimatus","categories":["Loonatics Unleashed"],"inappropriate":false},
                   {"text":"orange M&M","categories":["Consumables", "Trigger Words"],"inappropriate":false},
                   {"text":"Orochimaru","categories":["Naruto"],"inappropriate":false},
+                  {"text":"oven mittens","categories":[],"inappropriate":false},
                   {"text":"Owlman","categories":["DC", "Trigger Words"],"inappropriate":false}]},
   "ON":{"words":[ {"text":"Oenomaus","categories":["Spartacus"],"inappropriate":false},
                   {"text":"oily nunchucks","categories":["Trigger Words"],"inappropriate":false},
