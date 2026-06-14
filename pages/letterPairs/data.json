@@ -4768,6 +4768,7 @@
                   {"text":"sinh(x)","categories":["Math"],"inappropriate":false},
                   {"text":"sith holocron","categories":["Star Wars"],"inappropriate":false},
                   {"text":"Sonic Heroes game","categories":["Games", "Sonic"],"inappropriate":false},
+                  {"text":"Sorting Hat","categories":["Harry Potter"],"inappropriate":false},
                   {"text":"Spider-Ham","categories":["Marvel"],"inappropriate":false},
                   {"text":"Stacy Hirano","categories":["Phineas and Ferb"],"inappropriate":false},
                   {"text":"Stephen Hawking","categories":["History"],"inappropriate":false},
