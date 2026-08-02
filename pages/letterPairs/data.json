@@ -4,6 +4,7 @@
                   {"text":"adamantium axe","categories":["Marvel"],"inappropriate":false},
                   {"text":"Agent Anti-Venom","categories":["Marvel"],"inappropriate":false},
                   {"text":"Alex Adams","categories":[],"inappropriate":true},
+                  {"text":"Alien Announcer","categories":["Dragon Ball"],"inappropriate":false},
                   {"text":"Altaria","categories":["Games", "Pokémon"],"inappropriate":false},
                   {"text":"Archangel","categories":["Marvel"],"inappropriate":false}]},
   "AB":{"words":[ {"text":"A-Bomb","categories":["Marvel"],"inappropriate":false},
