@@ -4001,6 +4001,7 @@
                   {"text":"potato chips","categories":["Consumables"],"inappropriate":false},
                   {"text":"Preço Certo","categories":[],"inappropriate":false},
                   {"text":"Prince Charming (Shrek)","categories":["Generic Characters", "Shrek"],"inappropriate":false},
+                  {"text":"Princess (Walking Dead)","categories":["Walking Dead"],"inappropriate":false},
                   {"text":"Professor Crowler","categories":["Trigger Words", "Yu-Gi-Oh!"],"inappropriate":false},
                   {"text":"projected capacitive touchscreen","categories":["Tech/IT"],"inappropriate":false},
                   {"text":"purple cap","categories":["Clothing", "Trigger Words"],"inappropriate":false},
