@@ -1138,6 +1138,7 @@
                   {"text":"Chlammy Zell","categories":["No Game No Life"],"inappropriate":false}]},
 
   "DA":{"words":[ {"text":"Darth Andeddu","categories":["Star Wars", "Trigger Words"],"inappropriate":false},
+                  {"text":"diabolo","categories":[],"inappropriate":false},
                   {"text":"diamond","categories":["Star Wars"],"inappropriate":false},
                   {"text":"diaper","categories":["Clothing"],"inappropriate":false},
                   {"text":"Diogo Almada (Bem-Vindos a Beirais)","categories":["Bem-Vindos a Beirais"],"inappropriate":false},
