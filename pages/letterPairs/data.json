@@ -1300,6 +1300,7 @@
                   {"text":"doormat","categories":[],"inappropriate":false},
                   {"text":"Dora Milaje","categories":["Marvel"],"inappropriate":false},
                   {"text":"Dormamu","categories":["Marvel"],"inappropriate":false},
+                  {"text":"Dr Manhattan","categories":["DC"],"inappropriate":false},
                   {"text":"Dr Mario","categories":["Games", "Mario"],"inappropriate":false},
                   {"text":"Dr Mike","categories":["Youtubers"],"inappropriate":false},
                   {"text":"Draco Malfoy","categories":["Harry Potter"],"inappropriate":false},
