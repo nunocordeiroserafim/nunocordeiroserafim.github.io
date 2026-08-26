@@ -5535,6 +5535,7 @@
   "TX":{"words":[ {"text":"tan(x)","categories":["Math"],"inappropriate":false},
                   {"text":"taxi","categories":[],"inappropriate":false},
                   {"text":"Thexan","categories":["Games", "Star Wars"],"inappropriate":false},
+                  {"text":"Toxin (symbiote)","categories":["Marvel"],"inappropriate":false},
                   {"text":"T-X terminator","categories":["Terminator"],"inappropriate":false}]},
   "TY":{"words":[ {"text":"Tayuya","categories":["Naruto"],"inappropriate":false},
                   {"text":"Tora Yoshida (TMNT)","categories":["TMNT"],"inappropriate":false},
