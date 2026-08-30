@@ -993,6 +993,7 @@
                   {"text":"CO building","categories":["Places"],"inappropriate":false},
                   {"text":"COOP logo","categories":["Brands/Logos"],"inappropriate":false},
                   {"text":"corner orientation","categories":["Cubing"],"inappropriate":false},
+                  {"text":"Crystal Onix","categories":["Pokémon"],"inappropriate":false},
                   {"text":"coyote","categories":["Animals"],"inappropriate":false},
                   {"text":"cycle d'orientation","categories":["Places"],"inappropriate":false}]},
   "CP":{"words":[ {"text":"Callum Powell","categories":["Storror"],"inappropriate":false},
