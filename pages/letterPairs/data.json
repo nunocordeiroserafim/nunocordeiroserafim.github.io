@@ -1567,6 +1567,7 @@
                   {"text":"Spain","categories":["Places"],"inappropriate":false},
                   {"text":"Spanish flag","categories":["Flags"],"inappropriate":false}]},
   "ET":{"words":[ {"text":"8 (symbol)","categories":[],"inappropriate":false},
+                  {"text":"Eggsterminator (Sonic X)","categories":["Sonic"],"inappropriate":false},
                   {"text":"Eiffel Tower","categories":[],"inappropriate":false},
                   {"text":"Eight-Tails","categories":["Naruto"],"inappropriate":false},
                   {"text":"El Toro Fuerte (Jackie Chan Adventures)","categories":["Jackie Chan Adventures"],"inappropriate":false},
@@ -3212,7 +3213,8 @@
   "LX":{"words":[{"text":"Luxray","categories":["Games", "Pokémon"],"inappropriate":false}]},
   "LY":{"words":[ {"text":"LEGO Yoda","categories":["LEGO", "Star Wars", "Trigger Words"],"inappropriate":false},
                   {"text":"lemon yogurt","categories":["Consumables", "Trigger Words"],"inappropriate":false},
-                  {"text":"Light Yagami","categories":["Death Note"],"inappropriate":false}]},
+                  {"text":"Light Yagami","categories":["Death Note"],"inappropriate":false},
+                  {"text":"Lucky (Sonic X)","categories":["Sonic"],"inappropriate":false}]},
   "LZ":{"words":[ {"text":"lizard","categories":["Animals"],"inappropriate":false},
                   {"text":"Lizard (Curt Connors)","categories":["Marvel"],"inappropriate":false}]},
 
