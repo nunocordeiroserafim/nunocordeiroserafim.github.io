@@ -902,6 +902,7 @@
                   {"text":"CIA logo","categories":["Brands/Logos"],"inappropriate":false},
                   {"text":"coffee ice cream","categories":["Consumables", "Trigger Words"],"inappropriate":false}]},
   "CJ":{"words":[ {"text":"Casey Jones","categories":["TMNT"],"inappropriate":false},
+                  {"text":"Cell Jr","categories":["Dragon Ball"],"inappropriate":false},
                   {"text":"Cody Jones","categories":["TMNT"],"inappropriate":false},
                   {"text":"Colonel Jupiter","categories":["Marvel"],"inappropriate":false}]},
   "CK":{"words":[ {"text":"Cal Kestis","categories":["Star Wars"],"inappropriate":false},
