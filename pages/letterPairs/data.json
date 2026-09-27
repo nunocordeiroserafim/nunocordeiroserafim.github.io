@@ -5215,6 +5215,7 @@
                   {"text":"Team Aqua","categories":["Games", "Pokémon"],"inappropriate":false},
                   {"text":"tear gas trick arrow","categories":["Trigger Words"],"inappropriate":false},
                   {"text":"thermal accelerometer","categories":["Tech/IT"],"inappropriate":false},
+                  {"text":"time-dilation accelerator","categories":["Marvel", "Tech/IT"],"inappropriate":false},
                   {"text":"Torune Aburame","categories":["Naruto"],"inappropriate":false},
                   {"text":"triangle","categories":["Math"],"inappropriate":false}]},
   "TB":{"words":[ {"text":"3Blue1Brown logo","categories":["Brands/Logos"],"inappropriate":false},
