@@ -3826,6 +3826,7 @@
                   {"text":"Obscurio (Gormiti)","categories":["Gormiti"],"inappropriate":false},
                   {"text":"oily clock","categories":["Trigger Words"],"inappropriate":false},
                   {"text":"oily coin","categories":["Trigger Words"],"inappropriate":false},
+                  {"text":"Omochao","categories":["Games", "Sonic"],"inappropriate":false},
                   {"text":"orange cap","categories":["Clothing", "Trigger Words"],"inappropriate":false},
                   {"text":"orange chalk","categories":["Trigger Words"],"inappropriate":false},
                   {"text":"orange cloth","categories":["Trigger Words"],"inappropriate":false},
