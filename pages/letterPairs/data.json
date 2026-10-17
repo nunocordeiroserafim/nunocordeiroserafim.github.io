@@ -721,6 +721,7 @@
                   {"text":"Bucky the Squirrel","categories":["Emperor's New Groove"],"inappropriate":false},
                   {"text":"buoy","categories":[],"inappropriate":false}]},
   "BZ":{"words":[ {"text":"Baron Zemo","categories":["Marvel"],"inappropriate":false},
+                  {"text":"bazooka","categories":[],"inappropriate":false},
                   {"text":"Black Zetsu","categories":["Naruto"],"inappropriate":false},
                   {"text":"Blaze the Cat","categories":["Games", "Sonic"],"inappropriate":false},
                   {"text":"Blaziken","categories":["Games", "Pokémon"],"inappropriate":false},
