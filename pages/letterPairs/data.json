@@ -2429,6 +2429,7 @@
                   {"text":"invisible frog","categories":["Trigger Words"],"inappropriate":false},
                   {"text":"Iron Fist","categories":["Marvel"],"inappropriate":false}]},
   "IG":{"words":[ {"text":"Ian Gallagher","categories":["Shameless"],"inappropriate":false},
+                  {"text":"imperial guard","categories":["Star Wars"],"inappropriate":false},
                   {"text":"infinity gauntlet","categories":["Marvel"],"inappropriate":false},
                   {"text":"Inuwashi Gunjin","categories":["TMNT"],"inappropriate":false},
                   {"text":"invisible glove","categories":["Trigger Words"],"inappropriate":false},
