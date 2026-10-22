@@ -4144,6 +4144,7 @@
                   {"text":"Pong Krell","categories":["Star Wars"],"inappropriate":false},
                   {"text":"Porky","categories":["Games"],"inappropriate":false},
                   {"text":"Priya Koothrappali","categories":["The Big Bang Theory"],"inappropriate":false},
+                  {"text":"pumpkin","categories":["Consumables"],"inappropriate":false},
                   {"text":"purple kyber crystal","categories":["Star Wars", "Trigger Words"],"inappropriate":false}]},
   "PL":{"words":[ {"text":"Palutena","categories":["Games"],"inappropriate":false},
                   {"text":"Paper Luigi","categories":["Games", "Mario", "Trigger Words"],"inappropriate":false},
