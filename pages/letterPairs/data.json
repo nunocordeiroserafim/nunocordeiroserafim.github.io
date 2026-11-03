@@ -998,6 +998,7 @@
   "CO":{"words":[ {"text":"Camilo de Oliveira","categories":["Camilo de Oliveira"],"inappropriate":false},
                   {"text":"chao","categories":["Games", "Sonic"],"inappropriate":false},
                   {"text":"Chaos","categories":["Games", "Sonic"],"inappropriate":false},
+                  {"text":"chayote","categories":["Consumables"],"inappropriate":false},
                   {"text":"CO building","categories":["Places"],"inappropriate":false},
                   {"text":"COOP logo","categories":["Brands/Logos"],"inappropriate":false},
                   {"text":"corner orientation","categories":["Cubing"],"inappropriate":false},
