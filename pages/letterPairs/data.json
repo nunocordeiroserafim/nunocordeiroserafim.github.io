@@ -77,6 +77,7 @@
   "AG":{"words":[ {"text":"A.I.M. goon","categories":["Marvel"],"inappropriate":false},
                   {"text":"Aang","categories":["Avatar"],"inappropriate":false},
                   {"text":"abonnement général","categories":[],"inappropriate":false},
+                  {"text":"Adi Gallia","categories":["Star Wars"],"inappropriate":false},
                   {"text":"Aggron","categories":["Games", "Pokémon"],"inappropriate":false},
                   {"text":"AlphaGo","categories":["Tech/IT"],"inappropriate":false},
                   {"text":"Ancient Gear Golem","categories":["Yu-Gi-Oh!"],"inappropriate":false},
